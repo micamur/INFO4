@@ -1,8 +1,10 @@
 {
     "cSpell.words": [
+        "Brauner",
         "CIDR",
         "Jahier",
         "Monin",
+        "Numéris",
         "Ordonnanceur",
         "boote",
         "execl",
@@ -10,12 +12,21 @@
         "execv",
         "imag",
         "leftarrow",
+        "leftrightarrow",
+        "multicast",
+        "netmask",
+        "nstep",
         "printf",
         "préemptif",
         "rightarrow",
         "simeq",
         "threadée",
+        "traceg",
         "unistd",
-        "waitpid"
+        "waitpid",
+        "xmax",
+        "xmin",
+        "ymax",
+        "ymin"
     ]
 }
