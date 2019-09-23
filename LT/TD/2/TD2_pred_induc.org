@@ -1,0 +1,21 @@
+PRÉDICATS DÉFINIS INDUCTIVEMENT
+
+* 1 Listes d'entiers pairs
+
+On définit inductivement un prédicat LP pour les listes d'entiers pairs
+par les règles suivantes :
+
+                                n mod 2 = 0    LP (l) 
+    ---------------- LPε       ----------------------  LP::
+         LP (ε)                      LP (n :: l)
+
+** 1.1 Prouver  LP (6 :: 2 :: ε)
+
+
+** 1.2 Prouver  ∀ l, LP (filtre_pair (l))
+
+Rappel : 
+  - filtre_pair (ε) = ε
+  - filtre_pair (n :: l) = if n mod 2 = 0 then n :: filtre_pair (l)
+                                          else filtre_pair (l)
+
