@@ -1,0 +1,170 @@
+LANGAGES ET TRADUCTEURS -- Cours 1
+Jean-François Monin, 2019
+
+* Objectifs
+  Qu'est-ce qu'un langage
+  Comprendre, fabriquer
+  Compilation, traduction, interprétation
+  Analyses lexicales, syntaxiques
+  Sémantique statique (typage...)
+  Sémantique dynamique
+  
+  Raisonnement : pratique de Coq
+
+* Outils
+  - Théorie des langages : syntaxe, sémantique
+  - Assistant logiciel à la preuve : Coq
+    Parfait pour définir des langagaes et raisonner dessus
+  - Compilation certifiée : pour apprendre et pour l'industrie
+
+* Équipe pédagogique
+  - Cours/TP : JF Monin
+  - TD/TP : Pierre Corbineau et Pascal Fradet
+
+* Plan général du cours
+** Compréhension des outils conceptuels
+  - arbres de syntaxe abstraite (AST)
+  - récursion structurelle
+  - raisonnements par récurrence structurelle
+** Initiation à Coq
+  - langage fonctionnel "Ocaml ++"
+  - preuves assistées par ordinateur
+** Sémantique formelle de petits langages impératifs
+  - sémantique fonctionnelle
+  - sémantique opérationnelle à grand pas
+  - sémantique opérationnelle à petit pas
+** Principes de compilation
+  - compilation certifiée
+
+* Un outil essentiel : la récursivité
+  Seul moyen raisonnable de définir un langage
+  Structures imbriquées les unes dans les autres
+  Image : fractales
+  Objet mathématique correspondant : arbres
+    en particulier : AST
+
+* Définition d'un langage
+  - Syntaxe
+  - Sémantique
+
+* 2019 : introduction à la programmation fonctionnelle Ocaml
+** Le signe = en impératif et en fonctionnel
+
+*** Style impératif 
+x = x + 1 
+ne désigne pas l'égalité usuelle des maths
+x = 1 - x
+a une solution, mais ce n'est pas l'effet voulu !
+
+*** Style fonctionnel
+let x = expression
+Crée une nouvelle portée (comme pour les blocs  { }  de C)
+En particulier expression peut contenir x (ce dernier désigne alors
+une ancienne définition de x, qui va être masquée par la nouvelle)
+
+Exemples 
+let x = 2
+let y = x + 3
+let f = fun z -> z + x
+let x = 7
+
+Que vaut y ? Que vaut f 4 ? Que vaut f x ?
+
+*** Intérêt
+Les égalités sont sécurisées
+
+** L'alternative if... then... else
+   En style fonctionnel, rend toujours une valeur
+   N'a pas de sens si on ne met pas le "else..."
+
+** Définition locale : let... in 
+
+* Arbres
+
+Les données sur lesquelles on travaillera seront organisées en arbre.
+
+Pour information, on peut formaliser cette notion au moyen des
+mathématiques usuelles en théorie des ensembles.  Ce ne sont rien
+d'autre, au final, que des encodages fabriqués à partir d'entiers et
+de suites d'entiers.
+
+Pour des informaticiens, l'intuition obtenue en dessinant des arbres
+est suffisante : on sait comment représenter de telles structures
+en mémoire au moyen de cellules chaînées par des pointeurs.
+Plus spécifiquement, on se focalise sur le cas ou ces chaînages
+ne comportent pas de cycles.
+Programmer avec des arbres revient alors à programmer avec des
+structures chaînées sans se préoccuper de considérations liées
+à la gestion mémoire (allocation et désallocation) qui sont traitées
+automatiquement par les couches basses.
+
+** Exemples intuitifs, utilisés au TD1
+
+*** AST (Abstract Syntactic Trees) d'expressions arithmétiques
+
+Ce qui s'écrit usuellement (1 + 2) * 3 
+peut se dessiner :
+
+                   ⊗
+                 /   \
+               ⊕      3
+              / \
+             1   2
+
+Ou encore, en étiquetant les nœuds par Apl et Amu au lieu de,
+respectivement, ⊕ et ⊗ :
+
+                  Amu
+                 /   \
+              Apl     3
+              / \
+             1   2
+
+*** Listes d'entiers
+
+La liste des 3 premiers entiers consécutifs se dessine :
+
+      ::
+     /  \
+    1    ::
+        /  \
+       2    ::
+           /  \
+          3    ε
+
+
+** Grammaires d'arbres
+
+Une façon de déclarer les arbres est la suivante, en s'inspirant du formalisme
+des grammaires hors-contexte définies sur des séquences linéaires plates.
+
+*** AST (Abstract Syntactic Trees) d'expressions arithmétiques
+
+ExpN ::=    n   |       ⊕        |       ⊗     
+                       / \              / \    
+                   ExpN   ExpN      ExpN   ExpN
+
+
+
+*** Listes d'entiers
+
+listent ::=   ε   |     ::
+                       /  \
+                      n    listent
+
+** Calculs récursifs sur des arbres
+
+Pour calculer une valeur à partir d'un arbre, on donne des
+équations lues de gauche à droite pour chacune des alternatives.
+
+Exemple : longueur d'une liste d'entiers
+
+longueur (ε)   =   0
+
+              ::  
+longueur (   /  \   )   =   1 + longueur (l)
+            n    l
+
+Notation raccourcie :
+longueur ( n :: l )  =  1 + longueur (l)
+

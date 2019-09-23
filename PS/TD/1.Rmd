@@ -1,0 +1,64 @@
+---
+title: "TD1"
+author: "Mica"
+date: "18/09/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+Documentation R Markdown : <http://rmarkdown.rstudio.com>.
+
+?`commande` : ouvre l'aide de `commande`
+
+```{r uniform}
+N=5
+runif(2, 0, N)
+```
+
+```{r sample}
+D1 = sample(x=1:6, size=N, replace=T)
+```
+
+```{r plots, echo=FALSE}
+plot(pressure)
+```
+
+## Exercice
+
+On lance deux dés, trouver les probabilités que :
+
+```{r nblancers}
+N=10000
+D1 = sample(x=1:6, size=N, replace=T)
+D2 = sample(x=1:6, size=N, replace=T)
+```
+
+1. Les deux dés donnent le même résultat
+
+```{r q1}
+sum(D1==D2)/N
+mean(D1==D2) # environ égal à 1/6 -> conjecture
+```
+
+2. Le premier est plus grand que le second
+
+```{r q2}
+mean(D1>D2) # environ égal à ?
+```
+
+3. La somme est paire
+
+```{r q2}
+mean((D1+D2)%%2==0) # environ égal à ?
+```
+
+4. Le produit est un carré parfait
+
+```{r q2}
+mean(floor(sqrt(D1+D2))==sqrt(D1+D2)) # environ égal à ?
+```
