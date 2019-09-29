@@ -28,7 +28,7 @@ D1 = sample(x=1:6, size=N, replace=T)
 plot(pressure)
 ```
 
-## Exercice
+## Exercices
 
 On lance deux dés, trouver les probabilités que :
 
@@ -53,12 +53,156 @@ mean(D1>D2) # environ égal à ?
 
 3. La somme est paire
 
-```{r q2}
+```{r q3}
 mean((D1+D2)%%2==0) # environ égal à ?
 ```
 
 4. Le produit est un carré parfait
 
-```{r q2}
+```{r q4}
 mean(floor(sqrt(D1+D2))==sqrt(D1+D2)) # environ égal à ?
 ```
+
+<!--
+---
+title: "TD2"
+author: "Mica"
+date: "27/09/2019"
+output: html_document
+---
+-->
+
+## M et Mme Smith
+
+Monsieur et madame Smith ont deux enfants dont une fille. Quelle est la probabilité que l'autre soit un garçon ?
+
+```{r smith1}
+# Omega = {GG, FG, GF, GG}
+# p(omega) = 1/4, forall omega in Omega
+N=10000
+omega1 = sample(x=c('GG', 'GF', 'FG', 'FF'), size=N, replace=T)
+# On suppose que les probabilités sans GG sont équiréparties
+omega2 = sample(x=c('GF', 'FG', 'FF'), size=N, replace=T)
+mean(omega2 != "FF")
+mean(omega2 == 'GF') + mean(omega2 == 'FG')
+mean(omega2 == 'GF' || omega2 == 'FG')
+```
+
+```{r smith2}
+N=10000
+S = sample(x=1:4, size=N, replace=T)
+mean(S[S>1] < 4)
+```
+
+$$
+\Omega = \{GG, FG, GF, FF\} \Leftrightarrow \{1, 2, 3, 4\}
+$$
+
+$$
+P(\omega) = {1 \over 4}, \forall \omega \in \Omega
+$$
+
+$$
+\begin{array}{lcl}
+P(\{FG, GF\} | \{FF, FG, GF\}) & = & {P(\{FG, GF\}) \over P(\{FF, FG, GF\})} \text{ (par définition)}\\
+& = & {P(FG) + P(GF) \over P(FF) + P(FG) + P(GF)}\\
+& = & 2/3
+\end{array}
+$$
+$$
+P_B(A) = P(A | B) = {P(A \cap B) \over P(B)} = {P(B | A) + P(A) \over P(B)}
+$$
+
+## Jeu
+
+Dans une partie, K joueurs ettent chacun une pièce de monnaie (K > 3).
+Un joueur gagne une partie si son tirage est différent de celui de tous les autres joueurs.
+
+1. Proposer un modèle de cette simulation.
+2. Calculer la probabilité pK que la partie ait un gagnant.
+3. Écrire un code R qui génère un échantillon de N parties.
+
+### 1. Modèle
+
+$$
+\Omega = \{0, 1\}^K
+$$
+
+### 2. Probabilité
+
+$$
+P(\omega) = {1 \over 2^K} = {1 \over |\Omega|}, \forall \omega \in \Omega
+$$
+
+### 3. Échantillon généré
+
+```{r jeu}
+K = 4 # nb joueurs
+N = 10000 # nb parties
+S = replicate(N, sample(x=0:1, K, replace=T))
+sum(colSums(S) == 1) + sum(colSums(S) == K - 1) # nb parties gagnantes
+mean(colSums(S) == 1 | colSums(S) == K - 1)
+```
+
+- Pour 3 joueurs : 0.625
+- Pour 4 joueurs : 0.5
+- Pour 5 joueurs : 0.316
+
+$$
+\begin{array}{lcl}
+P(\text{"partie gagnante"}) & = & P(\{PFF \cdots F, FPF \cdots F, \dots, FFF \cdots P\} \cup \{FPP \cdots P, PFP \cdots P, \dots, PPP \cdots F\})\\
+& = & P(PFF \cdots F) + \dots + P(PPP \cdots F)\\
+& = & 2K \times P(PFF \cdots F) \text{ (car il y a K possibilités de gagner avec P et K avec F)}\\
+& = & 2K \times {1 \over 2^K} \text{ (d'après la probabilité en Q2)}\\
+& = & {K \over 2^{K-1}}\\
+\end{array}
+$$
+
+### 4. Bernouilli
+
+À partir de quand a-t-on un gagnant ? Probabilité d'avoir un gagnant après $n$ parties ?
+
+$$
+\Omega = \{0, 1\}^K \times \{0, 1\}^K \times \cdots
+$$
+
+$$
+\{T_K = n\} = \{\omega \in \Omega : T_k(\omega) = n\}
+$$
+
+$$
+X_1, \dots, X_n \sim B(p), X_i \in \{0, 1\} \text{ (variables indépendantes)}
+$$
+
+$$
+P(X_i = 1) = p = {K \over 2^{K-1}}
+$$
+
+$$
+\begin{array}{lcl}
+P(T_K = n) & = & P(X_1 = 0 \cap X_2 = 0 \cap \dots \cap X_{n-1} = 0 \cap X_n = 1\}\\
+& = & \big[\prod\limits_{i=1}^{n-1} P(X_i = 0)\big] \times P(X_n = 1)\\
+& = & (1 - p)^{n-1} \times p\\
+& = & (1 - {K \over 2^{K-1}})^{n-1} \times {K \over 2^{K-1}}\\
+\end{array}
+$$
+
+$$
+T_K \sim \text{Geo}\big({K \over 2^{K-1}}\big)
+$$
+
+$$
+\begin{array}{lcl}
+\sum\limits_{n \ge 1} P(T_K = n) & = & \sum\limits_{n \ge 1} (1 - p)^{n-1} \times p\\
+& = & P(\bigcup\limits_{n \ge 1} \{T_K = n\}) \text{ (par sigma additivité)}\\
+& = & P(\Omega)\\
+& = & 1\\
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+\mathbb{E}[T_K] & = & \sum\limits_{n \ge 1} P(T_K = n)\\
+& = & \sum\limits_{n \ge 1} n(1 - p)^{n-1}\\
+\end{array}
+$$
