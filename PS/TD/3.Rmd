@@ -1,0 +1,247 @@
+---
+title: "TD3"
+author: "Mica"
+date: "04/10/2019"
+output: html_document
+---
+
+# Probabilités et Simulations - TD3
+
+$$
+\begin{array}{lcl}
+1 = P(\Omega) & = & P(\bigcup\limits_{K \in E} \{X = K\})\\
+& = & \sum\limits_{K \in E} P(X = K)\\
+& = & e^{-\lambda} \times \sum\limits_{K \in E} {\lambda^K \over K!} \text{ (dans le cas d'une loi de Poisson)}\\
+& = & e^{-\lambda} \times e^{\lambda}\\
+\end{array}
+$$
+
+## Fonction uniforme
+
+$$
+X : \Omega \rightarrow \mathbb{R} \sim U([a, b])
+$$
+
+si
+
+$$
+f_X^{(t)} = {I^{(t)}_{[a, b]} \over b - a}
+$$
+
+### Espérance
+
+$$
+\begin{array}{lcl}
+\mathbb{E} & = & \int_{\mathbb{R}} t f_X^{(t)} dt \text{ par définition}\\
+& = & \int_a^b {t \over b - a} dt\\
+& = & [ {t^2 \over 2}]_a^b \times {1 \over b - a}\\
+& = & {b + a \over 2}\\
+\end{array}
+$$
+
+### Variance
+
+$$
+\begin{array}{lcl}
+\text{Var}{X} & = & \mathbb{E}[(X - \mathbb{E}[X])^2] \text{ par définition, avec } Y = (X - \mathbb{E}[X])^2\\
+& = & \int_{\mathbb{R}} t f_{(X - \mathbb{E}[X])^2}^{(t)} dt\\
+& = & \mathbb{E}[X^2] - \mathbb{E}[X]^2\\
+& = & -{(b + a)^2 \over 4}\\
+\end{array}
+$$
+
+### Théorème du transfert (ou TT) pour la deuxième espérance
+
+$$
+\begin{array}{lcl}
+\mathbb{E}[h(X)] & = & \int_{\mathbb{R}} t f_{h(X)}^{(t)} dt \text{ par définition}\\
+& = & \int_{\mathbb{R}} h(t) \times f_{X}^{(t)} dt \text{ on remplace les termes dans la formule précédente}\\
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+\mathbb{E}[X^2] & = & \int_{\mathbb{R}} t^2 f_{X}^{(t)} dt \text{ par définition}\\
+& = & \int_a^b {t^2 \over b - a}\\
+& = & {1 \over b - a} [{t^3 \over 3}]_a^b\\
+& = & {1 \over 3} {b^3 - a^3 \over b - a}\\
+& = & {b^2 - ba - a^2 \over 3}\\
+\end{array}
+$$
+
+### Variance à l'aide de la deuxième espérance
+
+$$
+\begin{array}{lcl}
+\text{Var}{X} & = & \mathbb{E}[(X - \mathbb{E}[X])^2] \text{ par définition, avec } Y = (X - \mathbb{E}[X])^2\\
+& = & \int_{\mathbb{R}} t f_{(X - \mathbb{E}[X])^2}^{(t)} dt\\
+& = & \mathbb{E}[X^2] - \mathbb{E}[X]^2\\
+& = & {b^2 + ab + a^2 \over 3} - {(b + a)^2 \over 4}\\
+& = & {4b^2 + 4ab + 4a^2 - 3b^2 - 6ab - 3e^2 \over 12}\\
+& = & {b^2 - 2ab + a^2 \over 12}\\
+& = & {(b - a)^2 \over 12}\\
+\end{array}
+$$
+
+## Fonction exponentielle
+
+$$
+X : \Omega \rightarrow \mathbb{R} \sim \text{Exp}(\lambda)
+$$
+
+si
+
+$$
+f_X^{(t)} = \lambda e^{-\lambda t}, t \ge 0
+$$
+
+## Espérance
+
+$$
+\begin{array}{lcl}
+\mathbb{E}[X] & = & \int_{\mathbb{R}} t f_{h(X)}^{(t)} dt \text{ par définition}\\
+& = & \int_0^{\infty} t \lambda e^{-\lambda t} dt \text{ avec } t { la fonction } f \text{ et le reste la fonction } g\\
+& = & [t \times (-e^{-\lambda t})]_0^{\infty}\\
+& = & 0 + [{-e^{-\lambda t} \over \lambda}]_0^{\infty}\\
+& = & {1 \over \lambda}
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+\mathbb{E}[X^2] & = & \int_{\mathbb{R}} t^2 f_{h(X)}^{(t)} dt \text{ par définition}\\
+& = & \int_0^{\infty} t^2 \lambda e^{-\lambda t} dt \text{ avec } t^2 { la fonction } f \text{ et le reste la fonction } g\\
+& = & [t^2 \times (-e^{-\lambda t})]_0^{\infty} + {2 \over \lambda} \int_0^{\infty} t \times (\lambda e^{-\lambda t) dt\\
+& = & 0 + {2 \over \lambda^2}
+\end{array}
+$$
+
+### Variance
+
+$$
+\begin{array}{lcl}
+\text{Var}{X} & = & \mathbb{E}[(X - \mathbb{E}[X])^2] \text{ par définition, avec } Y = (X - \mathbb{E}[X])^2\\
+& = & \int_{\mathbb{R}} t f_{(X - \mathbb{E}[X])^2}^{(t)} dt\\
+& = & \mathbb{E}[X^2] - \mathbb{E}[X]^2\\
+& = & {2 \over \lambda^2} - {1 \over \lambda^2}\\
+& = & {1 \over \lambda^2}\\
+\end{array}
+$$
+
+### Vérifications empiriques
+
+Est-ce que $\mathbb{E}[X] = {1 \over \lambda} \simeq {1 \over N} \sum\limits_{K = 1}^N X_K(\omega) = {1 \over N} \sum\limits_{K = 1}^N \text{rexp}(1, \lambda)$ ?
+
+```{r, exp-esperance}
+N = 1000000
+lambda = 3
+Etheo = 1 / lambda
+Eexp = mean(rexp(N, lambda))
+abs(Etheo - Eexp)
+```
+
+Est-ce que $\text{Var}(X) = {1 \over \lambda^2} = \mathbb{E}[(X - \mathbb{E}[X])^2] = \mathbb{E}[Y^2]$ ?
+
+```{r, exp-variance}
+N = 1000000
+lambda = 3
+Vtheo = 1 / (lambda * lambda)
+Vexp1 = var(rexp(N, lambda))
+abs(Vtheo - Vexp1)
+Vexp2 = mean((rexp(N, lambda) - Etheo)^2)
+abs(Vtheo - Vexp2)
+```
+
+## Fonction géométrique 1
+
+$$
+X \sim \text{Geo}(p)
+$$
+
+$$
+X : \Omega \rightarrow \{1, 2, 3, \dots\}
+$$
+
+$$
+P(X=K) = p(1-p)^{K-1}, \forall K = 1, 2, \dots
+$$
+
+### Espérance
+
+$$
+\begin{array}{lcl}
+\mathbb{E}[X^2] & = & \sum\limits_{K \ge 1} K \times P(X = K) \text{ par définition}\\
+& = & \sum\limits_{K \ge 1} K \times p(1 - p)^{K - 1}\\
+& = & p \sum\limits_{K \ge 1} K \times q^{K - 1} \text{ avec } q=1-p\\
+& = & {1 \over p}\\
+\end{array}
+$$
+
+## Fonction géométrique 2
+
+$$
+X : \Omega \rightarrow \mathbb{N}, h: \mathbb{N} \rightarrow E
+$$
+
+### Espérance
+
+$$
+\begin{array}{lcl}
+\mathbb{E}[h(X)] & = & \sum\limits_{K \in E} K \times P(h(X) = K) \text{ par définition, avec } Z = h(X)\\
+& = & \sum\limits_{K \in E} h(K) \times P(X = K) \text{ par TT}\\
+\end{array}
+$$
+
+
+
+$$
+\begin{array}{lcl}
+\mathbb{E}[X^2] & = & \sum\limits_{K \in \{1, 4, 9, 16, \dots\}} K \times P(X^2 = K) \text{ par définition}\\
+& = & \sum\limits_{K \ge 1} K^2 \times P(X = K) \text{ par TT}\\
+& = & \sum\limits_{K \ge 1} K^2 pq^{K-1}\\
+& = & pq\sum\limits_{K \ge 1} K^2 q^{K-2}\\
+& = & pq\sum\limits_{K \ge 1} (K^2 - K + K)q^{K-2}\\
+& = & pq\sum\limits_{K \ge 1} K(K-1)q^{K-2} + pq\sum\limits_{K \ge 1} Kq^{K-2}\\
+& = & pq{d^2 \over dq^2}({1 \over 1 - q} - 1 - q) + {1 \over p}\\
+& = & pq{d \over dq}{1 \over (1 - q)^2} + {1 \over p}\\
+& = & pq{2 \over (1 - q)^3} + {1 \over p}\\
+\end{array}
+$$
+
+## Loi de Poisson
+
+$$
+X \sim \text{Poisson}(\lambda), \lambda > 0
+$$
+
+$$
+X : \Omega \rightarrow \mathbb{N}
+$$
+
+$$
+P(X = K) = {\lambda^K \over K!} e^{-\lambda}, K \in E
+$$
+
+### Espérance
+
+$$
+\begin{array}{lcl}
+\mathbb{E}[X] & = & \sum\limits_{K \in \mathbb{N}} K \times P(X = K) \text{ par définition}\\
+& = & \sum\limits_{K \in \mathbb{N}} K \times {\lambda^K \over K!} e^{-\lambda}\\
+& = & \lambda \times e^{-\lambda} \text{ pas eu le temps de noter :(}
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+\mathbb{E}[X^2] & = & \sum\limits_{K \in \mathbb{N}} K^2 \times P(X = K) \text{ par définition}\\
+& = & \sum\limits_{K \in \mathbb{N}} K^2 \times {\lambda^K \over K!} e^{-\lambda}\\
+& = & \text{à compléter}
+\end{array}
+$$
+
+### Variance
+
+$$
+\text{à compléter}
+$$
