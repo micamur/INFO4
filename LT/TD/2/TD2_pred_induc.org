@@ -5,17 +5,50 @@ PRÉDICATS DÉFINIS INDUCTIVEMENT
 On définit inductivement un prédicat LP pour les listes d'entiers pairs
 par les règles suivantes :
 
-                                n mod 2 = 0    LP (l) 
+                               n mod 2 = 0     LP (l)
     ---------------- LPε       ----------------------  LP::
          LP (ε)                      LP (n :: l)
 
 ** 1.1 Prouver  LP (6 :: 2 :: ε)
 
+                            ------ LPε
+            2 mod 2 = 0     LP (ε)
+            ----------------------  LP:: (n = 2) (l = ε)
+6 mod 2 = 0       LP (2 :: ε)
+-----------------------------  LP:: (n = 6) (l = 2 :: ε)
+  LP (6 :: 2 :: ε)
 
 ** 1.2 Prouver  ∀ l, LP (filtre_pair (l))
 
-Rappel : 
-  - filtre_pair (ε) = ε
-  - filtre_pair (n :: l) = if n mod 2 = 0 then n :: filtre_pair (l)
-                                          else filtre_pair (l)
+Rappel :
+fpε  - filtre_pair (ε) = ε
+fp:: - filtre_pair (n :: l) = if n mod 2 = 0 then n :: filtre_pair (l)
+                                             else filtre_pair (l)
 
+
+-------------------- LPε (apply LPε)
+        LP (ε)
+-------------------- rewrite fpε
+LP (filtre_pair (ε))
+
+
+  [ LP (filtre_pair (l)) ]                                [ LP (filtre_pair (l)) ]
+  [ n mod 2 = 0 ] (a)                                     [ n mod 2 <> 0 ] (b)
+----------- assumption  ------------------- assumption
+n mod 2 = 0             LP(filtre_pair (l))
+------------------------------------------- LP::          ------------------- assumption ou trivial
+LP (n :: filtre_pair(l))                                  LP (filtre_pair(l))
+----------------------------------------------------------------------------- case (n mod 2 = 0)
+LP (if n mod 2 = 0 then n :: filtre_pair (l) else filtre_pair(l))
+----------------------------------------------------------------------------- rewrite fp::
+LP (filtre_pair (n :: l))
+----------------------------------------------------------------------------- intro -> (c)
+LP (filtre_pair (l)) -> LP (filtre_pair (n :: l))
+
+
+
+
+
+
+
+.

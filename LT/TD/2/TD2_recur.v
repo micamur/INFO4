@@ -220,12 +220,29 @@ Proof.
       hnf.
       left.
       apply hx.
-    + admit.(* deuxième sous cas addition *)
+    + apply hrec_e2. (* deuxième sous cas addition *)
+      hnf.
+      hnf in h.
+      intros x hx.
+      apply h.
+      hnf.
+      right.
+      apply hx.
   - intro h.
-    (* à finir *)
-    admit.
-  (* unfold TousPairs. *)
-Admitted.
+    simpl.
+    apply mult_pair_1.
+    + apply hrec_e1. (* premier sous cas multiplication *)
+      hnf.
+      hnf in h.
+      intros x hx.
+      apply h.
+      hnf.
+      left.
+      apply hx.
+Qed.
+(* unfold TousPairs. *)
+
+(***************************************************************************)
 
 (** ** Variante *)
 
@@ -238,9 +255,50 @@ Fixpoint TousPairsConj (e:Aexp) : Prop :=
   | Amu e1 e2 => TousPairsConj e1 /\ TousPairsConj e2
   end.
 
+Print exp_1.
+Eval cbn in (TousPairsConj exp_1).
+
 Lemma DansTousPairsConj_eval : forall e, TousPairsConj e -> pair (eval e). 
 Proof.
-Admitted.
+  (* pose (P:=fun ee => TousPairsConj ee -> pair (eval ee)).
+  change (forall e, P e) *)
+  intros e tpce.
+  induction e as [ n |                      (* cas Ana *)
+                   e1 hrec_e1 e2 hrec_e2 |  (* cas Apl *)
+                   e1 hrec_e1 e2 hrec_e2 ]. (* cas Amu *)
+  - simpl in *.
+    trivial.
+  - simpl in *.
+    destruct tpce as [ tpce1 tpce2 ].
+    apply plus_pair.
+    + apply hrec_e1.
+      trivial.
+    + apply hrec_e2.
+      trivial.
+  - simpl in *.
+    destruct tpce as [ tpce1 tpce2 ].
+    apply mult_pair_2.
+    apply hrec_e2.
+    apply tpce2.
+(*
+  - simpl.
+    trivial.
+  - simpl.
+    apply plus_pair.
+    + apply hrec_e1.
+      apply tpce.
+    + apply hrec_e2.
+      apply tpce.
+  - simpl.
+    apply mult_pair_1.
+    hnf.
+    simpl.
+    apply hrec_e1.
+    apply tpce.
+*)
+Qed.
+
+(***************************************************************************)
 
 (** * Exercices complémentaires *)
 
@@ -248,12 +306,12 @@ Admitted.
 Lemma TousPairsConj_TousPairs :
   forall e, TousPairsConj e -> TousPairs e.
 Proof.
-Admitted.  
+Admitted.
 
 Lemma TousPairs_TousPairsConj :
   forall e, TousPairs e -> TousPairsConj e.
 Proof.
-Admitted.  
+Admitted.
 
 
 
