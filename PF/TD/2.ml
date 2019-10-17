@@ -4,7 +4,7 @@
 
 (* Exercice 17. Types *)
 
-type contenu = Meuble | Objet | Cadre | Plante ;;
+type contenu = Meuble | Objet | Cadre | Plante;;
 type solidite = Fragile | Robuste | Normal;;
 type paquet = contenu * solidite * int;;
 
@@ -202,17 +202,155 @@ let rec ces_produits : produit -> article list -> article list =
   | a::rl -> ces_produits prod1 rl
 ;;
 
-ces_produits MP3 [a1; a2; a3; a4];;       (* [a1;a4] *)
+ces_produits MP3 [a1; a2; a3; a4];; (* [a1;a4] *)
 ces_produits Photo inventaire;;     (* [a2] *)
 ces_produits Telephone inventaire;; (* [a3] *)
 ces_produits Camera inventaire;;    (* [] *)
 
 (* Exercice 30. Le choix le plus courant *)
+
+let rec deuxieme_moins_cher_rec : article list -> article =
+  fun l ->
+  match l with
+  | [] -> failwith "Liste vide"
+  | [a] -> failwith "Liste a un seul element"
+  | (prod1, marq1, prix1, stock1)::(prod2, marq2, prix2, stock2)::[] ->
+     if (prix1 >= prix2) then (prod1, marq1, prix1, stock1)
+     else (prod2, marq2, prix2, stock2)
+  |  (prod1, marq1, prix1, stock1)::(prod2, marq2, prix2, stock2)::(prod3, marq3, prix3, stock3)::rl ->
+     if (prix1 >= prix2 && prix1 >= prix3) then
+       (deuxieme_moins_cher_rec ((prod2, marq2, prix2, stock2)::(prod3, marq3, prix3, stock3)::rl))
+     else if (prix2 >= prix1 && prix2 >= prix3) then
+       (deuxieme_moins_cher_rec ((prod1, marq1, prix1, stock1)::(prod3, marq3, prix3, stock3)::rl))
+     else (deuxieme_moins_cher_rec ((prod1, marq1, prix1, stock1)::(prod2, marq2, prix2, stock2)::rl))
+;;
+
+let rec deuxieme_moins_cher : produit -> article list -> article =
+  fun prod ->
+  fun l ->
+  deuxieme_moins_cher_rec (ces_produits prod l)
+;;
+
+let pc1 : article = (PC, Alpel, 1, 1);;
+let pc2 : article = (PC, Syno, 2, 1);;
+let pc3 : article = (PC, Liphisp, 3, 1);;
+let pc4 : article = (PC, Alpel, 4, 1);;
+
+deuxieme_moins_cher PC [pc1; pc2; pc3; pc4];; (* pc2 *)
+deuxieme_moins_cher PC [pc4; pc2; pc1; pc3];; (* pc2 *)
+deuxieme_moins_cher PC [a1; pc1; pc2; a2];;   (* pc2 *)
+
 (* Exercice 31. Budget *)
+
+let rec budget : int -> int -> article list -> article list =
+  fun bmin ->
+  fun bmax ->
+  fun l ->
+  match l with
+  | [] -> []
+  | (prod, marq, prix, stock)::rl ->
+     if (prix >= bmin && prix <= bmax) then
+       (prod, marq, prix, stock)::(budget bmin bmax rl)
+     else (budget bmin bmax rl)
+;;
+
+let pcs : article list = [pc1; pc2; pc3; pc4];;
+
+budget (-1) 5 pcs;; (* pcs *)
+budget 2 3 pcs;;  (* [pc2; pc3] *)
+budget 5 6 pcs;;  (* [] *)
+
 (* Exercice 32. Achète *)
+
+let rec achete : produit -> marque -> prix -> article list -> article list =
+  fun aprod ->
+  fun amarq ->
+  fun aprix ->
+  fun l ->
+  match l with
+  | [] -> failwith "Article introuvable"
+  | (prod1, marq1, prix1, stock1)::rl
+       when (prod1 == aprod && marq1 == amarq && prix1 == aprix) ->
+     if (stock1 - 1 < 0) then failwith "Article plus en stock"
+     else if (stock1 - 1 > 0) then (prod1, marq1, prix1, stock1 - 1)::rl
+     else rl
+  | (prod1, marq1, prix1, stock1)::rl ->
+     (prod1, marq1, prix1, stock1)::(achete aprod amarq aprix rl)
+;;
+
+(*
+let a1 : article = (MP3, Alpel, 30, 1);;
+let a2 : article = (Photo, Syno, 1000, 2);;
+let a3 : article = (Telephone, Liphisp, 500, 3);;
+let a4 : article = (MP3, Alpel, 40, 3);;
+ *)
+
+let inventaire : article list = [a1; a2; a3; a4];;
+
+achete MP3 Alpel 30 inventaire;;          (* [a2; a3; a4] *)
+achete Photo Syno 1000 inventaire;;       (* [a1; (Photo, Syno, 1000, 1); a3; a4] *)
+achete Telephone Liphisp 500 inventaire;; (* [a1; a2; (Telephone, Liphisp, 500, 2); a4] *)
+achete MP3 Alpel 40 inventaire;;          (* [a1; a2; a3; (MP3, Alpel, 40, 2)] *)
+
 (* Exercice 33. Commande *)
+
+let rec commande : article list -> article list =
+  fun l ->
+  match l with
+  | [] -> []
+  | (prod, marq, prix, stock)::rl when (stock == 0) ->
+     (prod, marq, prix, stock)::(commande rl)
+  | a::rl -> (commande rl)
+;;
+
+commande [(Photo, Alpel, 40, 0); (Photo, Alpel, 50, 0); (Photo, Alpel, 60, 1)];;
+   (* [(Photo, Alpel, 40, 0); (Photo, Alpel, 50, 0)] *)
+commande [(Photo, Alpel, 40, 1); (Photo, Alpel, 50, 2); (Photo, Alpel, 60, 3)];;
+   (* [] *)
+commande [(Photo, Alpel, 40, 0)];;
+   (* [(Photo, Alpel, 40, 0)] *)
 
 (* 2.4. TRI PAR SÉLECTION *)
 
 (* Exercice 34. Trouve minimum *)
+
+let rec trouve_min_rec : article list -> article =
+  fun l ->
+  match l with
+  | [] -> failwith "Liste vide"
+  | [a] -> a
+  | (prod1, marq1, prix1, stock1)::(prod2, marq2, prix2, stock2)::rl ->
+     if (prix1 < prix2)
+     then (trouve_min_rec ((prod1, marq1, prix1, stock1)::rl))
+     else (trouve_min_rec ((prod2, marq2, prix2, stock2)::rl))
+;;
+
+let trouve_min : article list -> article * article list =
+  fun l ->
+  let lmin : article = (trouve_min_rec l) in
+  (lmin, (enleve_article lmin l))
+;;
+
+(*
+let a1 : article = (MP3, Alpel, 30, 1);;
+let a2 : article = (Photo, Syno, 1000, 2);;
+let a3 : article = (Telephone, Liphisp, 500, 3);;
+let a4 : article = (MP3, Alpel, 40, 3);;
+ *)
+
+trouve_min inventaire;;   (* a1 *)
+trouve_min [a2; a4; a3];; (* a4 *)
+
 (* Exercice 35. Tri par sélection *)
+
+let rec tri_selection : article list -> article list =
+  fun l ->
+  match l with
+  | [] -> []
+  | l ->
+     let (lmin, rl) : (article * article list) = (trouve_min l) in
+     lmin::(tri_selection rl)
+;;
+
+tri_selection inventaire;;       (* [a1; a4; a3; a2] *)
+tri_selection [a2; a3; a4; a1];; (* [a1; a4; a3; a2] *)
