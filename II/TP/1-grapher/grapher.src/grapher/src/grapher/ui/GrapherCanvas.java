@@ -13,6 +13,7 @@ import javafx.geometry.Rectangle2D;
 
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.canvas.Canvas;
 
 
@@ -36,6 +37,8 @@ public class GrapherCanvas extends Canvas {
 
 	protected Vector<Function> functions = new Vector<Function>();
 	
+	private Interaction interaction;
+	
 	public GrapherCanvas(Parameters params) {
 		super(WIDTH, HEIGHT);
 		xmin = -PI/2.; xmax = 3*PI/2;
@@ -44,6 +47,8 @@ public class GrapherCanvas extends Canvas {
 		for(String param: params.getRaw()) {
 			functions.add(FunctionFactory.createFunction(param));
 		}
+		
+		addEventHandler(MouseEvent.ANY, interaction = new Interaction(this));
 	}
 	
 	public double minHeight(double width)  { return HEIGHT;}
@@ -130,6 +135,8 @@ public class GrapherCanvas extends Canvas {
 		for(double y = -ystep; y > ymin; y -= ystep) { drawYTick(gc, y); }
 		
 		gc.setLineDashes(null);
+		
+		interaction.draw(gc);
 	}
 	
 	protected double dx(double dX) { return  (double)((xmax-xmin)*dX/W); }
@@ -173,7 +180,7 @@ public class GrapherCanvas extends Canvas {
 	}
 	
 	
-	protected void translate(double dX, double dY) {
+	public void translate(double dX, double dY) {
 		double dx = dx(dX);
 		double dy = dy(dY);
 		xmin -= dx; xmax -= dx;
