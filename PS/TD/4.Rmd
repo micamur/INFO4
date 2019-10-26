@@ -5,10 +5,6 @@ date: "11/10/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Exercice 1. Générateurs à base de congruences
 
 Générateur : $x_{n+1} = ax_n \text{ mod } 7$.
@@ -73,4 +69,108 @@ hist(s1)
 
 s2 = suite(24298, 99991, 199017, 1)
 hist(s2)
+```
+
+## Exercice 5. Comment faire une bonne pièce avec une fausse
+
+On a deux pièces avec $p_i = \mathbb{P}(X_i = 1) = \mathbb{P}(\text{la pièce } i \text{ tombe sur pile})$, calculer
+
+$$
+\mathbb{P}((X_1, X_2) = (0, 0)), \mathbb{P}((X_1, X_2) = (0, 1)), \mathbb{P}((X_1, X_2) = (1, 0)), \mathbb{P}((X_1, X_2) = (1, 1))
+$$
+
+```{r exo5-1}
+n = 10000
+p1 = 0.3
+p2 = 0.4
+
+X1 = sample(x=0:1, size=n, replace=TRUE, prob=c(p1,1-p1))
+X2 = sample(0:1, n, TRUE, c(p2,1-p2))
+
+(1-p1)*(1-p2) # 1
+length(which(X1==0 & X2==0)) / n
+(1-p1)*(p2)   # 2
+length(which(X1==0 & X2==1)) / n
+(p1)*(1-p2)   # 3
+length(which(X1==1 & X2==0)) / n
+(p1)*(p2)     # 4
+length(which(X1==1 & X2==1)) / n
+```
+
+```{r exo5-2}
+n = 100000
+p1 = 0.3
+p2 = 0.4
+
+X1 = sample(0:1, n, TRUE, c(p1,1-p1))
+X2 = sample(0:1, n, TRUE, c(p2,1-p2))
+
+Y2 = (X1 + X2) %% 2
+
+mean(Y2 == 1)
+
+# PA (X1 = 0 et X2 = 1) OU PB (X1 = 1 et X2 = 0) DONNE (Y1 = 1)
+pa = (1-p1)*(p2)   # X1 = 0 et X2 = 1
+pb = (p1)*(1-p2)   # X1 = 1 et X2 = 0
+paETb = 0          # impossible
+pa + pb - paETb    # PA ou PB : FORMULE DES PROBABILITES TOTALES
+```
+
+```{r exo5-3}
+# pi2 - 1/2 = (1-p)*p + (1-p)*p - 1/2
+#           = 2*(1-p)*p - 1/2
+#           = 2p - 2p*p - 1/2
+
+# (p - 1/2)(1 - 2p) = p - 2p*p - 1/2 + p
+#                   = 2p - 2p*p - 1/2
+
+# pi2 - 1/2 = (p - 1/2)(1 - 2p)
+```
+
+```{r exo5-4}
+p = 0.3                        # < 1/2
+pi2 = (p - 1/2)*(1 - 2*p) + 1/2 # > 1/2 et > p
+
+p     # <
+pi2   # <
+1/2   # <
+1-pi2 # <
+1-p
+```
+
+```{r exo5-5}
+# pi2 et (1-pi2) sont plus proches de 1/2 que p et (1-p) donc Y2 est mieux que X1
+```
+
+```{r exo5-6_8}
+n = 100000
+p = 0.4
+
+X1 = sample(0:1, n, TRUE, c(p,1-p))
+X2 = sample(0:1, n, TRUE, c(p,1-p))
+X3 = sample(0:1, n, TRUE, c(p,1-p))
+
+Y2 = (X1 + X2) %% 2
+Y3 = (X1 + X2 + X3) %% 2
+Y3b = (Y2 + X3) %% 2
+
+which(Y3 != Y3b)
+
+mean(Y3) # 5-7
+
+
+```
+
+```{r exo5-8}
+n = 100000
+p = 0.4
+
+X1 = sample(0:1, n, TRUE, c(p,1-p))
+X2 = sample(0:1, n, TRUE, c(p,1-p))
+X3 = sample(0:1, n, TRUE, c(p,1-p))
+Y3 = (X1 + X2 + X3) %% 2
+
+mean(Y3)
+
+# hist(sqrt(runif(10000)))
 ```
