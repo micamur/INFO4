@@ -1,0 +1,62 @@
+---
+title: "TD5"
+author: "Mica"
+date: "25/10/2019"
+output: html_document
+---
+
+# Probabilités et Simulations - TD5
+
+## Simulation de lois classiques
+
+### 1. Loi générale
+
+```{r cars}
+u = runif(1)
+
+# 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8
+# 0.10 | 0.20 | 0.05 | 0.05 | 0.05 | 0.15 | 0.35 | 0.05
+
+v = 1:8
+p = c(0.1, 0.2, 0.05, 0.05, 0.05, 0.15, 0.35, 0.05)
+p = p / sum(p)
+pc = cumsum(p)
+
+for (i in 1:8) {
+  if (u < pc[i]) return(v[i])
+}
+
+#df = data.frame(id = 1:length(p), p = p)
+#df[df$val < 5, ] # virgule importante pour dire qu'on sélectionne les colonnes
+#order(df, df$id, decreasing = FALSE)
+#Q = df$p
+#Q = c(0, Q[1:length(Q) - 1]) # ou -length(Q)
+
+# Coût moyen : E(X) espérance d'une variable aléatoire
+
+while(T) {
+  i = sample(1, x=8)
+  y = runif(1, max=max(p))
+  if (y <= p[i]) return(i)
+}
+
+# 7    | 6    | 2    | 1    | 3    | 4    | 5    | 8
+# 0.35 | 0.15 | 0.20 | 0.10 | 0.05 | 0.05 | 0.05 | 0.05
+
+v = c(7, 6, 2, 1, 3, 4, 5, 8)
+p = c(0.35, 0.15, 0.2, 0.1, 0.05, 0.05, 0.05, 0.05)
+p = p / sum(p)
+p = cumsum(p)
+
+for (i in 1:8) {
+  if (u < p[i]) return(v[i])
+}
+```
+
+### 3. Loi géométrique
+
+Une loi géométrique : on lance une pièce et on compte le nombre de lancers avant une réussite
+
+Naïf : on lance, on vérifie le succès, on relance, etc.
+
+1 seul appel à random : on tire une valeur, on compare à p, si c'est bon on garde, sinon on compare à p(1-p), sinon à p(1-p)^2, etc.
