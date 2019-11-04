@@ -14,6 +14,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.canvas.Canvas;
 
 
@@ -38,6 +39,7 @@ public class GrapherCanvas extends Canvas {
 	protected Vector<Function> functions = new Vector<Function>();
 	
 	private Interaction interaction;
+	private InteractionScroll interactionScroll;
 	
 	public GrapherCanvas(Parameters params) {
 		super(WIDTH, HEIGHT);
@@ -49,6 +51,7 @@ public class GrapherCanvas extends Canvas {
 		}
 		
 		addEventHandler(MouseEvent.ANY, interaction = new Interaction(this));
+		addEventHandler(ScrollEvent.ANY, interactionScroll = new InteractionScroll(this));
 	}
 	
 	public double minHeight(double width)  { return HEIGHT;}
@@ -63,7 +66,7 @@ public class GrapherCanvas extends Canvas {
 		redraw();
 	}	
 	
-	private void redraw() {
+	void redraw() {
 		GraphicsContext gc = getGraphicsContext2D();
 		W = getWidth();
 		H = getHeight();
