@@ -1,26 +1,26 @@
 package grapher.ui;
 
-import static java.lang.Math.*;
+import static java.lang.Math.PI;
+import static java.lang.Math.exp;
+import static java.lang.Math.floor;
+import static java.lang.Math.log10;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+import static java.lang.Math.pow;
 
 import java.util.Vector;
 
-import javafx.util.converter.DoubleStringConverter;
-
+import grapher.fc.Function;
+import grapher.fc.FunctionFactory;
 import javafx.application.Application.Parameters;
-
+import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
-import javafx.geometry.Rectangle2D;
-
-import javafx.scene.paint.Color;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.layout.StackPane;
-import javafx.scene.canvas.Canvas;
-
-import grapher.fc.*;
+import javafx.scene.paint.Color;
+import javafx.util.converter.DoubleStringConverter;
 
 public class GrapherCanvas extends Canvas {
 	static final double MARGIN = 40;
@@ -28,6 +28,9 @@ public class GrapherCanvas extends Canvas {
 
 	static final double WIDTH = 400;
 	static final double HEIGHT = 300;
+	
+	static final double LINEWIDTH = 1;
+	static final double LINEWIDTHBOLD = 3;
 
 	private static DoubleStringConverter d2s = new DoubleStringConverter();
 
@@ -37,12 +40,15 @@ public class GrapherCanvas extends Canvas {
 	protected double xmin, xmax;
 	protected double ymin, ymax;
 
+	protected double lineWidth;
+
 	protected Vector<Function> functions = new Vector<Function>();
+	protected ObservableList<Function> selection;
 
 	private Interaction interaction;
 	private InteractionScroll interactionScroll;
 
-	private SplitPane sp;
+	private GraphicsContext gc = getGraphicsContext2D();
 
 	public GrapherCanvas(Parameters params) {
 		super(WIDTH, HEIGHT);
@@ -50,6 +56,8 @@ public class GrapherCanvas extends Canvas {
 		xmax = 3 * PI / 2;
 		ymin = -1.5;
 		ymax = 1.5;
+
+		lineWidth = gc.getLineWidth();
 
 		for (String param : params.getRaw()) {
 			functions.add(FunctionFactory.createFunction(param));
@@ -135,6 +143,11 @@ public class GrapherCanvas extends Canvas {
 			for (int i = 0; i < N; i++) {
 				Ys[i] = Y(f.y(xs[i]));
 			}
+
+			if (selection.contains(f))
+				gc.setLineWidth(LINEWIDTHBOLD);
+			else
+				gc.setLineWidth(LINEWIDTH);
 
 			gc.strokePolyline(Xs, Ys, N);
 		}
