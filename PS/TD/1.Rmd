@@ -34,13 +34,13 @@ plot(pressure)
 
 ## Exercices
 
-On lance deux dés, trouver les probabilités que :
-
 ```{r nblancers}
 N=10000
 D1 = sample(x=1:6, size=N, replace=T)
 D2 = sample(x=1:6, size=N, replace=T)
 ```
+
+On lance deux dés, trouver les probabilités que :
 
 1. Les deux dés donnent le même résultat
 
