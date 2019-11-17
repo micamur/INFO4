@@ -1,0 +1,6 @@
+{
+    "plugins": ["katex"],
+    "styles": {
+    	"pdf": "styles/pdf.css"
+    }
+}

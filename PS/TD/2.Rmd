@@ -50,7 +50,7 @@ $$
 
 ## Jeu
 
-Dans une partie, K joueurs ettent chacun une pièce de monnaie (K > 3).
+Dans une partie, K joueurs mettent chacun une pièce de monnaie (K > 3).
 Un joueur gagne une partie si son tirage est différent de celui de tous les autres joueurs.
 
 1. Proposer un modèle de cette simulation.
@@ -66,7 +66,7 @@ $$
 ### 2. Probabilité
 
 $$
-P(\omega) = {1 \over 2^K} = {1 \over |\Omega|}, \forall \omega \in \Omega
+P(\omega) = {1 \over |\Omega|} = {1 \over 2^K}, \forall \omega \in \Omega
 $$
 
 ### 3. Échantillon généré

@@ -10,7 +10,7 @@ import grapher.ui.GrapherCanvas;
 class Interaction implements EventHandler<MouseEvent> {
 
 	enum State {
-		IDLE, L_CLIC_OR_DRAG, L_DRAG, R_CLIC_OR_DRAG, R_DRAG, W_ZOOM, W_DEZOOM
+		IDLE, L_CLIC_OR_DRAG, L_DRAG, R_CLIC_OR_DRAG, R_DRAG
 	}
 
 	private static final double D_DRAG = 5;
@@ -71,19 +71,47 @@ class Interaction implements EventHandler<MouseEvent> {
 				r_drag(e);
 			} else if (is_released(e)) {
 				state = State.IDLE;
+				grapher.zoom(p0, p1);
 			}
-			break;
-		case W_DEZOOM:
-			break;
-		case W_ZOOM:
 			break;
 		default:
 			assert (false);
 		}
 	}
-	
-	public void draw(GraphicsContext c) {
-		// TODO
+
+	public void draw(GraphicsContext gc) {
+		double x, y, w, h;
+
+		if (state != State.R_DRAG)
+			return;
+
+		if (p1.getX() < p0.getX() && p1.getY() < p0.getY()) {
+			System.out.println("R_DRAG upper left");
+			x = p1.getX();
+			y = p1.getY();
+			w = p0.getX() - p1.getX();
+			h = p0.getY() - p1.getY();
+		} else if (p1.getX() < p0.getX() && p1.getY() > p0.getY()) {
+			System.out.println("R_DRAG lower left");
+			x = p1.getX();
+			y = p0.getY();
+			w = p0.getX() - p1.getX();
+			h = p1.getY() - p0.getY();
+		} else if (p1.getX() > p0.getX() && p1.getY() > p0.getY()) {
+			System.out.println("R_DRAG lower right");
+			x = p0.getX();
+			y = p0.getY();
+			w = p1.getX() - p0.getX();
+			h = p1.getY() - p0.getY();
+		} else {
+			System.out.println("R_DRAG upper right");
+			x = p0.getX();
+			y = p1.getY();
+			w = p1.getX() - p0.getX();
+			h = p0.getY() - p1.getY();
+		}
+
+		gc.strokeRect(x, y, w, h);
 	}
 
 	private boolean is_pressed(MouseEvent e) {
@@ -91,21 +119,21 @@ class Interaction implements EventHandler<MouseEvent> {
 //		System.out.println(e.getEventType() == MouseEvent.MOUSE_PRESSED);
 		return e.getEventType() == MouseEvent.MOUSE_PRESSED;
 	}
-	
+
 	private boolean is_released(MouseEvent e) {
 //		System.out.println("MOUSE_RELEASED");
 //		System.out.println(e.getEventType() == MouseEvent.MOUSE_RELEASED);
 		return e.getEventType() == MouseEvent.MOUSE_RELEASED;
 	}
-	
+
 	private boolean is_dragged(MouseEvent e) {
 		return e.getEventType() == MouseEvent.MOUSE_DRAGGED;
 	}
-	
+
 	private boolean is_left_button(MouseEvent e) {
 		return e.getButton() == MouseButton.PRIMARY;
 	}
-	
+
 	private boolean is_right_button(MouseEvent e) {
 		return e.getButton() == MouseButton.SECONDARY;
 	}
@@ -122,12 +150,12 @@ class Interaction implements EventHandler<MouseEvent> {
 		save_pos(e);
 		grapher.zoom(p0, 5);
 	}
-	
+
 	private void r_click(MouseEvent e) {
 		save_pos(e);
 		grapher.zoom(p0, -5);
 	}
-	
+
 	private void l_drag(MouseEvent e) {
 		new_pos(e);
 		if (p1.distance(p0) < D_DRAG)
@@ -137,10 +165,10 @@ class Interaction implements EventHandler<MouseEvent> {
 	}
 
 	private void r_drag(MouseEvent e) {
-//		new_pos(e);
-//		if (p1.distance(p0) < D_DRAG) return;
-//		grapher.translate(p1.getX() - p0.getX(), p1.getY() - p0.getY());
-//		save_pos(e);
+		new_pos(e);
+		if (p1.distance(p0) < D_DRAG)
+			return;
+		grapher.redraw();
 	}
 
 }

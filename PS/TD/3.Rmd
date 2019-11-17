@@ -11,8 +11,8 @@ $$
 \begin{array}{lcl}
 1 = P(\Omega) & = & P(\bigcup\limits_{K \in E} \{X = K\})\\
 & = & \sum\limits_{K \in E} P(X = K)\\
-& = & e^{-\lambda} \times \sum\limits_{K \in E} {\lambda^K \over K!} \text{ (dans le cas d'une loi de Poisson)}\\
-& = & e^{-\lambda} \times e^{\lambda}\\
+& = & e^{- \lambda} \times \sum\limits_{K \in E} {\lambda^K \over K!} \text{ (dans le cas d'une loi de Poisson)}\\
+& = & e^{- \lambda} \times e^{\lambda}\\
 \end{array}
 $$
 
@@ -92,7 +92,7 @@ $$
 si
 
 $$
-f_X^{(t)} = \lambda e^{-\lambda t}, t \ge 0
+f_X^{(t)} = \lambda e^{- \lambda t}, t \ge 0
 $$
 
 ## Espérance
@@ -100,9 +100,9 @@ $$
 $$
 \begin{array}{lcl}
 \mathbb{E}[X] & = & \int_{\mathbb{R}} t f_{h(X)}^{(t)} dt \text{ par définition}\\
-& = & \int_0^{\infty} t \lambda e^{-\lambda t} dt \text{ avec } t { la fonction } f \text{ et le reste la fonction } g\\
-& = & [t \times (-e^{-\lambda t})]_0^{\infty}\\
-& = & 0 + [{-e^{-\lambda t} \over \lambda}]_0^{\infty}\\
+& = & \int_0^{\infty} t \lambda e^{- \lambda t} dt \text{ avec } t { la fonction } f \text{ et le reste la fonction } g\\
+& = & [t \times (-e^{- \lambda t})]_0^{\infty}\\
+& = & 0 + [{-e^{- \lambda t} \over \lambda}]_0^{\infty}\\
 & = & {1 \over \lambda}
 \end{array}
 $$
@@ -110,8 +110,8 @@ $$
 $$
 \begin{array}{lcl}
 \mathbb{E}[X^2] & = & \int_{\mathbb{R}} t^2 f_{h(X)}^{(t)} dt \text{ par définition}\\
-& = & \int_0^{\infty} t^2 \lambda e^{-\lambda t} dt \text{ avec } t^2 { la fonction } f \text{ et le reste la fonction } g\\
-& = & [t^2 \times (-e^{-\lambda t})]_0^{\infty} + {2 \over \lambda} \int_0^{\infty} t \times (\lambda e^{-\lambda t) dt\\
+& = & \int_0^{\infty} t^2 \lambda e^{- \lambda t} dt \text{ avec } t^2 { la fonction } f \text{ et le reste la fonction } g\\
+& = & [t^2 \times (-e^{- \lambda t})]_0^{\infty} + {2 \over \lambda} \int_0^{\infty} t \times (\lambda e^{- \lambda t} dt\\
 & = & 0 + {2 \over \lambda^2}
 \end{array}
 $$
@@ -219,7 +219,7 @@ X : \Omega \rightarrow \mathbb{N}
 $$
 
 $$
-P(X = K) = {\lambda^K \over K!} e^{-\lambda}, K \in E
+P(X = K) = {\lambda^K \over K!} e^{- \lambda}, K \in E
 $$
 
 ### Espérance
@@ -227,15 +227,15 @@ $$
 $$
 \begin{array}{lcl}
 \mathbb{E}[X] & = & \sum\limits_{K \in \mathbb{N}} K \times P(X = K) \text{ par définition}\\
-& = & \sum\limits_{K \in \mathbb{N}} K \times {\lambda^K \over K!} e^{-\lambda}\\
-& = & \lambda \times e^{-\lambda} \text{ pas eu le temps de noter :(}
+& = & \sum\limits_{K \in \mathbb{N}} K \times {\lambda^K \over K!} e^{- \lambda}\\
+& = & \lambda \times e^{- \lambda} \text{ pas eu le temps de noter :(}
 \end{array}
 $$
 
 $$
 \begin{array}{lcl}
 \mathbb{E}[X^2] & = & \sum\limits_{K \in \mathbb{N}} K^2 \times P(X = K) \text{ par définition}\\
-& = & \sum\limits_{K \in \mathbb{N}} K^2 \times {\lambda^K \over K!} e^{-\lambda}\\
+& = & \sum\limits_{K \in \mathbb{N}} K^2 \times {\lambda^K \over K!} e^{- \lambda}\\
 & = & \text{à compléter}
 \end{array}
 $$
