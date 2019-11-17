@@ -1,0 +1,60 @@
+---
+title: "TD7"
+author: "Mica"
+date: "15/11/2019"
+output: html_document
+---
+
+## Generating normally distributed RV (real values ?)
+
+$$
+f_X^{(t)} = {1 \over \sqrt{2\pi}}e^{-{(X - \mu)^2 \over 2 \sigma^2}}, X \in \mathbb{R}
+$$
+
+$$
+f_Y^{(X)} = {2 \over \sqrt{2\pi}}e^{-{X^2 \over 2}}, X \in \mathbb{R}_+
+$$
+
+$$
+g(X) = h \times f_Z^{(x)} = h \times e^{-X}
+$$
+
+## Théorème Central Limite
+
+Soit $(X_n)$ IID, $X_n \sim B({1 \over 2})$ et $\overline{X_n} = {1 \over n} \sum\limits_{i = 1}^{n} X_i$, alors
+
+$$
+Z_n = {\sqrt{n} \over \sigma} (\overline{X_n} - {1 \over 2}) \xrightarrow[n \to \infty]{} \mathcal{N}(0, 1)
+$$
+### Algorithme
+
+```{r geneZ}
+fY <- function(x) {
+  return(2 / sqrt(2*pi)) * exp(-X / 2);
+}
+
+fZ <- function(x) {
+  return(exp(-X));
+}
+
+g <- function(x) {
+  return(h * fZ(x));
+}
+
+algo <- function() {
+  h = (2 / sqrt(2*pi)) * exp(1/2)
+  repeat {
+    z = rexp(1)
+    U = runif(n=1, min=0, max=h*z)
+    if (U < fY(z)) {
+      return(z)
+    }
+  }
+}
+
+for (i in 1:1000) {
+  x[i] = algo()
+}
+
+hist(x)
+```
