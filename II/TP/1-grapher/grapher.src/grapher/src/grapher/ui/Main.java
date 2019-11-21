@@ -27,20 +27,52 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 public class Main extends Application {
+	private void addFunction(Function f, GrapherCanvas c) {
+		// TODO Warning : name + " existe déjà, êtes-vous sûr de vouloir l'ajouter ?"
+		c.functions.add(f);
+		c.redraw();
+	}
+
+	private Function toFunction(String name) {
+		try {
+			return FunctionFactory.createFunction(name);
+		} catch (Exception exception) {
+			System.out.println(name + " n'est pas une fonction.");
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Erreur");
+			alert.setHeaderText("Erreur");
+			alert.setContentText("Ooops, " + name + " n'est pas une fonction !");
+			alert.showAndWait();
+			return null;
+		}
+	}
+
 	public void start(Stage stage) {
 		GrapherCanvas c = new GrapherCanvas(getParameters());
 		BorderPane bp = new BorderPane();
 		SplitPane sp = new SplitPane();
 
-		ObservableList<Function> fobservable = FXCollections.observableArrayList();
-		fobservable.addAll(c.functions);
-
-		ListView<Function> lv = new ListView<Function>(fobservable);
+		ListView<Function> lv = new ListView<Function>(c.functions);
 		lv.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+		lv.setEditable(true);
+		lv.setCellFactory(TextFieldListCell.forListView(new StringConverter<Function>() {
+			@Override
+			public Function fromString(String name) {
+				return toFunction(name);
+			}
+
+			@Override
+			public String toString(Function f) {
+				return f.toString();
+			}
+		}));
 
 		ObservableList<Function> selection = lv.getSelectionModel().getSelectedItems();
 		selection.addListener(new InvalidationListener() {
@@ -72,22 +104,23 @@ public class Main extends Application {
 				// Add new expression in lists
 				Optional<String> result = dialog.showAndWait();
 				if (result.isPresent()) {
-					try {
-						Function f = FunctionFactory.createFunction(result.get());
-						// TODO Warning : "Cette fonction existe déjà, êtes-vous sûr de vouloir l'ajouter ?"
-						c.functions.add(f);
-						fobservable.add(f);
-						c.redraw();
-					} catch (Exception exception) {
-						System.out.println(result.get() + " n'est pas une fonction.");
-
-						Alert alert = new Alert(AlertType.ERROR);
-						alert.setTitle("Erreur");
-						alert.setHeaderText("Erreur");
-						alert.setContentText("Ooops, " + result.get() + " n'est pas une fonction !");
-						alert.showAndWait();
-
-					}
+					addFunction(toFunction(result.get()), c);
+//					try {
+//						Function f = FunctionFactory.createFunction(result.get());
+//						// TODO Warning : "Cette fonction existe déjà, êtes-vous sûr de vouloir l'ajouter ?"
+//						c.functions.add(f);
+//						fobservable.add(f);
+//						c.redraw();
+//					} catch (Exception exception) {
+//						System.out.println(result.get() + " n'est pas une fonction.");
+//
+//						Alert alert = new Alert(AlertType.ERROR);
+//						alert.setTitle("Erreur");
+//						alert.setHeaderText("Erreur");
+//						alert.setContentText("Ooops, " + result.get() + " n'est pas une fonction !");
+//						alert.showAndWait();
+//
+//					}
 				}
 			}
 		};
@@ -100,9 +133,8 @@ public class Main extends Application {
 
 				// Delete selected functions
 				c.functions.removeAll(selection);
-				fobservable.removeAll(selection);
 				c.redraw();
-				
+
 				// TODO Warning : "Êtes-vous sûr de vouloir supprimer toutes les fonctions ?"
 				// TODO Warning : "Aucune fonction n'est sélectionnée"
 			}
@@ -113,7 +145,7 @@ public class Main extends Application {
 
 		MenuBar rootMenu = new MenuBar();
 		final Menu menu1 = new Menu("Expression");
-		
+
 		MenuItem menuItemAdd = new MenuItem("Add");
 		menuItemAdd.setOnAction(plusEH);
 		menuItemAdd.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
@@ -122,14 +154,14 @@ public class Main extends Application {
 		menuItemRemove.setOnAction(minusEH);
 		menuItemRemove.setAccelerator(new KeyCodeCombination(KeyCode.BACK_SPACE, KeyCombination.SHORTCUT_DOWN));
 		menu1.getItems().add(menuItemRemove);
-		
+
 		rootMenu.getMenus().addAll(menu1);
-		
+
 		sp.getItems().add(rootList);
 		sp.getItems().add(c);
 		bp.setTop(rootMenu);
 		bp.setCenter(sp);
-		
+
 		stage.setTitle("grapher");
 		stage.setScene(new Scene(bp));
 		stage.show();

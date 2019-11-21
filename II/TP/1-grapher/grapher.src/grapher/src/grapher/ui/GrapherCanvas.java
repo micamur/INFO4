@@ -13,6 +13,7 @@ import java.util.Vector;
 import grapher.fc.Function;
 import grapher.fc.FunctionFactory;
 import javafx.application.Application.Parameters;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
@@ -42,7 +43,7 @@ public class GrapherCanvas extends Canvas {
 
 	protected double lineWidth;
 
-	protected Vector<Function> functions = new Vector<Function>();
+	protected ObservableList<Function> functions;
 	protected ObservableList<Function> selection;
 
 	private Interaction interaction;
@@ -58,7 +59,8 @@ public class GrapherCanvas extends Canvas {
 		ymax = 1.5;
 
 		lineWidth = gc.getLineWidth();
-
+		functions = FXCollections.observableArrayList();
+		
 		for (String param : params.getRaw()) {
 			functions.add(FunctionFactory.createFunction(param));
 		}
