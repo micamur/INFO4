@@ -239,7 +239,19 @@ Theorem reduction2 : forall i x, SN P1 [i;x] [0;i+x].
 Proof.
   intros i.
   induction i as [ | i Hrec_i] ; intros ; simpl.
-Admitted.
+  - eapply SN_while_false.
+    + reflexivity.
+  - eapply SN_while_true.
+    + reflexivity.
+    + eapply SN_seq.
+      * eapply SN_ass.
+      * eapply SN_ass.
+    + fold P1.
+      simpl.
+      rewrite <- minus_n_O.
+      rewrite plus_n_Sm.
+      apply Hrec_i.
+Qed.
 
 
 (** Transformation simple de programme : if false then X else Y ---> Y  *)
@@ -256,12 +268,23 @@ Fixpoint simpl_test_Bfa (c: WExp) : WExp :=
 Theorem simpl_test_Bfa_correct : forall w s s', SN w s s' -> SN (simpl_test_Bfa w) s s'.
 Proof.
   intros.
-  induction w ; simpl.
-  - apply H.
-  - apply H.
-  - Admitted.
-
-
+  induction H.
+  - simpl. eapply SN_skip.
+  - simpl. eapply SN_ass.
+  - simpl. eapply SN_seq.
+    + apply IHSN1.
+    + apply IHSN2.
+  - destruct b ; try (apply SN_if_true ; auto).
+    + simpl in H. discriminate H.
+  - destruct b ; try (apply SN_if_false ; auto).
+    + simpl. apply IHSN.
+  - simpl. eapply SN_while_false.
+    + rewrite H. reflexivity.
+  - simpl. eapply SN_while_true.
+    + rewrite H. reflexivity.
+    + apply IHSN1.
+    + auto.
+Qed.
 
 (** * Un prédicat inductif définit des règles de déduction
       qui sont les seules permettant de montrer le prédicat.
