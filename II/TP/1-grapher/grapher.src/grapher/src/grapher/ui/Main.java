@@ -14,8 +14,14 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Separator;
 import javafx.scene.control.SplitPane;
@@ -27,6 +33,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	public void start(Stage stage) {
 		GrapherCanvas c = new GrapherCanvas(getParameters());
+		BorderPane bp = new BorderPane();
 		SplitPane sp = new SplitPane();
 
 		ObservableList<Function> fobservable = FXCollections.observableArrayList();
@@ -46,12 +53,12 @@ public class Main extends Application {
 		});
 		c.selection = selection;
 
-		BorderPane root = new BorderPane(lv);
-		root.setCenter(lv);
+		BorderPane rootList = new BorderPane(lv);
+		rootList.setCenter(lv);
 
 		// Create toolbar with + and -
 		Button plus = new Button("+");
-		plus.setOnAction(new EventHandler<ActionEvent>() {
+		EventHandler<ActionEvent> plusEH = new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
 				System.out.println("+ selected");
@@ -83,9 +90,10 @@ public class Main extends Application {
 					}
 				}
 			}
-		});
+		};
+		plus.setOnAction(plusEH);
 		Button minus = new Button(" - ");
-		minus.setOnAction(new EventHandler<ActionEvent>() {
+		EventHandler<ActionEvent> minusEH = new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
 				System.out.println("- selected");
@@ -98,15 +106,32 @@ public class Main extends Application {
 				// TODO Warning : "Êtes-vous sûr de vouloir supprimer toutes les fonctions ?"
 				// TODO Warning : "Aucune fonction n'est sélectionnée"
 			}
-		});
+		};
+		minus.setOnAction(minusEH);
 		ToolBar toolBar = new ToolBar(plus, new Separator(), minus);
-		root.setBottom(toolBar);
+		rootList.setBottom(toolBar);
 
-		sp.getItems().add(root);
+		MenuBar rootMenu = new MenuBar();
+		final Menu menu1 = new Menu("Expression");
+		
+		MenuItem menuItemAdd = new MenuItem("Add");
+		menuItemAdd.setOnAction(plusEH);
+		menuItemAdd.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
+		menu1.getItems().add(menuItemAdd);
+		MenuItem menuItemRemove = new MenuItem("Remove");
+		menuItemRemove.setOnAction(minusEH);
+		menuItemRemove.setAccelerator(new KeyCodeCombination(KeyCode.BACK_SPACE, KeyCombination.SHORTCUT_DOWN));
+		menu1.getItems().add(menuItemRemove);
+		
+		rootMenu.getMenus().addAll(menu1);
+		
+		sp.getItems().add(rootList);
 		sp.getItems().add(c);
-
+		bp.setTop(rootMenu);
+		bp.setCenter(sp);
+		
 		stage.setTitle("grapher");
-		stage.setScene(new Scene(sp));
+		stage.setScene(new Scene(bp));
 		stage.show();
 	}
 
