@@ -11,6 +11,8 @@ type arbin = V | N of arbin * int * arbin;;
 
 exception ArbreVide;;
 
+(* 1 *)
+
 let maxArbin (abr : arbin) : int =
   let aux (abr : arbin) : int =
     | N(_, f, V) -> f
@@ -21,8 +23,11 @@ let maxArbin (abr : arbin) : int =
   | n -> (aux n)
 ;;
 
+(* 2 *)
+
 let supMaxArbin (abr : arbin) : arbin =
-  let aux (abr : arbin) : int =
+  let rec aux (abr : arbin) : int =
+    match abr with
     | N(fg, x, N(fdg, y, V)) -> N(fg, x, fdg)
     | N(fg, x, fd) -> N(fg, x, (aux fd))
   in
@@ -31,12 +36,28 @@ let supMaxArbin (abr : arbin) : arbin =
   | n -> (aux n)
 ;;
 
-let supprRacine (abr : arbin) : arbin =
-  let brancheADroite (bg : arbin) (bd : arbin) : arbin = 
-    V (** TODO **)
-  in
+let rec supMaxAux g x d : int * arbin =
+    match d with
+    | V -> (x, g)
+    | N(gd, xd, dd) ->
+      let (m, supd) = supMaxAux gd xd dd in
+      (m, N(g, x, supd))
+;;
+
+let supMaxArbin2 (abr : arbin) : int * arbin =
   match abr with
   | V -> raise ArbreVide
-  | N(V, _, V) -> Vide
-  | N(fg, _, fd) -> (brancheADroite fg fd)
+  | N(g, x, d) -> (supMaxAux g, x, d)
 ;;
+
+(* 3 *)
+
+let supRacine (a : arbin) =
+  match a with
+  | V -> raise ArbreVide
+  | N(g, x, d) ->
+    match g with
+    | V -> d
+    | N(gg, xg, dg) ->
+      let (m, supg) = supMaxAux gg xg dg in
+      N(supg, m, d)
