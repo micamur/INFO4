@@ -8,10 +8,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.beans.property.ReadOnlyDoubleWrapper;
+import javafx.concurrent.Task;
 
-public class Downloader implements Runnable {
+public class Downloader extends Task<String> {
 	public static final int CHUNK_SIZE = 1024;
 
 	URL url;
@@ -51,9 +51,9 @@ public class Downloader implements Runnable {
 		return url.toString();
 	}
 
-	public ReadOnlyDoubleProperty progressProperty() {
-		return progress.getReadOnlyProperty();
-	}
+//	public ReadOnlyDoubleProperty progressProperty() {
+//		return progress.getReadOnlyProperty();
+//	}
 
 	protected String download() throws InterruptedException {
 		byte buffer[] = new byte[CHUNK_SIZE];
@@ -66,7 +66,7 @@ public class Downloader implements Runnable {
 			}
 
 			size += count;
-			progress.setValue(1. * size / content_length);
+			updateProgress(size, content_length);
 			Thread.sleep(1000);
 
 			try {
@@ -85,11 +85,16 @@ public class Downloader implements Runnable {
 		return filename;
 	}
 
-	public void run() {
-		try {
-			download();
-		} catch (InterruptedException e) {
-			throw new RuntimeException(e);
-		}
+//	public void run() {
+//		try {
+//			download();
+//		} catch (InterruptedException e) {
+//			throw new RuntimeException(e);
+//		}
+//	}
+
+	@Override
+	protected String call() throws Exception {
+		return download();
 	}
 };
