@@ -1,0 +1,135 @@
+---
+title: "TD8"
+author: "Mica"
+date: "22/11/2019"
+output: html_document
+---
+
+# Fiche 6
+
+Soient $(X_n)_x$ IID et $S_n = X_1 + ... + X_n$.
+
+$$
+\begin{array}{lcl}
+  Z_n & =\Delta & {\sqrt{n} \over \sqrt{\text{var}(X_1)}}\Big( {S_n \over n} - E[X_1] \Big) \xrightarrow[n \to \infty]{\text{loi}} \mathcal{N}(0, 1)\\
+  & \Rightarrow & S_n \simeq n \Big( \mathcal{N}(0, 1) \cdot \sqrt{\text{var}(X_1) \over n} +  E[X_1] \Big)\\
+\end{array}
+$$
+
+$$
+E[S_n] = n \mu \text{ (par linéarité de l'espace)}
+$$
+
+$$
+\text{var}(S_n) = n \sigma^2
+$$
+
+$$
+\begin{array}{lcl}
+  \text{var}(X_1 + X_2) & = & E[(X_1 + X_2 - E[X_1 + X_2])^2]\\
+  & = & E[(X_1^2 + X_2^2 + 2X_1X_2 + (2 \mu)^2 - 2(X_1 + X_2)2\mu]\\
+  & = & E[X_1^2] + E[X_2^2] + 2E[X_1X_2] + 4 \mu^2 - 4 \mu E[X_1 + X_2]\\
+  & = & E[X_1^2] + E[X_2^2] + \text{ ?}\\
+  & = & E[Y_1^2] + E[Y_2^2] + 2 \mu^2 - 4 \mu^2\\
+  & = & E[Y_1^2] - \mu^2 + E[Y_2^2] - \mu^2\\
+  & = & \text{var}(Y_1) + \text{var}(Y_2)\\
+  & = & 2 \sigma^2\\
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+  E[X_1X_2] & = & E[f(Y_1Y_2)]\\
+  & =\text{TT} & \int_{\mathbb{R}^2} xy \cdot f_{(X_1, X_2)}^{(x, y)} dx\; dy\\
+  & = & \int_{\mathbb{R}^2} xy \cdot f_{X_1}^{(x)}f_{X_2}^{(y)} dx\; dy\\
+  & = & \int_{\mathbb{R}} x f_{X_1}^{(x)} dx \cdot \int_{\mathbb{R}} f_{X_2}^{(y)} dy\\
+  & = & E[Y_1] E[Y_2]\\
+\end{array}
+$$
+
+## Exercice 1. Modélisation et application directe
+
+1. On lance un dé 24 fois. Utiliser le TCL pour estimer des probabilités.
+
+Soit $X_1,\; ...,\; X_{24}$ et $S_{24} = X_1 + ... + X_{24}$
+
+$$
+\begin{array}{lcl}
+  \text{var}[X_1] & = & ?\\
+  & = & 3.5\\
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+  \text{var}(X_1) & = & E[X_1^2] - (E[X_1])^2\\
+  & = & 1^2 \times (1/6) + 2^2 \times (1/6) + ... - 3.5\\
+  & = & 2.916\\
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+  P(S_{24} > 84) & = & P\Big(\sqrt{{24 \over \text{var}(X_1)}} \big({S_{24} \over 24} - \mu\big) > \sqrt{{24 \over \text{var}(X_1)}} \big({84 \over 24} - \mu\big)\Big)\\
+  & = & P\Big(\mathcal{N}(0, 1) > \sqrt{{24 \over 2.916}} \big({84 \over 24} - 3.5\big)\Big)\\
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+  P(S_{24} = 84) & = & P\Big(83 < S_{24} \leq 84\Big)\\
+  & = & P\Big(\big(83 - 3.5\big)\sqrt{24 \over 2.916} < \big({S_{24} \over 24} - 3.5\big)\sqrt{24 \over 2.916} \leq \big({84 \over 24} - 3.5\big)\sqrt{24 \over 2.916}\Big)\\
+  & = & P\Big(? < \mathcal{N}(0, 1) \leq ?\Big)\\
+\end{array}
+$$
+```{r exo1.1}
+n = 24
+mu = 3.5
+sigma = 2.916
+
+x = sample(x=1:6, replace=TRUE, size=n)
+sum(x)
+
+1 - pnorm(sqrt(n/sigma) * (84/n - mu)) # == 0.5
+
+N = 10000
+Sapprox = n * (rnorm(N) * sqrt(sigma / n) + mu)
+S24 = replicate(N, sum(sample(x=1:6, replace=TRUE, size=n)))
+
+X = sum(S24 <= 84 && S24 < 84) / N
+
+p1 <- hist(S24, breaks = 20)
+p2 <- hist(Sapprox, breaks = 20)
+plot(p1, col=rgb(0.5, 0.5, 1, 0.5), xlim=c(0,150))
+plot(p2, col=rgb(1, 0.5, 0.5, 0.5), xlim=c(0,150), add=TRUE)
+```
+
+Soit $S_{240} =$ "argent perdu après 240 jeux
+
+$$
+\begin{array}{lcl}
+  E[S_{240}] & = & 240 \cdot (2 \cdot (1/4)  - 1 \cdot (3/4))\\
+  & = & 240 \cdot (- (1/4))\\
+  & = & -60 \text{$}\\
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+  \text{var}(S_{240}) & = & E[X_1^2] - (1/ 4^2)\\
+  & = & 1^2 \cdot (1/4) + (-1)^2 \cdot (3/4) - (1/4^2)\\
+  & = & 1 + (3/4) - (1/16)\\
+  & = & 27/16\\
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}
+  P(S_{240} > 10) & = & P\Big(\big({S_{240} \over 240} + {1 \over 4}\big)\sqrt{240 \over 27/16} > \big({10 \over 240} + {1 \over 4}\big)\sqrt{240 \over 27/16}\Big)\\
+  & \simeq & P\Big(\mathcal{N}(0, 1) > \big({10 \over 240} + {1 \over 4}\big)\sqrt{240 \over 27/16}\Big)
+\end{array}
+$$
+
+```{r exo1.3}
+X = 1 - pnorm(sqrt(240/(27/16)) * ((10/240) + (1/4)))
+```
