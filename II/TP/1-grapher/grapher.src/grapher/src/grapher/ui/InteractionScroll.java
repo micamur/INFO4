@@ -47,11 +47,11 @@ class InteractionScroll implements EventHandler<ScrollEvent> {
 			assert (false);
 		}
 	}
-	
+
 	private boolean is_scrolling_up(ScrollEvent e) {
 		return e.getDeltaY() > 0;
 	}
-	
+
 	private boolean is_scrolling_down(ScrollEvent e) {
 		return e.getDeltaY() < 0;
 	}
@@ -60,16 +60,14 @@ class InteractionScroll implements EventHandler<ScrollEvent> {
 		save_pos(e);
 		grapher.zoom(p0, 5);
 	}
-	
+
 	private void w_up(ScrollEvent e) {
 		save_pos(e);
 		grapher.zoom(p0, -5);
 	}
-	
+
 	private void save_pos(ScrollEvent e) {
 		p0 = new Point2D(e.getX(), e.getY());
 	}
-	
-	
 
 }
