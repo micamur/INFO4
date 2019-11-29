@@ -1,0 +1,3 @@
+ls > txt
+wc < txt
+ls | wc
