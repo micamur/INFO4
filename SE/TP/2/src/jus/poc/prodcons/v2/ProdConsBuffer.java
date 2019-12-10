@@ -1,4 +1,6 @@
-package jus.poc.prodcons.v1;
+package jus.poc.prodcons.v2;
+
+import java.util.concurrent.Semaphore;
 
 import jus.poc.prodcons.IProdConsBuffer;
 import jus.poc.prodcons.Message;
@@ -11,6 +13,8 @@ public class ProdConsBuffer implements IProdConsBuffer {
 	private int in, out; // indices où mettre/prendre le prochain Message
 	private int nbMsgTotalPut; // nombre total de Messages mis dans le buffer
 	private int nbMsgTotalGet; // nombre total de Messages pris dans le buffer
+	private Semaphore sGet;
+	private Semaphore sPut;
 
 	public ProdConsBuffer(int n) {
 		nfree = n;
@@ -19,48 +23,67 @@ public class ProdConsBuffer implements IProdConsBuffer {
 		in = 0;
 		nbMsgTotalPut = 0;
 		nbMsgTotalGet = 0;
+		sGet = new Semaphore(1);
+		sPut = new Semaphore(1);
 	}
 
 	@Override
-	synchronized public void put(Message m) {
-		while (isFull()) {
-			try {
-				wait();
-			} catch (InterruptedException e) {
-				System.out.println("Put wait interrupted");
-				e.printStackTrace();
+	public void put(Message m) {
+		try {
+			sPut.acquire();
+			synchronized (this) {
+				while (isFull()) {
+					try {
+						wait();
+					} catch (InterruptedException e) {
+						System.out.println("Put wait interrupted");
+						e.printStackTrace();
+					}
+				}
+				nfree--;
+				buff[in] = m;
+				in = increment(in);
+				nbMsgTotalPut++;
+				if (Options.ECHO_PUT)
+					System.out.println("> put : nfree = " + nfree() + " et nmsg = " + nmsg() + " (total = "
+							+ (nfree() + nmsg()) + ")");
+				notifyAll();
 			}
-		}
 
-		nfree--;
-		buff[in] = m;
-		in = increment(in);
-		nbMsgTotalPut++;
-		if (Options.ECHO_PUT)
-			System.out.println(
-					"> put : nfree = " + nfree() + " et nmsg = " + nmsg() + " (total = " + (nfree() + nmsg()) + ")");
-		notifyAll();
+			sPut.release();
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
 	}
 
 	@Override
-	synchronized public Message get() {
-		while (isEmpty()) {
-			try {
-				wait();
-			} catch (InterruptedException e) {
-				System.out.println("Get wait interrupted");
-				e.printStackTrace();
+	public Message get() {
+		Message m = null;
+		try {
+			sGet.acquire();
+			synchronized (this) {
+				while (isEmpty()) {
+					try {
+						wait();
+					} catch (InterruptedException e) {
+						System.out.println("Get wait interrupted");
+						e.printStackTrace();
+					}
+				}
+				nfree++;
+				m = buff[out];
+				out = increment(out);
+				nbMsgTotalGet++;
+				if (Options.ECHO_GET)
+					System.out.println("< get : nfree = " + nfree() + " et nmsg = " + nmsg() + " (total = "
+							+ (nfree() + nmsg()) + ")");
+				notifyAll();
 			}
-		}
 
-		nfree++;
-		Message m = buff[out];
-		out = increment(out);
-		nbMsgTotalGet++;
-		if (Options.ECHO_GET)
-			System.out.println(
-					"< get : nfree = " + nfree() + " et nmsg = " + nmsg() + " (total = " + (nfree() + nmsg()) + ")");
-		notifyAll();
+			sGet.release();
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
 		return m;
 	}
 
@@ -108,8 +131,8 @@ public class ProdConsBuffer implements IProdConsBuffer {
 	public boolean isFull() {
 		return nfree() == 0;
 	}
-
-	/* Inutilisée dans V1 */
+	
+	/* Inutilisée dans V2 */
 	@Override
 	public Message[] get(int n) throws InterruptedException {
 		return null;

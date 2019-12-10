@@ -8,7 +8,7 @@ public class Options {
 
 	public static final boolean ECHO_CONS_READ = false;
 	public static final boolean ECHO_CONS_STARTED = true;
-	public static final boolean ECHO_CONS_INTERRUPTED = true;
+	public static final boolean ECHO_CONS_FINISHED = true;
 	public static final boolean ECHO_CONS_SLEEP = false;
 	public static final boolean ECHO_ALL_CONS_INTERRUPTED = true;
 

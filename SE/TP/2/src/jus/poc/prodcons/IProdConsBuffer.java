@@ -22,5 +22,10 @@ public interface IProdConsBuffer {
 	 * creation
 	 **/
 	public int totmsg();
+	
+	/**
+	* Retrieve n consecutive messages from the prodcons buffer
+	**/
+	public Message[] get(int n) throws InterruptedException;
 
 }
