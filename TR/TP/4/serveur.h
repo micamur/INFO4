@@ -1,56 +1,76 @@
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
+#include "shared.h"
 
-#include <sys/signal.h>
-#include <sys/wait.h>
-#include <sys/socket.h>
-
-// #include <arpa/inet.h>
-// #include <netdb.h>
-#include <unistd.h>
-#include <netinet/in.h>
-
-#define SERVICE_DEFAUT "1111"
-#define NMAX_CLIENTS 10
-#define NB_CNX_WAIT 10
-#define REQ_SIZE 128
-
+// Structure d'un client
 typedef struct {
-  char* pseudo;
-  char** messages;
-  char** abonnements;
-  int socket;
   struct sockaddr *adresse;
+  char *pseudo;
+  int socket;
+
+  char **messages;
+  int nb_messages;
+  int size_messages;
+
+  char **abonnements;
+  int nb_abonnements;
+  int size_abonnements;
+
+  char **abonnes;
+  int nb_abonnes;
+  int size_abonnes;
 } Client;
 
-/*initialise le tableau already_found de bool qui permet de savoir quelle pion
- * ont déjà été compté comme au bon endroit ou comme au mauvais endroit*/
-void init_bool(int n, bool *already_found);
+/* FONCTIONS ******************************************************************/
 
-/*création du paquet à envoyer contenant le nombre de pion au bon endroit et au
- * mauvais endroit*/
-void package_to_send(int nb_B, int nb_M, char *msg_send);
-
-/*création du paquet à envoyer quand le joueur à gagné*/
-void package_to_send_WIN(int nb_try, char *msg_send);
-
-/*initialise la structure de jeu*/
-void *init_game(int n);
-
-/*gere la réponse du joueur et la compare avec la bonne réponse et renvoie les
- * paquets de réponses*/
-void process(void *G, char *msg_receive, int socket_client);
-
-/* programme serveur */
+// Procédure correspondant au traitement du serveur de l'application
 void serveur_appli(char *service);
 
-/*vérification arguments*/
-void check_arguments(int argc);
+// Permet de passer un nombre de paramètres variable à l'exécutable
+void check_arguments(int argc, char *argv[], char *service);
 
-int get_client_id_from_socket(Client clients, int client_socket);
+// Initialise les clients
+void init_clients();
 
-/*choix de l'utilisateur*/
-void user_choice(char choice, Client client);
+// Ajoute un client à la liste
+void add_client(fd_set set, fd_set setbis);
+
+// Renvoie l'indice d'un client par rapport à son numéro de socket
+int get_client_id_from_socket(int client_socket);
+
+// Renvoie l'indice d'un client par rapport à son pseudo
+int get_client_id_from_pseudo(char pseudo[LG_PSEUDO]);
+
+// Renvoie l'indice du pseudo existe déjà dans la liste d'abonnements du client
+int find_pseudo_in_subscriptions(Client client, char pseudo[LG_PSEUDO]);
+
+// Renvoie l'indice du pseudo existe déjà dans la liste des abonnés du client
+int find_pseudo_in_followers(Client client, char pseudo[LG_PSEUDO]);
+
+// Parse le choix utilisateur et appelle la fonction correspondante
+void parse_user_choice(char *choice, Client client);
+
+// Subscribe : s’abonner à un compte en donnant le nom d’un pseudo
+void subscribe(Client client, char *pseudo);
+
+// Enlève param dans la liste des abonnements du client
+void add_abonnement(Client client, Client param);
+
+// Enlève le client dans la liste des abonnés de param
+void add_abonne(Client client, Client param);
+
+// Unsubscribe : se désabonner d'un compte
+void unsubscribe(Client client, char *pseudo);
+
+// Enlève param dans la liste des abonnements du client
+void remove_abonnement(Client client, Client param);
+
+// Enlève le client dans la liste des abonnés de param
+void remove_abonne(Client client, Client param);
+
+// List : lister tous les pseudos auxquels il est abonné
+void list(Client client);
+
+// Post : publier un message < 20 caractères à ses abonnés
+void post(Client client, char *msg);
+
+// Quit : quitter l’application
+void quit(Client client);

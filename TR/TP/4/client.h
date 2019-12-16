@@ -1,23 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "shared.h"
 
-#include <sys/signal.h>
-#include <sys/wait.h>
-#include <sys/socket.h>
-#include <sys/types.h>
+/* DÉFINITIONS ****************************************************************/
 
-// #include <arpa/inet.h>
-// #include <netdb.h>
-#include <unistd.h>
-#include <netinet/in.h>
-
-// #include "fon.h" /* primitives de la boite a outils */
-
-#define SERVICE_DEFAUT "1111"
-#define SERVEUR_DEFAUT "127.0.0.1"
-
-// Définitions de couleurs pour l'affichage
+// Couleurs
 #define RED "\033[38;5;196m"
 #define GREEN "\033[38;5;82m"
 #define YELLOW "\033[38;5;226m"
@@ -26,12 +11,8 @@
 #define WHITE "\033[38;5;255m"
 #define PURPLE "\033[38;5;105m"
 #define ORANGE "\033[38;5;202m"
-
 #define RESET "\033[0m"
 
-#define N 8
-
-// Définition de fonctions pour l'affichage
 // Vide l'écran
 #define clear() printf("\033[H\033[J")
 
@@ -44,10 +25,28 @@
 // Déplace le curseur a la ligne précédente
 #define gotoprevline(n) printf("\033[%dA", (n))
 
+/* FONCTIONS ******************************************************************/
+
+// Procédure correspondant au traitement d'un client de l'application
 void client_appli(char *serveur, char *service);
 
+// Permet de passer un nombre de paramètres variable à l'exécutable
+void check_arguments(int argc, char *argv[], char *serveur, char *service);
+
 // Parse le choix utilisateur et appelle la fonction correspondante
-void user_choice(char c);
+void parse_user_choice(char c);
+
+// Définit le pseudo choisi par l'utilisateur
+void choose_pseudo(char pseudo[LG_PSEUDO]);
+
+// Boucle tant que le pseudo choisi n'est pas de la bonne longueur
+void loop_pseudo_length(char pseudo[LG_PSEUDO]);
+
+// Renvoie true si le pseudo est disponible
+bool check_pseudo_availability(char pseudo[LG_PSEUDO]);
+
+// Boucle tant que le message choisi n'est pas de la bonne longueur
+void loop_message_length(char message[LG_MESSAGE]);
 
 // Subscribe : s’abonner à un compte en donnant le nom d’un pseudo
 void subscribe();
@@ -63,3 +62,6 @@ void post();
 
 // Quit : quitter l’application
 void quit();
+
+// Help : aide de l’application, liste des commandes
+void help();
