@@ -19,28 +19,28 @@ void close_both(int fd[2]) {
 // Duplicate STDIN
 void dup2IN(int fd[2]) {
   close(fd[1]);
-  dup2(fd[0], STDIN_FILENO);
+  dup2(fd[0], 0); // stdin
   close_both(fd);
 }
 
 // Duplicate STDOUT
 void dup2OUT(int fd[2]) {
   close(fd[0]);
-  dup2(fd[1], STDOUT_FILENO);
+  dup2(fd[1], 1); // stdout
   close_both(fd);
 }
 
 // Redirect STDIN (<)
 void redirectIN(struct cmdline *l) {
   int in = open(l->in, O_RDONLY);
-  dup2(in, STDIN_FILENO);
+  dup2(in, 0); // stdin
   close(in);
 }
 
 // Redirect STDOUT (>)
 void redirectOUT(struct cmdline *l) {
   int out = open(l->out, O_WRONLY | O_CREAT | O_TRUNC, 0666);
-  dup2(out, STDOUT_FILENO);
+  dup2(out, 1); // stdout
   close(out);
 }
 
@@ -113,7 +113,7 @@ int main() {
 
         /* Père */
         if (pid != 0) {
-          // pas première commande
+          // on saute la première commande
           if (cmdCur > 0) {
             // on ferme le pipe precedent
             close_both(fd[cmdCur - 1]);
