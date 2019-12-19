@@ -1,3 +1,21 @@
-ls > txt
-wc < txt
-ls | wc
+ls                      # OK commande simple
+ls > in                 # OK commande simple >
+wc < in                 # OK commande simple <
+wc < in > out           # OK commande simple < >
+
+ls | wc                 # OK pipe simple
+ls | wc > in            # OK pipe simple >
+ls | wc < in            # KO pipe simple <
+ls | wc < in > out      # KO pipe simple < >
+
+ls | wc | wc            # OK pipe multiple
+ls | wc | wc > in       # OK pipe multiple >
+ls | wc | wc < in       # KO pipe multiple <
+ls | wc | wc < in > out # KO pipe multiple < >
+
+sleep 5 | echo toto     # OK sleep puis commande
+echo toto | sleep 5     # OK commande puis sleep
+
+# ... | wc < ... se comporte comme ... | wc
+# Il faudrait combiner les deux entrées plutôt que d'en sélectionner qu'une,
+# mais on ne sait pas comment faire.
