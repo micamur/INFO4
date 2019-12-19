@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
   if (connect(client_socket, (struct sockaddr *)&serveur_adresse,
               sizeof(struct sockaddr_in)) != 0) {
     fprintf(stderr, "Erreur connexion avec serveur\n");
-    exit(0);
+    exit(-1);
   }
   printf("Succès connection avec serveur (client %d)\n", client_socket);
 
@@ -68,7 +68,7 @@ void check_arguments(int argc, char *argv[], char *serveur, char *service) {
   // mauvais nombre d'arguments
   default:
     printf("Usage : ./client serveur(nom ou @IP) service(nom ou port)\n");
-    exit(1);
+    exit(-1);
   }
 }
 
