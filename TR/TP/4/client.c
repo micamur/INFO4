@@ -78,6 +78,7 @@ void check_arguments(int argc, char *argv[], char *serveur, char *service) {
 void client_appli(char *serveur, char *service) {
   // Sélection du pseudo utilisateur
   choose_pseudo(pseudo);
+  help();
 
   // Demande du client envoyée au serveur
   char user_choice;
@@ -130,20 +131,20 @@ void loop_message_length(char message[LG_MESSAGE]) {
 
 // TODO recevoir messages non lus
 void parse_user_choice(char choice) {
-  switch (choice) {
-  case 'S':
+  switch (toupper(choice)) {
+  case SUBSCRIBE:
     subscribe();
     break;
-  case 'U':
+  case UNSUBSCRIBE:
     unsubscribe();
     break;
-  case 'L':
+  case LIST:
     list();
     break;
-  case 'P':
+  case POST:
     post();
     break;
-  case 'Q':
+  case QUIT:
     quit();
     break;
   // case 'R':
@@ -157,8 +158,9 @@ void parse_user_choice(char choice) {
 
 // TODO réponse côté serveur + affichage réponse
 void subscribe() {
-  printf("S = subscribe\n");
+  printf("%c = subscribe\n", SUBSCRIBE);
 
+  printf("À qui souhaitez-vous vous abonner ?\n");
   char param[LG_PSEUDO];
   choose_pseudo(param);
 
@@ -175,8 +177,9 @@ void subscribe() {
 
 // TODO réponse côté serveur + affichage réponse
 void unsubscribe() {
-  printf("U = unsubscribe\n");
+  printf("%c = unsubscribe\n", UNSUBSCRIBE);
 
+  printf("De qui souhaitez-vous vous désabonner ?\n");
   char param[LG_PSEUDO];
   choose_pseudo(param);
 
@@ -193,7 +196,7 @@ void unsubscribe() {
 
 // TODO réponse côté serveur + affichage réponse
 void list() {
-  printf("L = list\n");
+  printf("%c = list\n", LIST);
 
   write(client_socket, "L", 1);
 
@@ -205,7 +208,7 @@ void list() {
 
 // TODO réponse côté serveur + affichage réponse
 void post() {
-  printf("P = post\n");
+  printf("%c = post\n", POST);
 
   char message[LG_MESSAGE];
   loop_message_length(message);
@@ -223,7 +226,7 @@ void post() {
 
 // TODO réponse côté serveur + affichage réponse
 void quit() {
-  printf("Q = quit\n");
+  printf("%c = quit\n", QUIT);
 
   write(client_socket, "Q", 1);
 
@@ -237,5 +240,6 @@ void quit() {
 
 void help() {
   printf("Usage :\n");
-  printf("S = subscribe\nU = unsubscribe\nL = list\nP = post\nQ = quit\n");
+  printf("%c = subscribe\n%c = unsubscribe\n%c = list\n%c = post\n%c = quit\n",
+         SUBSCRIBE, UNSUBSCRIBE, LIST, POST, QUIT);
 }
