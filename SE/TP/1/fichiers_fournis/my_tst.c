@@ -39,7 +39,7 @@ void redirectIN(struct cmdline *l) {
 
 // Redirect STDOUT (>)
 void redirectOUT(struct cmdline *l) {
-  int out = open(l->out, O_WRONLY | O_CREAT, 777);
+  int out = open(l->out, O_WRONLY | O_CREAT | O_TRUNC, 0666);
   dup2(out, STDOUT_FILENO);
   close(out);
 }
