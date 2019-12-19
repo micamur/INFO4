@@ -125,23 +125,23 @@ int main() {
 
       /* Fils */
       if (pid == 0) {
-        // Premiere commande : on gère la redirection en entrée
-        if (cmdCur == 0) {
-          if (l->in) {
-            redirectIN(l);
-          }
-          // sinon on prepare la sortie de cette commande
-          // pour la mettre en entrée de la prochaine commande
-        } else {
+        // Redirection en entrée
+        if (l->in) {
+          redirectIN(l);
+        }
+        // Toutes les commandes sauf la première :
+        // on récupère la sortie précédente dans l'entrée courante
+        if (cmdCur != 0) {
           dup2IN(fd[cmdCur - 1]);
         }
 
-        // Dernière commande : on gère la redirection en sortie
-        if (isLastCmd(cmdCur, nbCommands)) {
-          if (l->out) {
-            redirectOUT(l);
-          }
-        } else {
+        // Redirection de la sortie
+        if (l->out) {
+          redirectOUT(l);
+        }
+        // Toutes les commandes sauf la dernière :
+        // on récupère la sortie courante dans l'entrée
+        if (!isLastCmd(cmdCur, nbCommands)) {
           dup2OUT(fd[cmdCur]);
         }
 
