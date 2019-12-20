@@ -56,12 +56,8 @@ void check_arguments(int argc, char *argv[], char *service) {
 void serveur_appli(char *service) {
   struct sockaddr_in serveur_adresse; // adresse IP du serveur
   fd_set set;                         // liste des sockets prêts à lire
-  fd_set setbis;                      // liste des sockets par défaut
   int socket_max;                     // numéro maximum de socket
   char buffer[REQ_SIZE];              // buffer des messages reçus
-
-  // Initialisation sockets clients à lire
-  FD_ZERO(&setbis);
 
   // Itinitialisation du nombre maximum de sockets
   socket_max = getdtablesize();
@@ -91,36 +87,28 @@ void serveur_appli(char *service) {
 
   // On arrive à cet endroit du programme lorsque le serveur à reçu une demande
   // On accepte la demande sur la socket initialement créée
-  clients = malloc(sizeof(clients) * NMAX_CLIENTS);
-  socklen_t longueur = sizeof(struct sockaddr *);
-
-  // Initialisation de la socket du client
-  int client_socket = accept(serveur_socket, clients[0].adresse, &longueur);
-  if (client_socket < 0) {
-    fprintf(stderr, "Échec accept\n");
-    exit(-1);
-  } else {
-    // Ajout du client à la liste des sockets écoutées
-    FD_SET(client_socket, &setbis);
-    // Initialisation du socket dans la liste des clients
-    clients[0].socket = client_socket;
-    fprintf(stderr, "Succès accept client %d\n", client_socket);
-  }
-
-  // Initialisation des sets
-  bcopy((char *)&setbis, (char *)&set, sizeof(setbis));
+  init_clients();
 
   while (true) {
-    int res = select(socket_max, &set, 0, 0, 0);
+    // Initialisation de l'ensemble des sockets à écouter
+    FD_ZERO(&set);
+    FD_SET(serveur_socket, &set); // serveur
+    for (int i = 0; i < NMAX_CLIENTS; i++) {
+      if (clients[i].socket != -1) {
+        FD_SET(clients[i].socket, &set); // client
+      }
+    }
 
-    if (res <= 0) {
+    // Sélection
+    if (select(socket_max, &set, 0, 0, 0) <= 0) {
       fprintf(stderr, "Échec select\n");
       exit(0);
     }
 
     // Si le serveur est prêt c'est qu'un nouveau client veut communiquer
-    if (FD_ISSET(serveur_socket, &set))
-      add_client(set, setbis);
+    if (FD_ISSET(serveur_socket, &set)) {
+      add_client(set);
+    }
 
     // Si un client veut communiquer il veut effectuer une action
     for (int i = 0; i < NMAX_CLIENTS; i++) {
@@ -131,9 +119,6 @@ void serveur_appli(char *service) {
         parse_user_choice(buffer, clients[i]);
       }
     }
-
-    // Réinitialisation du set
-    bcopy((char *)&set, (char *)&setbis, sizeof(set));
   }
 }
 
@@ -150,18 +135,19 @@ void init_clients() {
     clients[i].messages = malloc(clients[i].size_messages * sizeof(char **));
 
     clients[i].nb_abonnements = 0;
-    clients[i].size_abonnements = NB_MESSAGES_DEFAULT;
-    clients[i].abonnements = malloc(clients[i].size_messages * sizeof(char **));
+    clients[i].size_abonnements = NB_ABONNEMENTS_DEFAULT;
+    clients[i].abonnements =
+        malloc(clients[i].size_abonnements * sizeof(char **));
 
     clients[i].nb_abonnes = 0;
-    clients[i].size_abonnes = NB_MESSAGES_DEFAULT;
-    clients[i].abonnes = malloc(clients[i].size_messages * sizeof(char **));
+    clients[i].size_abonnes = NB_ABONNES_DEFAULT;
+    clients[i].abonnes = malloc(clients[i].size_abonnes * sizeof(char **));
   }
 }
 
 // TODO récupérer pseudo et vérifier s'il existe dans la base d'utilisateurs
 // TODO réponse au client
-void add_client(fd_set set, fd_set setbis) {
+void add_client() {
   socklen_t longueur = sizeof(struct sockaddr *);
   struct sockaddr *client_adresse = NULL;
 
@@ -173,20 +159,22 @@ void add_client(fd_set set, fd_set setbis) {
   }
 
   // Si le pseudo n'existe pas
-  int client_id = get_client_id_from_pseudo("TODO");
+  char login[LG_PSEUDO + 1];
+  read(client_socket, login, LG_PSEUDO + 1);
+  // printf("%s\n",login );
+  int client_id = get_client_id_from_pseudo(login);
   if (client_id == -1) {
     fprintf(stderr, "%s n'existe pas dans la base d'utilisateurs\n", "TODO");
-    exit(-1);
+    write(client_socket, REPONSE_FALSE, 1);
+  } else {
+    write(client_socket, REPONSE_TRUE, 1);
+
+    // Initialisation de la socket dans la liste des clients
+    clients[client_id].socket = client_socket;
+    clients[client_id].adresse = client_adresse;
+
+    fprintf(stderr, "Succès accept client %d\n", client_socket);
   }
-
-  // Ajout du client à la liste des sockets écoutées
-  FD_SET(client_socket, &setbis);
-
-  // Initialisation du socket dans la liste des clients
-  clients[client_id].socket = client_socket;
-  clients[client_id].adresse = client_adresse;
-
-  fprintf(stderr, "Succès accept client %d\n", client_socket);
 }
 
 /* RECHERCHE D'IDENTIFIANT ****************************************************/

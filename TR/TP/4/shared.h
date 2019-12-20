@@ -27,8 +27,8 @@
 #define LG_PSEUDO 6
 #define LG_MESSAGE 20
 #define LG_RES 1
-#define REPONSE_TRUE '1'
-#define REPONSE_FALSE '0'
+#define REPONSE_TRUE "1"
+#define REPONSE_FALSE "0"
 #define REQ_SIZE 128
 
 // Commandes

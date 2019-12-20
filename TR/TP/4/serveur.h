@@ -3,7 +3,7 @@
 // Structure d'un client
 typedef struct {
   struct sockaddr *adresse;
-  char *pseudo;
+  char pseudo[LG_PSEUDO];
   int socket;
 
   char **messages;
@@ -31,7 +31,7 @@ void check_arguments(int argc, char *argv[], char *service);
 void init_clients();
 
 // Ajoute un client à la liste
-void add_client(fd_set set, fd_set setbis);
+void add_client();
 
 // Renvoie l'indice d'un client par rapport à son numéro de socket
 int get_client_id_from_socket(int client_socket);

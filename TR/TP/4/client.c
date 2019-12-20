@@ -93,10 +93,10 @@ void client_appli(char *serveur, char *service) {
 /* INPUT : PSEUDO ET MESSAGE **************************************************/
 
 void choose_pseudo(char pseudo[LG_PSEUDO]) {
-  bool pseudo_available = false;
-  while (!pseudo_available) {
-    loop_pseudo_length(pseudo);
-    pseudo_available = check_pseudo_availability(pseudo);
+  loop_pseudo_length(pseudo);
+  if (!check_pseudo_availability(pseudo)) {
+    printf("Pseudo indisponible\n");
+    exit(-1);
   }
 }
 
@@ -109,15 +109,15 @@ void loop_pseudo_length(char pseudo[LG_PSEUDO]) {
 
 // TODO réponse côté serveur
 bool check_pseudo_availability(char pseudo[LG_PSEUDO]) {
-  // char requete[1 + LG_PSEUDO];
-  // sprintf(requete, "C%s", pseudo);
-  // write(client_socket, requete, 1 + LG_PSEUDO);
-  // char reponse[1];
-  // read(client_socket, reponse, LG_RES);
-  // if (reponse[0] == REPONSE_FALSE) {
-  //   printf("Pseudo indisponible, veuillez en entrer un nouveau\n");
-  //   return false;
-  // }
+  char requete[LG_PSEUDO + 1];
+  sprintf(requete, "%s", pseudo);
+  write(client_socket, requete, LG_PSEUDO + 1);
+  char reponse[1];
+  read(client_socket, reponse, LG_RES);
+  if (reponse[0] == REPONSE_FALSE[0]) {
+    // printf("Pseudo indisponible, veuillez en entrer un nouveau\n");
+    return false;
+  }
   return true;
 }
 
