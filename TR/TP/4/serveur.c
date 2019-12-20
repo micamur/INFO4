@@ -7,7 +7,7 @@ l'exécution du programme. La passer en paramètre alourdirait les appels de
 fonction inutilement.
 */
 int serveur_socket = 0;
-Client *clients; // tableau de tous les clients (taille NMAX_CLIENTS)
+Client *clients; // tableau de tous les clients (de taille NMAX_CLIENTS)
 
 /* DÉMARRAGE DU SERVEUR *******************************************************/
 
@@ -40,6 +40,7 @@ void check_arguments(int argc, char *argv[], char *service) {
   // service renseigné
   case 2:
     service = argv[1];
+    printf("Service : %s\n", service);
     break;
   // mauvais nombre d'arguments
   default:
@@ -141,7 +142,7 @@ void init_clients() {
   clients = malloc(sizeof(clients) * NMAX_CLIENTS);
   for (int i = 0; i < NMAX_CLIENTS; i++) {
     clients[i].adresse = NULL;
-    sprintf(clients[i].pseudo, "azeaz%d", i);
+    sprintf(clients[i].pseudo, "user_%d", i);
     clients[i].socket = -1;
 
     clients[i].nb_messages = 0;
@@ -323,7 +324,7 @@ void unsubscribe(Client client, char *pseudo) {
   // // On enlève l'abonnement de client dans pseudo
   // remove_abonne(client, param);
 
-  write(client.socket, "unsubscribe ok", 14);
+  write(client.socket, "U ok", 4);
 }
 
 void remove_abonnement(Client client, Client param) {
@@ -370,7 +371,7 @@ void list(Client client) {
   //   printf("%s\n", client.abonnements[i]);
   // }
 
-  write(client.socket, "list ok", 7);
+  write(client.socket, "L ok", 4);
 }
 
 // TODO réponse au client
@@ -387,14 +388,14 @@ void post(Client client, char *msg) {
   // // On ajoute un message à la liste des messages du client
   // client.messages[client.nb_messages++] = msg;
 
-  write(client.socket, "post ok", 7);
+  write(client.socket, "P ok", 4);
 }
 
 // TODO réponse au client
 void quit(Client client) {
   printf("Q = quit\n");
+  write(client.socket, "Q ok", 4);
 
-  write(client.socket, "quit ok", 8);
 
   close(client.socket);
 }

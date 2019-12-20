@@ -30,3 +30,11 @@
 #define REPONSE_TRUE '1'
 #define REPONSE_FALSE '0'
 #define REQ_SIZE 128
+
+// Commandes
+#define SUBSCRIBE 'S'
+#define UNSUBSCRIBE 'U'
+#define LIST 'L'
+#define POST 'P'
+#define QUIT 'Q'
+#define GET 'G'
