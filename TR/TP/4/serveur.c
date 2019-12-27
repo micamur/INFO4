@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "Échec création socket serveur\n");
     exit(-1);
   } else {
-    printf("Succès création socket serveur : %d\n", serveur_socket);
+    printf("Succès création serveur (socket %d)\n", serveur_socket);
   }
 
   // Démarrage de l'application serveur
@@ -59,7 +59,7 @@ void serveur_appli(char *service) {
   int socket_max;                     // numéro maximum de socket
   char buffer[REQ_SIZE];              // buffer des messages reçus
 
-  // Itinitialisation du nombre maximum de sockets
+  // Initialisation du nombre maximum de sockets
   socket_max = getdtablesize();
 
   // Initialisation de l'adresse du serveur
@@ -132,16 +132,16 @@ void init_clients() {
 
     clients[i].nb_messages = 0;
     clients[i].size_messages = NB_MESSAGES_DEFAULT;
-    clients[i].messages = malloc(clients[i].size_messages * sizeof(char **));
+    clients[i].messages = malloc(clients[i].size_messages * sizeof(char *));
 
     clients[i].nb_abonnements = 0;
     clients[i].size_abonnements = NB_ABONNEMENTS_DEFAULT;
     clients[i].abonnements =
-        malloc(clients[i].size_abonnements * sizeof(char **));
+        malloc(clients[i].size_abonnements * sizeof(char *));
 
     clients[i].nb_abonnes = 0;
     clients[i].size_abonnes = NB_ABONNES_DEFAULT;
-    clients[i].abonnes = malloc(clients[i].size_abonnes * sizeof(char **));
+    clients[i].abonnes = malloc(clients[i].size_abonnes * sizeof(char *));
   }
 }
 
@@ -173,7 +173,7 @@ void add_client() {
     clients[client_id].socket = client_socket;
     clients[client_id].adresse = client_adresse;
 
-    fprintf(stderr, "Succès accept client %d\n", client_socket);
+    fprintf(stderr, "Succès accept client (socket %d)\n", client_socket);
   }
 }
 
@@ -238,7 +238,6 @@ void parse_user_choice(char *choice, Client client) {
 // TODO réponse au client
 // TODO erreur quand le client fournit le pseudo
 void subscribe(Client client, char *pseudo) {
-  printf("S = subscribe\n");
 
   // int id_abonnement = get_client_id_from_pseudo(pseudo);
   //
@@ -264,7 +263,6 @@ void subscribe(Client client, char *pseudo) {
   // // On ajoute un pseudo à la liste des abonnements du client
   // client.abonnements[client.nb_abonnements++] = pseudo;
 
-  write(client.socket, "subscribe ok", 12);
 }
 
 void add_abonnement(Client client, Client param) {
@@ -294,8 +292,6 @@ void add_abonne(Client client, Client param) {
 // TODO réponse au client
 // TODO erreur quand le client fournit le pseudo
 void unsubscribe(Client client, char *pseudo) {
-  printf("U = unsubscribe\n");
-
   // int id_pseudo_global = get_client_id_from_pseudo(pseudo);
   //
   // // Le pseudo donné en argument n'existe pas dans la liste des clients
@@ -311,8 +307,6 @@ void unsubscribe(Client client, char *pseudo) {
   //
   // // On enlève l'abonnement de client dans pseudo
   // remove_abonne(client, param);
-
-  write(client.socket, "U ok", 4);
 }
 
 void remove_abonnement(Client client, Client param) {
@@ -352,20 +346,14 @@ void remove_abonne(Client client, Client param) {
 
 // TODO réponse au client
 void list(Client client) {
-  printf("L = list\n");
-
   // printf("Abonnements de %s :\n", client.pseudo);
   // for (int i = 0; i < client.nb_abonnements; i++) {
   //   printf("%s\n", client.abonnements[i]);
   // }
-
-  write(client.socket, "L ok", 4);
 }
 
 // TODO réponse au client
 void post(Client client, char *msg) {
-  printf("P = post\n");
-
   // // Si la liste de messages est pleine on double sa taille
   // if (client.nb_messages == client.size_messages) {
   //   client.size_messages *= 2;
@@ -375,14 +363,10 @@ void post(Client client, char *msg) {
   //
   // // On ajoute un message à la liste des messages du client
   // client.messages[client.nb_messages++] = msg;
-
-  write(client.socket, "P ok", 4);
 }
 
 // TODO réponse au client
 void quit(Client client) {
-  printf("Q = quit\n");
-  write(client.socket, "Q ok", 4);
 
 
   close(client.socket);

@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "Erreur connexion avec serveur\n");
     exit(-1);
   }
-  printf("Succès connection avec serveur (client %d)\n", client_socket);
+  printf("Succès connection avec serveur (socket %d)\n", client_socket);
 
   // Démarrage de l'application client
   client_appli(serveur, service);
@@ -159,8 +159,6 @@ void parse_user_choice(char choice) {
 
 // TODO réponse côté serveur + affichage réponse
 void subscribe() {
-  printf("%c = subscribe\n", SUBSCRIBE);
-
   printf("À qui souhaitez-vous vous abonner ?\n");
   char param[LG_PSEUDO];
   choose_pseudo(param);
@@ -172,14 +170,11 @@ void subscribe() {
 
   // Affichage de la réponse du serveur
   char reponse[strlen("subscribe ok") + 1];
-  read(client_socket, reponse, strlen("subscribe ok"));
   printf("%s\n", reponse);
 }
 
 // TODO réponse côté serveur + affichage réponse
 void unsubscribe() {
-  printf("%c = unsubscribe\n", UNSUBSCRIBE);
-
   printf("De qui souhaitez-vous vous désabonner ?\n");
   char param[LG_PSEUDO];
   choose_pseudo(param);
@@ -191,26 +186,20 @@ void unsubscribe() {
 
   // Affichage de la réponse du serveur
   char reponse[strlen("unsubscribe ok") + 1];
-  read(client_socket, reponse, strlen("unsubscribe ok"));
   printf("%s\n", reponse);
 }
 
 // TODO réponse côté serveur + affichage réponse
 void list() {
-  printf("%c = list\n", LIST);
-
   write(client_socket, "L", 1);
 
   // TODO Boucle while qui lit des pseudos de 6 caractères jusqu'à lire NULL
   char reponse[strlen("list ok") + 1];
-  read(client_socket, reponse, strlen("list ok"));
   printf("%s\n", reponse);
 }
 
 // TODO réponse côté serveur + affichage réponse
 void post() {
-  printf("%c = post\n", POST);
-
   char message[LG_MESSAGE];
   loop_message_length(message);
 
@@ -221,19 +210,15 @@ void post() {
 
   // Affichage de la réponse du serveur
   char reponse[strlen("post ok") + 1];
-  read(client_socket, reponse, strlen("post ok"));
   printf("%s\n", reponse);
 }
 
 // TODO réponse côté serveur + affichage réponse
 void quit() {
-  printf("%c = quit\n", QUIT);
-
   write(client_socket, "Q", 1);
 
   // Affichage de la réponse du serveur
   char reponse[strlen("quit ok") + 1];
-  read(client_socket, reponse, strlen("quit ok"));
   printf("%s\n", reponse);
 
   close(client_socket);
