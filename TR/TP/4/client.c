@@ -128,6 +128,33 @@ void loop_message_length(char message[LG_MESSAGE]) {
   } while (strlen(message) > LG_MESSAGE);
 }
 
+/* PAQUETS ********************************************************************/
+
+// Envoie une requête au serveur : caractère de la commande + message
+void write_request(char command, char *param) {
+  int req_size = 1 + strlen(param);
+  char request[req_size];
+  sprintf(request, "%c%s", command, param);
+  if (write(client_socket, request, req_size) < 0) {
+    fprintf(stderr, "Erreur d'écriture\n");
+    exit(-1);
+  }
+}
+
+// Lit et affiche la réponse du serveur pour la liste et les messages reçus
+void read_answer() {
+  char buffer[REQ_SIZE];
+  bzero(buffer, REQ_SIZE);
+  int size = read(client_socket, buffer, REQ_SIZE);
+  if (size < 0) {
+    fprintf(stderr, "Erreur de lecture\n");
+    exit(-1);
+  }
+
+  // char command = buffer[0];
+  printf("%s", buffer);
+}
+
 /* CHOIX DE L'UTILISATEUR *****************************************************/
 
 // TODO recevoir messages non lus
@@ -157,20 +184,13 @@ void parse_user_choice(char choice) {
   }
 }
 
-// TODO réponse côté serveur + affichage réponse
 void subscribe() {
   printf("À qui souhaitez-vous vous abonner ?\n");
   char param[LG_PSEUDO];
-  choose_pseudo(param);
-
-  char requete[1 + LG_PSEUDO];
-  sprintf(requete, "S%s", param);
-
-  write(client_socket, requete, 1 + LG_PSEUDO);
-
-  // Affichage de la réponse du serveur
-  char reponse[strlen("subscribe ok") + 1];
-  printf("%s\n", reponse);
+  loop_pseudo_length(param);
+  write_request(SUBSCRIBE, param);
+  printf("Abonnement : ");
+  read_answer();
 }
 
 // TODO réponse côté serveur + affichage réponse
@@ -191,11 +211,9 @@ void unsubscribe() {
 
 // TODO réponse côté serveur + affichage réponse
 void list() {
-  write(client_socket, "L", 1);
-
-  // TODO Boucle while qui lit des pseudos de 6 caractères jusqu'à lire NULL
-  char reponse[strlen("list ok") + 1];
-  printf("%s\n", reponse);
+  write_request(LIST, "");
+  printf("Abonnements :\n");
+  read_answer();
 }
 
 // TODO réponse côté serveur + affichage réponse
@@ -215,13 +233,7 @@ void post() {
 
 // TODO réponse côté serveur + affichage réponse
 void quit() {
-  write(client_socket, "Q", 1);
-
-  // Affichage de la réponse du serveur
-  char reponse[strlen("quit ok") + 1];
-  printf("%s\n", reponse);
-
-  close(client_socket);
+  write_request(QUIT, "");
 }
 
 void help() {

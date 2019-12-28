@@ -114,17 +114,17 @@ void serveur_appli(char *service) {
     for (int i = 0; i < NMAX_CLIENTS; i++) {
       if (FD_ISSET(clients[i].socket, &set)) {
         // on lit le message reçu et on le met dans buffer
+        memset(buffer, 0, sizeof(buffer));
         read(clients[i].socket, buffer, REQ_SIZE);
         // on choisit une action en fonction du message
-        parse_user_choice(buffer, clients[i]);
+        parse_user_choice(buffer, i);
       }
     }
   }
 }
 
-// TODO à utiliser dans main à la place du malloc
 void init_clients() {
-  clients = malloc(sizeof(clients) * NMAX_CLIENTS);
+  clients = malloc(sizeof(Client) * NMAX_CLIENTS);
   for (int i = 0; i < NMAX_CLIENTS; i++) {
     clients[i].adresse = NULL;
     sprintf(clients[i].pseudo, "user_%d", i);
@@ -207,91 +207,117 @@ int find_pseudo_in_followers(Client client, char pseudo[LG_PSEUDO]) {
   return -1;
 }
 
+/* PAQUETS ********************************************************************/
+
+// Envoie une requête au serveur : caractère de la commande + message
+void write_answer(Client client, char *param) {
+  int req_size = 1 + strlen(param);
+  char request[req_size];
+  sprintf(request, "%s\n", param);
+  if (write(client.socket, request, req_size) < 0) {
+    fprintf(stderr, "Erreur d'écriture\n");
+    exit(-1);
+  }
+}
+
 /* CHOIX DE L'UTILISATEUR *****************************************************/
 
 // TODO envoyer messages non lus
-void parse_user_choice(char *choice, Client client) {
+void parse_user_choice(char *choice, int id_client) {
+  printf("User, choice : %s, %s\n", clients[id_client].pseudo, choice);
   switch (choice[0]) {
   case 'S':
-    subscribe(client, choice + 1);
+    subscribe(id_client, choice + 1);
     break;
   case 'U':
-    unsubscribe(client, choice + 1);
+    unsubscribe(id_client, choice + 1);
     break;
   case 'L':
-    list(client);
+    list(id_client);
     break;
   case 'P':
-    post(client, choice + 1);
+    post(id_client, choice + 1);
     break;
   case 'Q':
-    quit(client);
+    quit(id_client);
     break;
   // case 'R':
   //   unread_messages();
   //   break;
   default:
+    printf("Commande inconnue\n");
     break;
   }
 }
 
 // TODO réponse au client
 // TODO erreur quand le client fournit le pseudo
-void subscribe(Client client, char *pseudo) {
+void subscribe(int id_client, char *pseudo) {
+  int id_abonnement = get_client_id_from_pseudo(pseudo);
+  Client client = clients[id_client];
 
-  // int id_abonnement = get_client_id_from_pseudo(pseudo);
-  //
-  // // Le pseudo donné en argument n'existe pas dans la liste des clients
-  // if (id_abonnement == -1) {
-  //   printf("%s n'existe pas\n", pseudo);
-  //   return;
-  // }
-  //
-  // // Le pseudo donné en paramètre existe déjà dans les abonnements du client
-  // if (find_pseudo_in_subscriptions(client, pseudo) != -1) {
-  //   printf("%s est déjà dans les abonnements de %s\n", pseudo, client.pseudo);
-  //   return;
-  // }
-  //
-  // // Si la liste d'abonnements est pleine on double sa taille
-  // if (client.nb_abonnements == client.size_abonnements) {
-  //   client.size_abonnements *= 2;
-  //   client.abonnements = (char **)realloc(
-  //       client.abonnements, sizeof(char *) * client.size_abonnements);
-  // }
-  //
-  // // On ajoute un pseudo à la liste des abonnements du client
-  // client.abonnements[client.nb_abonnements++] = pseudo;
+  // Le pseudo donné en argument n'existe pas dans la liste des clients
+  if (id_abonnement == -1) {
+    printf("%s n'existe pas\n", pseudo);
+    write_answer(client, "pseudo inexistant");
+  }
 
-}
+  // Le pseudo donné en paramètre est celui du client
+  else if (strcmp(client.pseudo, pseudo) == 0) {
+    printf("%s ne peut s'abonner à lui-même\n", client.pseudo);
+    write_answer(client, "abonnement à soi-même impossible");
+  }
 
-void add_abonnement(Client client, Client param) {
-  // Si la liste d'abonnements est pleine on double sa taille
-  if (client.nb_abonnements == client.size_abonnements) {
-    client.size_abonnements *= 2;
-    client.abonnements = (char **)realloc(
-        client.abonnements, sizeof(char *) * client.size_abonnements);
+  // Le pseudo donné en paramètre existe déjà dans les abonnements du client
+  else if (find_pseudo_in_subscriptions(client, pseudo) != -1) {
+    printf("%s est déjà dans les abonnements de %s\n", pseudo, client.pseudo);
+    write_answer(client, "déjà abonné");
   }
 
   // On ajoute un pseudo à la liste des abonnements du client
-  client.abonnements[client.nb_abonnements++] = param.pseudo;
+  else {
+    add_abonnement(id_client, id_abonnement);
+    printf("%s abonné à %s\n", client.pseudo, pseudo);
+    write_answer(client, "succès");
+  }
 }
 
-void add_abonne(Client client, Client param) {
+// Client est abonné à param
+void add_abonnement(int id_client, int id_param) {
+  // Si la liste d'abonnements est pleine on double sa taille
+  if (clients[id_client].nb_abonnements ==
+      clients[id_client].size_abonnements) {
+    clients[id_client].size_abonnements *= 2;
+    clients[id_client].abonnements =
+        (char **)realloc(clients[id_client].abonnements,
+                         sizeof(char *) * clients[id_client].size_abonnements);
+  }
+
+  // On ajoute un pseudo à la liste des abonnements du client
+  clients[id_client].abonnements[clients[id_client].nb_abonnements++] =
+      clients[id_param].pseudo;
+
+  add_abonne(id_client, id_param);
+}
+
+// Param a comme abonné client
+void add_abonne(int id_client, int id_param) {
   // Si la liste des abonnes est pleine on double sa taille
-  if (param.nb_abonnes == param.size_abonnes) {
-    param.size_abonnes *= 2;
-    param.abonnes =
-        (char **)realloc(param.abonnes, sizeof(char *) * param.size_abonnes);
+  if (clients[id_param].nb_abonnes == clients[id_param].size_abonnes) {
+    clients[id_param].size_abonnes *= 2;
+    clients[id_param].abonnes =
+        (char **)realloc(clients[id_param].abonnes,
+                         sizeof(char *) * clients[id_param].size_abonnes);
   }
 
   // On ajoute le client à la liste des abonnés du param
-  param.abonnes[param.nb_abonnes++] = param.pseudo;
+  clients[id_param].abonnes[clients[id_param].nb_abonnes++] =
+      clients[id_client].pseudo;
 }
 
 // TODO réponse au client
 // TODO erreur quand le client fournit le pseudo
-void unsubscribe(Client client, char *pseudo) {
+void unsubscribe(int id_client, char *pseudo) {
   // int id_pseudo_global = get_client_id_from_pseudo(pseudo);
   //
   // // Le pseudo donné en argument n'existe pas dans la liste des clients
@@ -344,21 +370,34 @@ void remove_abonne(Client client, Client param) {
   param.nb_abonnes--;
 }
 
-// TODO réponse au client
-void list(Client client) {
-  // printf("Abonnements de %s :\n", client.pseudo);
-  // for (int i = 0; i < client.nb_abonnements; i++) {
-  //   printf("%s\n", client.abonnements[i]);
-  // }
+void list(int id_client) {
+  Client client = clients[id_client];
+
+  if (client.nb_abonnements == 0) {
+    printf("Abonnements de %s : aucun\n", client.pseudo);
+    write_answer(client, "aucun");
+  } else {
+    char request[(LG_PSEUDO + 1) * client.nb_abonnements];
+    memset(request, 0, sizeof(request));
+    printf("Abonnements de %s (%d) : \n", client.pseudo, client.nb_abonnements);
+    for (int i = 0; i < client.nb_abonnements; i++) {
+      strcat(request, client.abonnements[i]);
+      strcat(request, "\n");
+    }
+    request[(LG_PSEUDO + 1) * client.nb_abonnements - 1] = '\0';
+    printf("%s\n", request);
+    write_answer(client, request);
+  }
 }
 
 // TODO réponse au client
-void post(Client client, char *msg) {
+void post(int id_client, char *msg) {
   // // Si la liste de messages est pleine on double sa taille
   // if (client.nb_messages == client.size_messages) {
   //   client.size_messages *= 2;
   //   client.messages = (char **)realloc(client.messages,
-  //                                      sizeof(char *) * client.size_messages);
+  //                                      sizeof(char *) *
+  //                                      client.size_messages);
   // }
   //
   // // On ajoute un message à la liste des messages du client
@@ -366,8 +405,12 @@ void post(Client client, char *msg) {
 }
 
 // TODO réponse au client
-void quit(Client client) {
-
-
-  close(client.socket);
+void quit(int id_client) {
+  for (int i = 0; i < NMAX_CLIENTS; i++) {
+    if (clients[i].socket == clients[id_client].socket) {
+      clients[i].socket = -1;
+      clients[i].adresse = NULL;
+      return;
+    }
+  }
 }

@@ -46,19 +46,19 @@ int find_pseudo_in_subscriptions(Client client, char pseudo[LG_PSEUDO]);
 int find_pseudo_in_followers(Client client, char pseudo[LG_PSEUDO]);
 
 // Parse le choix utilisateur et appelle la fonction correspondante
-void parse_user_choice(char *choice, Client client);
+void parse_user_choice(char *choice, int id_client);
 
 // Subscribe : s’abonner à un compte en donnant le nom d’un pseudo
-void subscribe(Client client, char *pseudo);
+void subscribe(int id_client, char *pseudo);
 
 // Enlève param dans la liste des abonnements du client
-void add_abonnement(Client client, Client param);
+void add_abonnement(int id_client, int id_param);
 
 // Enlève le client dans la liste des abonnés de param
-void add_abonne(Client client, Client param);
+void add_abonne(int id_client, int id_param);
 
 // Unsubscribe : se désabonner d'un compte
-void unsubscribe(Client client, char *pseudo);
+void unsubscribe(int id_client, char *pseudo);
 
 // Enlève param dans la liste des abonnements du client
 void remove_abonnement(Client client, Client param);
@@ -67,10 +67,10 @@ void remove_abonnement(Client client, Client param);
 void remove_abonne(Client client, Client param);
 
 // List : lister tous les pseudos auxquels il est abonné
-void list(Client client);
+void list(int id_client);
 
 // Post : publier un message < 20 caractères à ses abonnés
-void post(Client client, char *msg);
+void post(int id_client, char *msg);
 
 // Quit : quitter l’application
-void quit(Client client);
+void quit(int id_client);
