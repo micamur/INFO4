@@ -66,3 +66,6 @@ void quit();
 
 // Help : aide de l’application, liste des commandes
 void help();
+
+// Get : récupère les messages non lus
+void get();

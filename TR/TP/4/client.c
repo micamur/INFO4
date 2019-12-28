@@ -175,9 +175,9 @@ void parse_user_choice(char choice) {
   case QUIT:
     quit();
     break;
-  // case 'R':
-  //   unread_messages();
-  //   break;
+  case GET:
+    get();
+    break;
   default:
     help();
     break;
@@ -212,15 +212,8 @@ void list() {
 void post() {
   char message[LG_MESSAGE];
   loop_message_length(message);
-
-  char requete[1 + LG_MESSAGE];
-  sprintf(requete, "P%s", message);
-
-  write(client_socket, requete, 1 + LG_MESSAGE);
-
-  // Affichage de la réponse du serveur
-  char reponse[strlen("post ok") + 1];
-  printf("%s\n", reponse);
+  write_request(POST, message);
+  read_answer();
 }
 
 // TODO réponse côté serveur + affichage réponse
@@ -232,4 +225,10 @@ void help() {
   printf("Usage :\n");
   printf("%c = subscribe\n%c = unsubscribe\n%c = list\n%c = post\n%c = quit\n",
          SUBSCRIBE, UNSUBSCRIBE, LIST, POST, QUIT);
+}
+
+void get() {
+  write_request(GET, "");
+  printf("Messages reçus :\n");
+  read_answer();
 }
