@@ -193,20 +193,12 @@ void subscribe() {
   read_answer();
 }
 
-// TODO réponse côté serveur + affichage réponse
 void unsubscribe() {
   printf("De qui souhaitez-vous vous désabonner ?\n");
   char param[LG_PSEUDO];
-  choose_pseudo(param);
-
-  char requete[1 + LG_PSEUDO];
-  sprintf(requete, "U%s", param);
-
-  write(client_socket, requete, 1 + LG_PSEUDO);
-
-  // Affichage de la réponse du serveur
-  char reponse[strlen("unsubscribe ok") + 1];
-  printf("%s\n", reponse);
+  loop_pseudo_length(param);
+  write_request(UNSUBSCRIBE, param);
+  read_answer();
 }
 
 // TODO réponse côté serveur + affichage réponse

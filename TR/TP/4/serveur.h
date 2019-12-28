@@ -40,10 +40,10 @@ int get_client_id_from_socket(int client_socket);
 int get_client_id_from_pseudo(char pseudo[LG_PSEUDO]);
 
 // Renvoie l'indice du pseudo existe déjà dans la liste d'abonnements du client
-int find_pseudo_in_subscriptions(Client client, char pseudo[LG_PSEUDO]);
+int id_in_abonnements(int id_client, int id_param);
 
 // Renvoie l'indice du pseudo existe déjà dans la liste des abonnés du client
-int find_pseudo_in_followers(Client client, char pseudo[LG_PSEUDO]);
+int id_in_abonnes(int id_client, int id_param);
 
 // Parse le choix utilisateur et appelle la fonction correspondante
 void parse_user_choice(char *choice, int id_client);
@@ -61,10 +61,10 @@ void add_abonne(int id_client, int id_param);
 void unsubscribe(int id_client, char *pseudo);
 
 // Enlève param dans la liste des abonnements du client
-void remove_abonnement(Client client, Client param);
+int remove_abonnement(int id_client, int id_param);
 
 // Enlève le client dans la liste des abonnés de param
-void remove_abonne(Client client, Client param);
+int remove_abonne(int id_client, int id_param);
 
 // List : lister tous les pseudos auxquels il est abonné
 void list(int id_client);

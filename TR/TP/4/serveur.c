@@ -193,16 +193,17 @@ int get_client_id_from_pseudo(char pseudo[LG_PSEUDO]) {
   return -1;
 }
 
-int find_pseudo_in_subscriptions(Client client, char pseudo[LG_PSEUDO]) {
-  for (int i = 0; i < client.nb_abonnements; i++)
-    if (strcmp(client.abonnements[i], pseudo) == 0)
+int id_in_abonnements(int id_client, int id_param) {
+  for (int i = 0; i < clients[id_client].nb_abonnements; i++)
+    if (strcmp(clients[id_client].abonnements[i], clients[id_param].pseudo) ==
+        0)
       return i;
   return -1;
 }
 
-int find_pseudo_in_followers(Client client, char pseudo[LG_PSEUDO]) {
-  for (int i = 0; i < client.nb_abonnements; i++)
-    if (strcmp(client.abonnes[i], pseudo) == 0)
+int id_in_abonnes(int id_client, int id_param) {
+  for (int i = 0; i < clients[id_param].nb_abonnes; i++)
+    if (strcmp(clients[id_param].abonnes[i], clients[id_client].pseudo) == 0)
       return i;
   return -1;
 }
@@ -269,7 +270,7 @@ void subscribe(int id_client, char *pseudo) {
   }
 
   // Le pseudo donné en paramètre existe déjà dans les abonnements du client
-  else if (find_pseudo_in_subscriptions(client, pseudo) != -1) {
+  else if (id_in_abonnements(id_client, id_abonnement) != -1) {
     printf("%s est déjà dans les abonnements de %s\n", pseudo, client.pseudo);
     write_answer(client, "déjà abonné");
   }
@@ -315,59 +316,73 @@ void add_abonne(int id_client, int id_param) {
       clients[id_client].pseudo;
 }
 
-// TODO réponse au client
-// TODO erreur quand le client fournit le pseudo
 void unsubscribe(int id_client, char *pseudo) {
-  // int id_pseudo_global = get_client_id_from_pseudo(pseudo);
-  //
-  // // Le pseudo donné en argument n'existe pas dans la liste des clients
-  // if (id_pseudo_global == -1) {
-  //   printf("%s n'existe pas\n", pseudo);
-  //   return;
-  // }
-  //
-  // Client param = clients[id_pseudo_global];
-  //
-  // // On enlève l'abonnement à pseudo dans client
-  // remove_abonnement(client, param);
-  //
-  // // On enlève l'abonnement de client dans pseudo
-  // remove_abonne(client, param);
+  int id_desabonnement = get_client_id_from_pseudo(pseudo);
+  Client client = clients[id_client];
+
+  // Le pseudo donné en argument n'existe pas dans la liste des clients
+  if (id_desabonnement == -1) {
+    printf("%s n'existe pas\n", pseudo);
+    write_answer(client, "pseudo inexistant");
+  }
+
+  // Le pseudo donné en paramètre est celui du client
+  else if (strcmp(client.pseudo, pseudo) == 0) {
+    printf("%s ne peut s'abonner à lui-même\n", client.pseudo);
+    write_answer(client, "abonnement à soi-même impossible");
+  }
+
+  // On retire un pseudo à la liste des abonnements du client
+  else {
+    int res = remove_abonnement(id_client, id_desabonnement);
+    if (res == 0) {
+      printf("%s désabonné de %s\n", client.pseudo, pseudo);
+      write_answer(client, "succès");
+    }
+  }
 }
 
-void remove_abonnement(Client client, Client param) {
-  int id_pseudo_in_abonnements =
-      find_pseudo_in_subscriptions(client, param.pseudo);
+int remove_abonnement(int id_client, int id_param) {
+  int id_param_in_abonnements = id_in_abonnements(id_client, id_param);
 
   // Le pseudo donné en paramètre n'existe pas dans les abonnements du client
-  if (id_pseudo_in_abonnements == -1) {
-    printf("%s n'est pas dans les abonnements de %s\n", param.pseudo,
-           client.pseudo);
-    return;
+  if (id_param_in_abonnements == -1) {
+    printf("%s n'est pas dans les abonnements de %s\n",
+           clients[id_param].pseudo, clients[id_client].pseudo);
+    write_answer(clients[id_client], "pseudo inexistant dans les abonnements");
+    return -1;
   }
 
   // On enleve le pseudo de la liste des abonnements
-  for (int i = id_pseudo_in_abonnements; i < client.nb_abonnements; i++) {
-    client.abonnements[i] = client.abonnements[i + 1];
+  for (int i = id_param_in_abonnements; i < clients[id_client].nb_abonnements;
+       i++) {
+    clients[id_client].abonnements[i] = clients[id_client].abonnements[i + 1];
   }
-  client.nb_abonnements--;
+  clients[id_client].nb_abonnements--;
+
+  return remove_abonne(id_client, id_param);
 }
 
-void remove_abonne(Client client, Client param) {
-  int id_client_in_abonnes = find_pseudo_in_subscriptions(param, client.pseudo);
+int remove_abonne(int id_client, int id_param) {
+  int id_client_in_abonnes = id_in_abonnes(id_client, id_param);
 
   // Le pseudo donné en paramètre n'existe pas dans les abonnés du pseudo
   if (id_client_in_abonnes == -1) {
-    printf("%s n'est pas dans les abonnés de %s\n", client.pseudo,
-           param.pseudo);
-    return;
+
+    printf("%s n'est pas dans les abonnés de %s\n", clients[id_client].pseudo,
+           clients[id_param].pseudo);
+    write_answer(clients[id_client], "pseudo inexistant dans les abonnés");
+    return -1;
   }
 
   // On enleve le client de la liste des abonnés
-  for (int i = id_client_in_abonnes; i < client.nb_abonnes; i++) {
-    param.abonnes[i] = param.abonnes[i + 1];
+  for (int i = id_client_in_abonnes; i < clients[id_param].nb_abonnes - 1;
+       i++) {
+    clients[id_param].abonnes[i] = clients[id_param].abonnes[i + 1];
   }
-  param.nb_abonnes--;
+  clients[id_param].nb_abonnes--;
+
+  return 0;
 }
 
 void list(int id_client) {
