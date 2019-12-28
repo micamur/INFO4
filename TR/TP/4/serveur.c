@@ -51,8 +51,6 @@ void check_arguments(int argc, char *argv[], char *service) {
 
 /* TRAITEMENT DU SERVEUR ******************************************************/
 
-// TODO refonte totale du serveur
-// TODO plusieurs clients
 void serveur_appli(char *service) {
   struct sockaddr_in serveur_adresse; // adresse IP du serveur
   fd_set set;                         // liste des sockets prêts à lire
@@ -145,8 +143,6 @@ void init_clients() {
   }
 }
 
-// TODO récupérer pseudo et vérifier s'il existe dans la base d'utilisateurs
-// TODO réponse au client
 void add_client() {
   socklen_t longueur = sizeof(struct sockaddr *);
   struct sockaddr *client_adresse = NULL;
@@ -161,10 +157,9 @@ void add_client() {
   // Si le pseudo n'existe pas
   char login[LG_PSEUDO + 1];
   read(client_socket, login, LG_PSEUDO + 1);
-  // printf("%s\n",login );
   int client_id = get_client_id_from_pseudo(login);
   if (client_id == -1) {
-    fprintf(stderr, "%s n'existe pas dans la base d'utilisateurs\n", "TODO");
+    fprintf(stderr, "%s n'existe pas dans la base d'utilisateurs\n", login);
     write(client_socket, REPONSE_FALSE, 1);
   } else {
     write(client_socket, REPONSE_TRUE, 1);
@@ -223,7 +218,6 @@ void write_answer(Client client, char *param) {
 
 /* CHOIX DE L'UTILISATEUR *****************************************************/
 
-// TODO envoyer messages non lus
 void parse_user_choice(char *choice, int id_client) {
   printf("User, choice : %s, %s\n", clients[id_client].pseudo, choice);
   switch (choice[0]) {
@@ -251,8 +245,6 @@ void parse_user_choice(char *choice, int id_client) {
   }
 }
 
-// TODO réponse au client
-// TODO erreur quand le client fournit le pseudo
 void subscribe(int id_client, char *pseudo) {
   int id_abonnement = get_client_id_from_pseudo(pseudo);
   Client client = clients[id_client];
@@ -419,7 +411,6 @@ void post(int id_client, char *msg) {
   // client.messages[client.nb_messages++] = msg;
 }
 
-// TODO réponse au client
 void quit(int id_client) {
   for (int i = 0; i < NMAX_CLIENTS; i++) {
     if (clients[i].socket == clients[id_client].socket) {

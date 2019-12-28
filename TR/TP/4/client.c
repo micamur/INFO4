@@ -43,8 +43,6 @@ int main(int argc, char *argv[]) {
   client_appli(serveur, service);
 }
 
-// TODO même si le service en paramètre est différent de celui du serveur,
-// le client arrive tout de même à se connecter : est-ce normal ?
 void check_arguments(int argc, char *argv[], char *serveur, char *service) {
   switch (argc) {
   // valeurs par defaut
@@ -74,13 +72,15 @@ void check_arguments(int argc, char *argv[], char *serveur, char *service) {
 
 /* TRAITEMENT DU CLIENT *******************************************************/
 
-// TODO read dans chacune des commandes
 void client_appli(char *serveur, char *service) {
   // Sélection du pseudo utilisateur
   choose_pseudo(pseudo);
-  help();
 
-  // Demande du client envoyée au serveur
+  // Messages de bienvenue
+  help();
+  // TODO vider la boîte de réception (get)
+
+  // Boucle des demandes du client envoyées au serveur
   char user_choice;
   do {
     fprintf(stdout, "Entrez une commande (S/U/L/P/Q) : ");
@@ -93,7 +93,9 @@ void client_appli(char *serveur, char *service) {
 /* INPUT : PSEUDO ET MESSAGE **************************************************/
 
 void choose_pseudo(char pseudo[LG_PSEUDO]) {
+  // On vérifie la taille du pseudo
   loop_pseudo_length(pseudo);
+  // On vérifie la disponibilité du pseudo
   if (!check_pseudo_availability(pseudo)) {
     printf("Pseudo indisponible\n");
     exit(-1);
@@ -107,18 +109,15 @@ void loop_pseudo_length(char pseudo[LG_PSEUDO]) {
   } while (strlen(pseudo) != LG_PSEUDO);
 }
 
-// TODO réponse côté serveur
 bool check_pseudo_availability(char pseudo[LG_PSEUDO]) {
+  // On envoie au serveur le pseudo demandé
   char requete[LG_PSEUDO + 1];
   sprintf(requete, "%s", pseudo);
   write(client_socket, requete, LG_PSEUDO + 1);
+  // On lit la réponse du serveur pour sa disponibilité
   char reponse[1];
   read(client_socket, reponse, LG_RES);
-  if (reponse[0] == REPONSE_FALSE[0]) {
-    // printf("Pseudo indisponible, veuillez en entrer un nouveau\n");
-    return false;
-  }
-  return true;
+  return (reponse[0] == REPONSE_TRUE[0]);
 }
 
 void loop_message_length(char message[LG_MESSAGE]) {
@@ -150,14 +149,11 @@ void read_answer() {
     fprintf(stderr, "Erreur de lecture\n");
     exit(-1);
   }
-
-  // char command = buffer[0];
   printf("%s", buffer);
 }
 
 /* CHOIX DE L'UTILISATEUR *****************************************************/
 
-// TODO recevoir messages non lus
 void parse_user_choice(char choice) {
   switch (choice) {
   case SUBSCRIBE:
@@ -201,14 +197,12 @@ void unsubscribe() {
   read_answer();
 }
 
-// TODO réponse côté serveur + affichage réponse
 void list() {
   write_request(LIST, "");
   printf("Abonnements :\n");
   read_answer();
 }
 
-// TODO réponse côté serveur + affichage réponse
 void post() {
   char message[LG_MESSAGE];
   loop_message_length(message);
@@ -216,10 +210,7 @@ void post() {
   read_answer();
 }
 
-// TODO réponse côté serveur + affichage réponse
-void quit() {
-  write_request(QUIT, "");
-}
+void quit() { write_request(QUIT, ""); }
 
 void help() {
   printf("Usage :\n");
