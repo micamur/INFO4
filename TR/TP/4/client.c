@@ -78,12 +78,13 @@ void client_appli(char *serveur, char *service) {
 
   // Messages de bienvenue
   help();
-  // TODO vider la boîte de réception (get)
+  get();
 
   // Boucle des demandes du client envoyées au serveur
   char user_choice;
   do {
-    fprintf(stdout, "Entrez une commande (S/U/L/P/Q) : ");
+    fprintf(stdout, "Entrez une commande (%c/%c/%c/%c/%c/%c) : ", SUBSCRIBE,
+            UNSUBSCRIBE, LIST, POST, GET, QUIT);
     scanf("%s", &user_choice);
     user_choice = toupper(user_choice);
     parse_user_choice(user_choice);
@@ -123,7 +124,10 @@ bool check_pseudo_availability(char pseudo[LG_PSEUDO]) {
 void loop_message_length(char message[LG_MESSAGE]) {
   do {
     printf("Entrez un message (%d caractères maximum) : ", LG_MESSAGE);
-    scanf("%s", message);
+    char tmp;
+    scanf("%c",&tmp); // clear buffer
+    fgets(message, LG_MESSAGE, stdin); // read message
+    message[strlen(message) - 1] = '\0'; // delete newline
   } while (strlen(message) > LG_MESSAGE);
 }
 
@@ -214,8 +218,9 @@ void quit() { write_request(QUIT, ""); }
 
 void help() {
   printf("Usage :\n");
-  printf("%c = subscribe\n%c = unsubscribe\n%c = list\n%c = post\n%c = quit\n",
-         SUBSCRIBE, UNSUBSCRIBE, LIST, POST, QUIT);
+  printf("%c = subscribe\n%c = unsubscribe\n%c = list\n%c = post\n%c = get\n%c "
+         "= quit\n",
+         SUBSCRIBE, UNSUBSCRIBE, LIST, POST, GET, QUIT);
 }
 
 void get() {

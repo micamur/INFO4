@@ -72,5 +72,11 @@ void list(int id_client);
 // Post : publier un message < 20 caractères à ses abonnés
 void post(int id_client, char *msg);
 
+// Ajoute un message dans la boîte de réception d'un abonné
+void add_message(int id_src, int id_dst, char *msg);
+
+// Get : envoyer tous les messages en attente de ses abonnements
+void get(int id_client);
+
 // Quit : quitter l’application
 void quit(int id_client);

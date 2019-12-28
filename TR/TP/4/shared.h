@@ -20,7 +20,7 @@
 #define NB_ABONNEMENTS_DEFAULT NMAX_CLIENTS
 #define NB_ABONNES_DEFAULT NMAX_CLIENTS
 
-#define NMAX_CLIENTS 8
+#define NMAX_CLIENTS 10 // 10 est le maximum possible avec les pseudos choisis
 #define NB_CNX_WAIT NMAX_CLIENTS
 
 // Paramètres

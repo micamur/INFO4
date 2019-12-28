@@ -105,7 +105,7 @@ void serveur_appli(char *service) {
 
     // Si le serveur est prêt c'est qu'un nouveau client veut communiquer
     if (FD_ISSET(serveur_socket, &set)) {
-      add_client(set);
+      add_client();
     }
 
     // Si un client veut communiquer il veut effectuer une action
@@ -141,6 +141,10 @@ void init_clients() {
     clients[i].size_abonnes = NB_ABONNES_DEFAULT;
     clients[i].abonnes = malloc(clients[i].size_abonnes * sizeof(char *));
   }
+
+  // Pour tester on peut ajouter des instructions ici qui seront faites au début
+  // add_abonnement(0, 1);               // 0 s'abonne à 1
+  // add_message(1, 0, "Coucou toi !");  // 1 envoie "Coucou toi !" à 0
 }
 
 void add_client() {
@@ -155,8 +159,8 @@ void add_client() {
   }
 
   // Si le pseudo n'existe pas
-  char login[LG_PSEUDO + 1];
-  read(client_socket, login, LG_PSEUDO + 1);
+  char login[LG_PSEUDO];
+  read(client_socket, login, LG_PSEUDO);
   int client_id = get_client_id_from_pseudo(login);
   if (client_id == -1) {
     fprintf(stderr, "%s n'existe pas dans la base d'utilisateurs\n", login);
@@ -182,9 +186,11 @@ int get_client_id_from_socket(int client_socket) {
 }
 
 int get_client_id_from_pseudo(char pseudo[LG_PSEUDO]) {
-  for (int i = 0; i < NMAX_CLIENTS; i++)
-    if (strcmp(clients[i].pseudo, pseudo) == 0)
+  for (int i = 0; i < NMAX_CLIENTS; i++) {
+    if (strcmp(clients[i].pseudo, pseudo) == 0) {
       return i;
+    }
+  }
   return -1;
 }
 
@@ -219,26 +225,26 @@ void write_answer(Client client, char *param) {
 /* CHOIX DE L'UTILISATEUR *****************************************************/
 
 void parse_user_choice(char *choice, int id_client) {
-  printf("User, choice : %s, %s\n", clients[id_client].pseudo, choice);
+  printf("%s a envoyé %s\n", clients[id_client].pseudo, choice);
   switch (choice[0]) {
-  case 'S':
+  case SUBSCRIBE:
     subscribe(id_client, choice + 1);
     break;
-  case 'U':
+  case UNSUBSCRIBE:
     unsubscribe(id_client, choice + 1);
     break;
-  case 'L':
+  case LIST:
     list(id_client);
     break;
-  case 'P':
+  case POST:
     post(id_client, choice + 1);
     break;
-  case 'Q':
+  case QUIT:
     quit(id_client);
     break;
-  // case 'R':
-  //   unread_messages();
-  //   break;
+  case GET:
+    get(id_client);
+    break;
   default:
     printf("Commande inconnue\n");
     break;
@@ -381,34 +387,87 @@ void list(int id_client) {
   Client client = clients[id_client];
 
   if (client.nb_abonnements == 0) {
+    // Si le client n'a aucun abonnement
     printf("Abonnements de %s : aucun\n", client.pseudo);
     write_answer(client, "aucun");
   } else {
-    char request[(LG_PSEUDO + 1) * client.nb_abonnements];
-    memset(request, 0, sizeof(request));
     printf("Abonnements de %s (%d) : \n", client.pseudo, client.nb_abonnements);
+    // On initialise le buffer
+    char buffer[(LG_PSEUDO + 1) * client.nb_abonnements];
+    memset(buffer, 0, sizeof(buffer));
+    // On remplit le buffer
     for (int i = 0; i < client.nb_abonnements; i++) {
-      strcat(request, client.abonnements[i]);
-      strcat(request, "\n");
+      strcat(buffer, client.abonnements[i]);
+      strcat(buffer, "\n");
     }
-    request[(LG_PSEUDO + 1) * client.nb_abonnements - 1] = '\0';
-    printf("%s\n", request);
-    write_answer(client, request);
+    printf("%s", buffer);
+    // On supprime le dernier retour à la ligne
+    buffer[(LG_PSEUDO + 1) * client.nb_abonnements - 1] = '\0';
+    // On envoie le buffer
+    write_answer(client, buffer);
   }
 }
 
-// TODO réponse au client
 void post(int id_client, char *msg) {
-  // // Si la liste de messages est pleine on double sa taille
-  // if (client.nb_messages == client.size_messages) {
-  //   client.size_messages *= 2;
-  //   client.messages = (char **)realloc(client.messages,
-  //                                      sizeof(char *) *
-  //                                      client.size_messages);
-  // }
-  //
-  // // On ajoute un message à la liste des messages du client
-  // client.messages[client.nb_messages++] = msg;
+  // On parcourt la liste de tous les abonnés
+  for (int i = 0; i < clients[id_client].nb_abonnes; i++) {
+    int id_dst = get_client_id_from_pseudo(clients[id_client].abonnes[i]);
+    if (id_dst == -1) {
+      // On vérifie si le destinataire existe
+      fprintf(stderr, "Pseudo %s inexistant\n", clients[id_client].abonnes[i]);
+    } else {
+      // On envoie le message dans la boîte de réception de l'abonné
+      add_message(id_client, id_dst, msg);
+    }
+  }
+  printf("%s a posté %s\n", clients[id_client].pseudo, msg);
+  write_answer(clients[id_client], "succès");
+}
+
+void add_message(int id_src, int id_dst, char *msg) {
+  // Si la liste de messages est pleine on double sa taille
+  if (clients[id_dst].nb_messages == clients[id_dst].size_messages) {
+    clients[id_dst].size_messages *= 2;
+    clients[id_dst].messages =
+        (char **)realloc(clients[id_dst].messages,
+                         sizeof(char *) * clients[id_dst].size_messages);
+  }
+
+  // On ajoute un message à la liste des messages du client
+  char pseudo_msg[LG_PSEUDO + 3 + LG_MESSAGE];
+  sprintf(pseudo_msg, "%s : %s", clients[id_src].pseudo, msg);
+  clients[id_dst].messages[clients[id_dst].nb_messages] =
+      malloc(sizeof(char) * strlen(pseudo_msg));
+  strcpy(clients[id_dst].messages[clients[id_dst].nb_messages++], pseudo_msg);
+}
+
+void get(int id_client) {
+  if (clients[id_client].nb_messages == 0) {
+    // Si le client n'a aucun message en attente d'être lu
+    printf("Messages de %s : aucun\n", clients[id_client].pseudo);
+    write_answer(clients[id_client], "aucun");
+  } else {
+    // On initialise le buffer
+    char buffer[(LG_PSEUDO + 3 + LG_MESSAGE + 1) *
+                clients[id_client].nb_messages];
+    memset(buffer, 0, sizeof(buffer));
+    // On remplit le buffer
+    for (int i = 0; i < clients[id_client].nb_messages; i++) {
+      strcat(buffer, clients[id_client].messages[i]);
+      strcat(buffer, "\n");
+    }
+    printf("Messages de %s (%d) :\n%s", clients[id_client].pseudo,
+           clients[id_client].nb_messages, buffer);
+    // On supprime le dernier retour à la ligne
+    buffer[strlen(buffer) - 1] = '\0';
+    // On envoie le buffer
+    write_answer(clients[id_client], buffer);
+    // On vide les messages
+    clients[id_client].nb_messages = 0;
+    clients[id_client].size_messages = NB_MESSAGES_DEFAULT;
+    clients[id_client].messages =
+        malloc(clients[id_client].size_messages * sizeof(char *));
+  }
 }
 
 void quit(int id_client) {
