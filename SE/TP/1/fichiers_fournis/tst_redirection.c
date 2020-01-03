@@ -13,7 +13,7 @@
 int main() {
   while (1) {
     struct cmdline *l;
-    int i, j, pid, status;
+    int pid, status;
     int in, out;
 
     printf("shell> ");
@@ -53,21 +53,6 @@ int main() {
       } else {
         /* father code */
         waitpid(pid, &status, 0);
-
-        // if (l->in)
-        //   printf("in: %s\n", l->in);
-        // if (l->out)
-        //   printf("out: %s\n", l->out);
-
-        /* Display each command of the pipe */
-        // for (i = 0; l->seq[i] != 0; i++) {
-        //   char **cmd = l->seq[i];
-        //   printf("seq[%d]: ", i);
-        //   for (j = 0; cmd[j] != 0; j++) {
-        //     printf("%s ", cmd[j]);
-        //   }
-        //   printf("\n");
-        // }
       }
     }
   }

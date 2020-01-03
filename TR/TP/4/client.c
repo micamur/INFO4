@@ -1,0 +1,230 @@
+#include "client.h"
+
+// Variables globales car toujours la même valeur et utilisées souvent
+// (pour ne pas alourdir les appels de fonction inutilement)
+int client_socket = 0;  // numéro de socket du client
+char pseudo[LG_PSEUDO]; // pseudo du client
+
+/* DÉMARRAGE DU CLIENT ********************************************************/
+
+int main(int argc, char *argv[]) {
+  // serveur est le nom (ou l'adresse IP) auquel le client va acceder
+  // service le numero de port sur le serveur pour le client
+  char *serveur = SERVEUR_DEFAUT;
+  char *service = SERVICE_DEFAUT;
+
+  // Remplissage des deux variables avec les arguments ou les valeurs par défaut
+  check_arguments(argc, argv, serveur, service);
+
+  // Création de la socket
+  client_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+  if (client_socket == -1) {
+    fprintf(stderr, "Erreur création socket\n");
+    exit(-1);
+  }
+
+  // Initialisation de l'adresse du serveur
+  struct sockaddr_in serveur_adresse;
+  bzero(&serveur_adresse, sizeof(serveur_adresse));
+  serveur_adresse.sin_family = AF_INET;
+  serveur_adresse.sin_addr.s_addr = htonl(INADDR_ANY); // accepte tous les msg
+  serveur_adresse.sin_port = htons(atoi(service));
+  inet_pton(AF_INET, serveur, &serveur_adresse.sin_addr);
+
+  // Connexion au serveur
+  if (connect(client_socket, (struct sockaddr *)&serveur_adresse,
+              sizeof(struct sockaddr_in)) != 0) {
+    fprintf(stderr, "Erreur connexion avec serveur\n");
+    exit(-1);
+  }
+  printf("Succès connection avec serveur (socket %d)\n", client_socket);
+
+  // Démarrage de l'application client
+  client_appli(serveur, service);
+}
+
+void check_arguments(int argc, char *argv[], char *serveur, char *service) {
+  switch (argc) {
+  // valeurs par defaut
+  case 1:
+    printf("Serveur par defaut : %s\n", serveur);
+    printf("Service par defaut : %s\n", service);
+    break;
+  // serveur renseigné
+  case 2:
+    serveur = argv[1];
+    printf("Serveur : %s\n", serveur);
+    printf("Service par defaut : %s\n", service);
+    break;
+  // serveur et service renseignés
+  case 3:
+    serveur = argv[1];
+    service = argv[2];
+    printf("Serveur : %s\n", serveur);
+    printf("Service : %s\n", service);
+    break;
+  // mauvais nombre d'arguments
+  default:
+    printf("Usage : ./client serveur(nom ou @IP) service(nom ou port)\n");
+    exit(-1);
+  }
+}
+
+/* TRAITEMENT DU CLIENT *******************************************************/
+
+void client_appli(char *serveur, char *service) {
+  // Sélection du pseudo utilisateur
+  choose_pseudo(pseudo);
+
+  // Messages de bienvenue
+  help();
+  get();
+
+  // Boucle des demandes du client envoyées au serveur
+  char user_choice;
+  do {
+    fprintf(stdout, "Entrez une commande (%c/%c/%c/%c/%c/%c) : ", SUBSCRIBE,
+            UNSUBSCRIBE, LIST, POST, GET, QUIT);
+    scanf("%s", &user_choice);
+    user_choice = toupper(user_choice);
+    parse_user_choice(user_choice);
+  } while (user_choice != 'Q');
+}
+
+/* INPUT : PSEUDO ET MESSAGE **************************************************/
+
+void choose_pseudo(char pseudo[LG_PSEUDO]) {
+  // On vérifie la taille du pseudo
+  loop_pseudo_length(pseudo);
+  // On vérifie la disponibilité du pseudo
+  if (!check_pseudo_availability(pseudo)) {
+    printf("Pseudo indisponible\n");
+    exit(-1);
+  }
+}
+
+void loop_pseudo_length(char pseudo[LG_PSEUDO]) {
+  do {
+    printf("Entrez un pseudo (%d caractères) : ", LG_PSEUDO);
+    scanf("%s", pseudo);
+  } while (strlen(pseudo) != LG_PSEUDO);
+}
+
+bool check_pseudo_availability(char pseudo[LG_PSEUDO]) {
+  // On envoie au serveur le pseudo demandé
+  char requete[LG_PSEUDO + 1];
+  sprintf(requete, "%s", pseudo);
+  write(client_socket, requete, LG_PSEUDO + 1);
+  // On lit la réponse du serveur pour sa disponibilité
+  char reponse[1];
+  read(client_socket, reponse, LG_RES);
+  return (reponse[0] == REPONSE_TRUE[0]);
+}
+
+void loop_message_length(char message[LG_MESSAGE]) {
+  do {
+    printf("Entrez un message (%d caractères maximum) : ", LG_MESSAGE);
+    char tmp;
+    scanf("%c",&tmp); // clear buffer
+    fgets(message, LG_MESSAGE, stdin); // read message
+    message[strlen(message) - 1] = '\0'; // delete newline
+  } while (strlen(message) > LG_MESSAGE);
+}
+
+/* PAQUETS ********************************************************************/
+
+// Envoie une requête au serveur : caractère de la commande + message
+void write_request(char command, char *param) {
+  int req_size = 1 + strlen(param);
+  char request[req_size];
+  sprintf(request, "%c%s", command, param);
+  if (write(client_socket, request, req_size) < 0) {
+    fprintf(stderr, "Erreur d'écriture\n");
+    exit(-1);
+  }
+}
+
+// Lit et affiche la réponse du serveur pour la liste et les messages reçus
+void read_answer() {
+  char buffer[REQ_SIZE];
+  bzero(buffer, REQ_SIZE);
+  int size = read(client_socket, buffer, REQ_SIZE);
+  if (size < 0) {
+    fprintf(stderr, "Erreur de lecture\n");
+    exit(-1);
+  }
+  printf("%s", buffer);
+}
+
+/* CHOIX DE L'UTILISATEUR *****************************************************/
+
+void parse_user_choice(char choice) {
+  switch (choice) {
+  case SUBSCRIBE:
+    subscribe();
+    break;
+  case UNSUBSCRIBE:
+    unsubscribe();
+    break;
+  case LIST:
+    list();
+    break;
+  case POST:
+    post();
+    break;
+  case QUIT:
+    quit();
+    break;
+  case GET:
+    get();
+    break;
+  default:
+    help();
+    break;
+  }
+}
+
+void subscribe() {
+  printf("À qui souhaitez-vous vous abonner ?\n");
+  char param[LG_PSEUDO];
+  loop_pseudo_length(param);
+  write_request(SUBSCRIBE, param);
+  printf("Abonnement : ");
+  read_answer();
+}
+
+void unsubscribe() {
+  printf("De qui souhaitez-vous vous désabonner ?\n");
+  char param[LG_PSEUDO];
+  loop_pseudo_length(param);
+  write_request(UNSUBSCRIBE, param);
+  read_answer();
+}
+
+void list() {
+  write_request(LIST, "");
+  printf("Abonnements :\n");
+  read_answer();
+}
+
+void post() {
+  char message[LG_MESSAGE];
+  loop_message_length(message);
+  write_request(POST, message);
+  read_answer();
+}
+
+void quit() { write_request(QUIT, ""); }
+
+void help() {
+  printf("Usage :\n");
+  printf("%c = subscribe\n%c = unsubscribe\n%c = list\n%c = post\n%c = get\n%c "
+         "= quit\n",
+         SUBSCRIBE, UNSUBSCRIBE, LIST, POST, GET, QUIT);
+}
+
+void get() {
+  write_request(GET, "");
+  printf("Messages reçus :\n");
+  read_answer();
+}

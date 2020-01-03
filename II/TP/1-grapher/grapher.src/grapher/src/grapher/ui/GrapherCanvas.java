@@ -8,8 +8,6 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.lang.Math.pow;
 
-import java.util.Vector;
-
 import grapher.fc.Function;
 import grapher.fc.FunctionFactory;
 import javafx.application.Application.Parameters;
@@ -29,7 +27,7 @@ public class GrapherCanvas extends Canvas {
 
 	static final double WIDTH = 400;
 	static final double HEIGHT = 300;
-	
+
 	static final double LINEWIDTH = 1;
 	static final double LINEWIDTHBOLD = 3;
 
@@ -60,7 +58,7 @@ public class GrapherCanvas extends Canvas {
 
 		lineWidth = gc.getLineWidth();
 		functions = FXCollections.observableArrayList();
-		
+
 		for (String param : params.getRaw()) {
 			functions.add(FunctionFactory.createFunction(param));
 		}
