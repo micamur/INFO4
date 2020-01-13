@@ -5,27 +5,25 @@ import javafx.stage.Stage;
 
 public class Test extends Application {
 	public void start(Stage stage) {
-		for(String url: getParameters().getRaw()) {
+		for (String url : getParameters().getRaw()) {
 			Downloader downloader;
 			try {
 				downloader = new Downloader(url);
-			}
-			catch(RuntimeException e) {
+			} catch (RuntimeException e) {
 				System.err.format("skipping %s %s\n", url, e);
 				continue;
 			}
 			System.out.format("Downloading %s:", downloader);
-			
+
 			downloader.progressProperty().addListener((obs, o, n) -> {
 				System.out.print(".");
 				System.out.flush();
 			});
-			
+
 			String filename;
 			try {
 				filename = downloader.download();
-			}
-			catch(Exception e) {
+			} catch (Exception e) {
 				System.err.println("failed!");
 				continue;
 			}

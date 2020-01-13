@@ -14,13 +14,10 @@ import javafx.scene.layout.VBox;
 public class DownloaderView extends BorderPane {
 	private ProgressBar progressBar;
 	public Downloader downloader;
-	private VBox vb;
 	private Button playPause, delete;
 
 	public DownloaderView(String url, VBox vb) {
 		try {
-			this.vb = vb;
-
 			// Boîte contenant les deux boutons
 			HBox hb = new HBox();
 
@@ -54,8 +51,8 @@ public class DownloaderView extends BorderPane {
 			delete.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent arg0) {
-					deleteDownloaderView();
-					vb.getChildren().remove(this);
+					downloader.delete();
+					vb.getChildren().remove(DownloaderView.this);
 				}
 			});
 			hb.getChildren().add(playPause);
@@ -65,11 +62,11 @@ public class DownloaderView extends BorderPane {
 			this.setCenter(progressBar);
 			this.setTop(new Label(downloader.toString()));
 			this.setRight(hb);
-//			this.setMinWidth(150);
 
 			// Ajout de la boîte du téléchargement dans la liste des téléchargements
 			vb.getChildren().add(this);
 
+			// Lancement du téléchargement
 			new Thread(downloader).start();
 		} catch (RuntimeException e) {
 			System.err.format("skipping %s %s\n", url, e);
@@ -77,9 +74,4 @@ public class DownloaderView extends BorderPane {
 		System.out.format("Downloading %s:", downloader);
 	}
 
-	public void deleteDownloaderView() {
-		downloader.resume(playPause);
-		downloader.delete();
-	}
-	
 }
