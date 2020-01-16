@@ -1,7 +1,5 @@
 package downloader.ui;
 
-import java.util.Iterator;
-
 import downloader.fc.Downloader;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -14,84 +12,85 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class Main extends Application {
 	protected ObservableList<Downloader> downloaders;
 
 	public void start(Stage stage) {
-//		downloaders = FXCollections.observableArrayList();
-//		for (String uri : getParameters().getRaw()) {
-//			Downloader d = new Downloader(uri);
-//			downloaders.add(d);
-//			new Thread(d).start();
-//		}
-
 		// BorderPane qui contient tout
-		BorderPane bp = new BorderPane();
-		// VBox la liste qui contient les différents téléchargements 
-		VBox vb = new VBox();
-		// TODO : utile ?
-		ScrollPane sp;
-		// HBox qui tontient la partie du bas : champ texte et bouton Add
-		HBox hb = new HBox();
-		Button b = new Button("Add");
-		TextArea ta = new TextArea();
+		BorderPane bpMain = new BorderPane();
+		// VBox la liste qui contient la liste des différents téléchargements
+		VBox vbList = new VBox();
+		// ScrollPane qui permet d'avoir une barre de scroll pour la liste
+		ScrollPane spList;
+		// BorderPane qui contient la partie du bas (champ texte et bouton Add)
+		BorderPane bpBottom = new BorderPane();
+		Button bAdd = new Button("Add");
+		TextArea taInput = new TextArea();
+
+		int bottomHeight = 32;
+		int buttonWidth = 64;
 
 		// On lit les URLs en paramètre
 		for (String url : getParameters().getRaw()) {
-			new DownloaderView(url, vb);
+			new DownloaderView(url, vbList);
 		}
 
 		// On définit l'action du bouton Add
-		b.setOnAction(new EventHandler<ActionEvent>() {
+		bAdd.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-				new DownloaderView(ta.getText(), vb);
+				new DownloaderView(taInput.getText(), vbList);
 			}
 		});
-		
+
 		// Configuration de la zone du bas
-		ta.setMaxHeight(26);
-		ta.setMinHeight(26);
-//		TODO TextArea not resizable bigger
-		b.setMinWidth(60);
-		hb.getChildren().add(ta);
-		hb.getChildren().add(b);
-		
+		taInput.setMaxHeight(bottomHeight);
+		taInput.setMinHeight(bottomHeight);
+		bAdd.setMaxHeight(bottomHeight);
+		bAdd.setMinHeight(bottomHeight);
+		bAdd.setMinWidth(buttonWidth);
+		bAdd.setMaxWidth(buttonWidth);
+		bpBottom.setCenter(taInput);
+		bpBottom.setRight(bAdd);
+
 		// Configuration de la liste et du scrollPane
-		vb.setPadding(new Insets(5));
-		sp = new ScrollPane(vb);
-		sp.setFitToWidth(true);
-		sp.setContent(vb);
-		sp.setHbarPolicy(null);
-		
+		vbList.setPadding(new Insets(5));
+		spList = new ScrollPane(vbList);
+		spList.setFitToWidth(true);
+		spList.setContent(vbList);
+		spList.setHbarPolicy(null);
+
 		// Configuration du BorderPane principal
-		bp.setCenter(sp);
-//		bp.setCenter(vb);
-		bp.setBottom(hb);
-		
+		bpMain.setCenter(spList);
+		bpMain.setBottom(bpBottom);
+
 		// Configuration de la fenêtre
-		stage.setOnCloseRequest(new EventHandler<javafx.stage.WindowEvent>() {
+		stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			// Lorsqu'on la ferme, on annule tous les téléchargements en cours
 			@Override
-			public void handle(javafx.stage.WindowEvent arg0) {
-				for (Iterator<Node> iter = vb.getChildren().iterator(); iter.hasNext();) {
-					DownloaderView child = (DownloaderView) iter.next();
-					child.deleteDownloaderView();
-					iter.remove();
+			public void handle(WindowEvent event) {
+				for (Node node : vbList.getChildren()) {
+					if (node instanceof DownloaderView) {
+						DownloaderView dvChild = (DownloaderView) node;
+						dvChild.downloader.cancel();
+						System.out.println("Cancelling download of " + dvChild.downloader.toString());
+					}
 				}
 			}
 		});
 		stage.setHeight(300);
 		stage.setWidth(500);
 		stage.setTitle("downloader");
-		stage.setScene(new Scene(bp));
+		stage.setScene(new Scene(bpMain));
 		stage.show();
 	}
 
 	public static void main(String[] args) {
 		launch(args);
 	}
+
 }

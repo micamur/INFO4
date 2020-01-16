@@ -22,10 +22,13 @@
   * [1](PS/CM/1.md)
   * [2](PS/CM/2.md)
   * [3](PS/CM/3.md)
+  * [4](PS/CM/4.md)
+  * [5](PS/CM/5.md)
 - RO
   * [1](RO/CM/1.md)
   * [2](RO/CM/2.md)
   * [3](RO/CM/3.md)
+  * [4](RO/CM/4.md)
 - SE
   * [1](SE/CM/1.md)
 - TR

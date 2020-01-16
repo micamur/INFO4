@@ -113,7 +113,7 @@ public class Downloader extends Task<String> {
 			l.unlock();
 			isPaused = false;
 			b.setText("||");
-			System.out.println(url + " resumed.");			
+			System.out.println(url + " resumed.");
 		}
 	}
 
@@ -122,7 +122,7 @@ public class Downloader extends Task<String> {
 			l.lock();
 			isPaused = true;
 			b.setText(">");
-			System.out.println(url + " paused.");			
+			System.out.println(url + " paused.");
 		}
 	}
 
