@@ -6,12 +6,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class client {
 	
-	public static void main(String[] args) throws IOException {
-		String name = "Claire";
+	String name;
 	
+	public client(String name) {
+		this.name = name;
+	}
+	
+	public void run() throws UnknownHostException, IOException {
 		// Client connects to server
 		String serverHost = "localhost";
 		int serverPort = 10000;
@@ -33,6 +38,14 @@ public class client {
 		// Client receives bytes from server ("Hello " + name)
 		String req = dis.readUTF();
 		System.out.println("Recieved: " + req);
+		
+		// Server is closed
+		server.close();
+	}
+	
+	public static void main(String[] args) throws IOException {
+		client c = new client("Claire");
+		c.run();
 	}
 	
 }

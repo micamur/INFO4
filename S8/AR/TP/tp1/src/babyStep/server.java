@@ -10,11 +10,15 @@ import java.net.Socket;
 
 public class server {
 	
-	public static void main(String[] args) throws IOException {
-		// Create a server socket associated with port 1234
-		int port = 10000;
-		ServerSocket server = new ServerSocket(port);
+	int port;
+	ServerSocket server;
 	
+	public server(int port) throws IOException {
+		this.port = port;
+		this.server = new ServerSocket(port);
+	}
+	
+	public void run() throws IOException {
 		// End-less loop
 		while (true) {
 			// Server waits for a connection
@@ -37,6 +41,11 @@ public class server {
 			dos.writeUTF(rep);
 			dos.flush();
 		}
+	}
+	
+	public static void main(String[] args) throws IOException {
+		server s = new server(10000);
+		s.run();
 	}
 	
 }
