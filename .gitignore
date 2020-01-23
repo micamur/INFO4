@@ -7,3 +7,4 @@ _book/
 *.vo
 *.zip
 *.aux
+out/*
