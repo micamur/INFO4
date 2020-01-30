@@ -7,4 +7,11 @@ _book/
 *.vo
 *.zip
 *.aux
-out/*
+out/
+bin/
+out*
+build/
+external/
+*.out
+*.log
+*.bin
