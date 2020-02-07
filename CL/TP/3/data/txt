@@ -1,0 +1,9 @@
+#!/bin/bash
+for f in ??.txt
+do
+	head -n 10000 $f > train.${f%.txt}
+	tail -n 10000 $f > test.${f%.txt}
+
+	ngram-count -order 3 -text train.${f%.txt} -write ${f%.txt}3g.bo -write-vocab ${f%.txt}.voc
+	ngram-count -read ${f%.txt}3g.bo -lm ${f%.txt}3g.BO -gt2min 1 -gt3min 2
+done

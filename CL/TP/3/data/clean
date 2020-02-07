@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rm train* test* *.bo *.BO *.voc R* S* 

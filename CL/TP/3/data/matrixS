@@ -1,0 +1,25 @@
+#!/bin/bash
+
+export LC_NUMERIC=C
+
+# Affichage de la première ligne
+printf "\t"
+for f in S??.txt
+do
+    printf "%s\t" ${f%.txt}
+done
+echo
+
+# Affichage du reste
+for f in S??.txt
+do
+    # Affichage de la première colonne
+    printf "%s\t" ${f%.txt}
+    for g in Stest.*
+	do
+      # Affichage des valeurs
+      printf "%.0f\t" $(ngram -lm ${f%.txt}3g.BO -ppl $g | grep 'ppl' | sed 's/.*ppl= \(.*\) ppl1.*$/\1/')
+    done
+    echo
+done
+echo
