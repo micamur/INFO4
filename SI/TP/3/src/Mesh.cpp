@@ -37,7 +37,7 @@ Mesh::Mesh(const char* filename)
 	int   error;
 	float r;
 
-	if((file=fopen(filename,"r"))==NULL) 
+	if((file=fopen(filename,"r"))==NULL)
 	{
 		std::cout << "Unable to read : " << filename << std::endl;
 	}
@@ -49,7 +49,7 @@ Mesh::Mesh(const char* filename)
 	faces    = vector<unsigned int>();
 
 	error = fscanf(file,"OFF\n%d %d %d\n",&(nb_vertices),&(nb_faces),&tmp);
-	if(error==EOF) 
+	if(error==EOF)
 	{
 		std::cout << "Unable to read : " << filename << std::endl;
 	}
@@ -60,10 +60,10 @@ Mesh::Mesh(const char* filename)
 	faces.resize(nb_faces*3);
 
 	// reading vertices
-	for(int i=0;i<nb_vertices;++i) 
+	for(int i=0;i<nb_vertices;++i)
 	{
 		error = fscanf(file,"%f %f %f\n",&(vertices[i][0]),&(vertices[i][1]),&(vertices[i][2]));
-		if(error==EOF) 
+		if(error==EOF)
 		{
 			std::cout << "Unable to read vertices of : " << filename << std::endl;
 			exit(EXIT_FAILURE);
@@ -72,20 +72,20 @@ Mesh::Mesh(const char* filename)
 
 	// reading faces
 	j = 0;
-	for(int i=0;i<nb_faces;++i) 
+	for(int i=0;i<nb_faces;++i)
 	{
 		error = fscanf(file,"%d %d %d %d\n",&tmp,&(faces[j]),&(faces[j+1]),&(faces[j+2]));
 //		  faces[j]   --;
 //        faces[j+1] --;
 //        faces[j+2] --;
 
-		if(error==EOF) 
+		if(error==EOF)
 		{
 			std::cout << "Unable to read faces of : " << filename << std::endl;
 			exit(EXIT_FAILURE);
 		}
 
-		if(tmp!=3) 
+		if(tmp!=3)
 		{
 			printf("Error : face %d is not a triangle (%d polygonal face!)\n",i/3,tmp);
 			exit(EXIT_FAILURE);
@@ -97,7 +97,7 @@ Mesh::Mesh(const char* filename)
 
 	// computing center
 	center[0] = center[1] = center[2] = 0.0f;
-	for(int i=0 ;i<nb_vertices; i++) 
+	for(int i=0 ;i<nb_vertices; i++)
 	{
 		center += vertices[i];
 	}
@@ -139,7 +139,7 @@ Mesh::Mesh(const char* filename)
 		normalPerFace[i][2] = v12[0]*v13[1] - v12[1]*v13[0];
 
 		// normalization
-		norm = sqrt(normalPerFace[i][0]*normalPerFace[i][0] + 
+		norm = sqrt(normalPerFace[i][0]*normalPerFace[i][0] +
 				normalPerFace[i][1]*normalPerFace[i][1] +
 				normalPerFace[i][2]*normalPerFace[i][2] );
 		normalPerFace[i][0] /= norm;
@@ -149,7 +149,7 @@ Mesh::Mesh(const char* filename)
 
 	// computing normals per vertex
 	nv.resize(nb_vertices);
-	for(int i=0; i<nb_vertices; ++i) 
+	for(int i=0; i<nb_vertices; ++i)
 	{
 		// initialization
 		normals[i][0] = 0.0;
@@ -157,9 +157,9 @@ Mesh::Mesh(const char* filename)
 		normals[i][2] = 0.0;
 		nv[i] = 0.0;
 	}
-	for(int i=0; i<nb_faces; ++i) 
+	for(int i=0; i<nb_faces; ++i)
 	{
-		// face normals average  
+		// face normals average
 		glm::i32vec3 face_i = get_face(i);
 		//n = &(nf[3*i]);
 
@@ -178,7 +178,7 @@ Mesh::Mesh(const char* filename)
 		normals[face_i[2]][2] += normalPerFace[i][2];
 		nv[face_i[2]] ++;
 	}
-	for(int i=0; i<nb_vertices; ++i) 
+	for(int i=0; i<nb_vertices; ++i)
 	{
 		// normalization
 		normals[i][0] /= nv[i];
@@ -194,7 +194,7 @@ Mesh::Mesh(const char* filename)
 
 	/*
 
-	// computing colors as normals 
+	// computing colors as normals
 	for(i=0;i<3*nb_vertices;++i) {
 	colors[i] = (normals[i]+1.0)/2.0;
 	}
@@ -204,32 +204,32 @@ Mesh::Mesh(const char* filename)
 Mesh::~Mesh() {}
 
 
-vector< vec3 > Mesh::computeBB() const 
+vector< vec3 > Mesh::computeBB() const
 {
     vector< vec3 > output;
-    
+
     output.push_back(vertices[0]);
     output.push_back(vertices[0]);
-    
-	for(int i=1; i<vertices.size(); ++i) 
+
+	for(int i=1; i<vertices.size(); ++i)
 	{
 	    vec3 v = vertices[i];
-	    
+
 	    for(int j = 0; j < 3; j++)
 	    {
 	        output[0][j] = std::min(output[0][j], v[j]);
 	        output[1][j] = std::max(output[1][j], v[j]);
 	    }
 	}
-	
+
 	return output;
 }
 
 void Mesh::normalize()
 {
 //    vector<vec3> bb = Mesh::computeBB();
-    
-	for(int i=0; i<vertices.size(); ++i) 
+
+	for(int i=0; i<vertices.size(); ++i)
 	{
 	    for(int j = 0; j < 3; j++)
 	    {
@@ -238,8 +238,3 @@ void Mesh::normalize()
 	    }
 	}
 }
-
-
-
-
-

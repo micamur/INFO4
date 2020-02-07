@@ -29,7 +29,6 @@ int main() {
         //============= Creation de la fenetre =============
         //==================================================
 
-
         // Initialisation de GLFW
         if(!glfwInit()) {
                 cout << "Echec de l'initialisation de GLFW" << endl;
@@ -77,7 +76,6 @@ int main() {
 
         cout << "Initialisations..." << endl;
 
-
         // Definition de la couleur du fond
         glClearColor(0.1, 0.1, 0.1, 0.0);
 
@@ -86,8 +84,6 @@ int main() {
 
         // Activation du culling
         glEnable(GL_CULL_FACE);
-
-        Mesh m("../models/armadillo.off"); // chargement du  maillage
 
         //-------------------------------------------------
         // Initialisation du shader programm
@@ -99,15 +95,51 @@ int main() {
         //-------------------------------------------------
         // Initialisation des arrays de données
 
-        vector<vec3> vertices;
-        // vertices.push_back(vec3(-1, -1,  1));
-        // vertices.push_back(vec3( 1, -1,  1));
+        // Definition d'un tableau de vecteurs
+        // vector<vec3> vertices;
+        // vertices.push_back(vec3(-1, -1, -1));
+        // vertices.push_back(vec3( 1,  1, -1));
         // vertices.push_back(vec3( 1, -1, -1));
         // vertices.push_back(vec3(-1, -1, -1));
+        // vertices.push_back(vec3(-1,  1, -1));
+        // vertices.push_back(vec3( 1,  1, -1));
+        //
+        // vertices.push_back(vec3(-1, -1, -1));
         // vertices.push_back(vec3(-1,  1,  1));
+        // vertices.push_back(vec3(-1,  1, -1));
+        // vertices.push_back(vec3(-1, -1, -1));
+        // vertices.push_back(vec3(-1, -1,  1));
+        // vertices.push_back(vec3(-1,  1,  1));
+        //
+        // vertices.push_back(vec3(-1, -1, -1));
+        // vertices.push_back(vec3( 1, -1,  1));
+        // vertices.push_back(vec3(-1, -1,  1));
+        // vertices.push_back(vec3(-1, -1, -1));
+        // vertices.push_back(vec3( 1, -1, -1));
+        // vertices.push_back(vec3( 1, -1,  1));
+        //
+        // vertices.push_back(vec3( 1,  1,  1));
+        // vertices.push_back(vec3(-1,  1,  1));
+        // vertices.push_back(vec3(-1, -1,  1));
+        // vertices.push_back(vec3( 1,  1,  1));
+        // vertices.push_back(vec3(-1, -1,  1));
+        // vertices.push_back(vec3( 1, -1,  1));
+        //
+        // vertices.push_back(vec3( 1,  1,  1));
+        // vertices.push_back(vec3( 1, -1,  1));
+        // vertices.push_back(vec3( 1, -1, -1));
+        // vertices.push_back(vec3( 1,  1,  1));
+        // vertices.push_back(vec3( 1, -1, -1));
+        // vertices.push_back(vec3( 1,  1, -1));
+        //
         // vertices.push_back(vec3( 1,  1,  1));
         // vertices.push_back(vec3( 1,  1, -1));
         // vertices.push_back(vec3(-1,  1, -1));
+        // vertices.push_back(vec3( 1,  1,  1));
+        // vertices.push_back(vec3(-1,  1, -1));
+        // vertices.push_back(vec3(-1,  1,  1));
+
+        vector<vec3> vertices;
         vertices.push_back(vec3(-1, -1, -1));
         vertices.push_back(vec3(-1, -1,  1));
         vertices.push_back(vec3( 1, -1,  1));
@@ -127,6 +159,163 @@ int main() {
         // avec vertexBufferID pour identifiant
         //==================================================
 
+        // GLuint vertexBufferID;
+        // glGenBuffers(1, &vertexBufferID);
+        // cout << "vertexBufferID = " << vertexBufferID << endl;
+        //
+        // // Definition de vertexBufferID comme le buffer courant
+        // glBindBuffer(GL_ARRAY_BUFFER, vertexBufferID);
+        //
+        // // Copie des donnees sur la carte graphique (dans vertexBufferID)
+        // glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vec3), vertices.data(), GL_STATIC_DRAW);
+        //
+        // // Obtention de l'ID de l'attribut "in_position" dans programID
+        // GLuint vertexPositionID = glGetAttribLocation(programID, "in_position");
+        //
+        // // On autorise et indique a OpenGL comment lire les donnees
+        // glVertexAttribPointer(vertexPositionID,3,GL_FLOAT,GL_FALSE,0,(void*)0);
+        // glEnableVertexAttribArray(vertexPositionID);
+
+        //  Creation d'un nouveau buffer pour la couleur des sommets
+        // vector<vec3> colors;
+        // colors.push_back(vec3(1.,1.,1.));
+        // colors.push_back(vec3(0.,1.,0.));
+        // colors.push_back(vec3(1.,0.,0.));
+        // colors.push_back(vec3(0.5,0.,1.));
+        // colors.push_back(vec3(0.,1.,0.5));
+        // colors.push_back(vec3(1.,0.5,0.));
+        //
+        // colors.push_back(vec3(1.,1.,1.));
+        // colors.push_back(vec3(0.,1.,0.));
+        // colors.push_back(vec3(1.,0.,0.));
+        // colors.push_back(vec3(0.5,0.,1.));
+        // colors.push_back(vec3(0.,1.,0.5));
+        // colors.push_back(vec3(1.,0.5,0.));
+        //
+        // colors.push_back(vec3(1.,1.,1.));
+        // colors.push_back(vec3(0.,1.,0.));
+        // colors.push_back(vec3(1.,0.,0.));
+        // colors.push_back(vec3(0.5,0.,1.));
+        // colors.push_back(vec3(0.,1.,0.5));
+        // colors.push_back(vec3(1.,0.5,0.));
+        //
+        // colors.push_back(vec3(1.,1.,1.));
+        // colors.push_back(vec3(0.,1.,0.));
+        // colors.push_back(vec3(1.,0.,0.));
+        // colors.push_back(vec3(0.5,0.,1.));
+        // colors.push_back(vec3(0.,1.,0.5));
+        // colors.push_back(vec3(1.,0.5,0.));
+        //
+        // colors.push_back(vec3(1.,1.,1.));
+        // colors.push_back(vec3(0.,1.,0.));
+        // colors.push_back(vec3(1.,0.,0.));
+        // colors.push_back(vec3(0.5,0.,1.));
+        // colors.push_back(vec3(0.,1.,0.5));
+        // colors.push_back(vec3(1.,0.5,0.));
+        //
+        // colors.push_back(vec3(1.,1.,1.));
+        // colors.push_back(vec3(0.,1.,0.));
+        // colors.push_back(vec3(1.,0.,0.));
+        // colors.push_back(vec3(0.5,0.,1.));
+        // colors.push_back(vec3(0.,1.,0.5));
+        // colors.push_back(vec3(1.,0.5,0.));
+
+        // PARTIE 2:
+        vector<vec3> colors;
+        colors.push_back(vec3(1.,1.,1.));
+        colors.push_back(vec3(0.,1.,0.));
+        colors.push_back(vec3(1.,0.,0.));
+        colors.push_back(vec3(0.5,0.,1.));
+        colors.push_back(vec3(0.,1.,0.5));
+        colors.push_back(vec3(1.,0.5,0.));
+        colors.push_back(vec3(1.,1.,0.5));
+        colors.push_back(vec3(1.,0.5,1.));
+
+        // GLuint colorBufferID;
+        //  glGenBuffers (1, &colorBufferID );
+        //
+        //  //  D e f i n i t i o n  de  vertexBufferID comme l e  buffer  courant
+        //  glBindBuffer (GL_ARRAY_BUFFER, colorBufferID);
+        //
+        //  // Copie  des  donnees  sur  la  carte  graphique  ( dans  vertexBufferID )
+        //  glBufferData (GL_ARRAY_BUFFER, colors.size()*sizeof(vec3), colors.data(), GL_STATIC_DRAW);
+        //
+        //  // Obtention de l’ID de l’attribut " in_position " dans programID
+        //  GLuint vertexColorID = glGetAttribLocation (programID, "in_color");
+        //
+        //  // On a u to r is e  et  indique  a OpenGL comment  l i r e  l e s  donnees
+        //  glVertexAttribPointer ( vertexColorID ,3 ,GL_FLOAT,GL_FALSE, 0 , ( void*) 0 );
+        //  glEnableVertexAttribArray ( vertexColorID );
+        //
+
+        // Todo 2 : Creation d'un nouveau buffer pour les indices des triangles
+        // vector<uint> indices;
+        //
+        // indices.push_back(6);
+        // indices.push_back(3);
+        // indices.push_back(0);
+        //
+        // indices.push_back(6);
+        // indices.push_back(4);
+        // indices.push_back(3);
+        //
+        // indices.push_back(4);
+        // indices.push_back(2);
+        // indices.push_back(3);
+        //
+        // indices.push_back(4);
+        // indices.push_back(5);
+        // indices.push_back(2);
+        //
+        // indices.push_back(5);
+        // indices.push_back(7);
+        // indices.push_back(1);
+        //
+        // indices.push_back(2);
+        // indices.push_back(5);
+        // indices.push_back(1);
+        //
+        // indices.push_back(3);
+        // indices.push_back(2);
+        // indices.push_back(1);
+        //
+        // indices.push_back(0);
+        // indices.push_back(3);
+        // indices.push_back(1);
+        //
+        // indices.push_back(0);
+        // indices.push_back(7);
+        // indices.push_back(6);
+        //
+        // indices.push_back(1);
+        // indices.push_back(7);
+        // indices.push_back(0);
+        //
+        // indices.push_back(7);
+        // indices.push_back(4);
+        // indices.push_back(6);
+        //
+        // indices.push_back(5);
+        // indices.push_back(4);
+        // indices.push_back(7);
+        //
+        // GLuint indiceBufferID;
+        // glGenBuffers(1,&indiceBufferID);
+        //
+        // //Definition de vertexBufferID comme le buffer courant
+        // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indiceBufferID);
+        //
+        // //Copie des donnees sur la carte graphique (dans vertexBufferID)
+        // glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(uint), indices.data(), GL_STATIC_DRAW);
+
+        // Todo 3 : Creation des buffers avec le chargement d'un maillage
+
+        Mesh m("../models/dragon.off"); //chargement du maillage
+        m.vertices.data(); //acces au tableau de positions
+        m.normals.data(); //acces au tableau de normals
+        m.faces.data(); //acces au tableau d'indices
+
+        /*------------Position----------*/
         GLuint vertexBufferID;
         glGenBuffers(1, &vertexBufferID);
         cout << "vertexBufferID = " << vertexBufferID << endl;
@@ -135,7 +324,7 @@ int main() {
         glBindBuffer(GL_ARRAY_BUFFER, vertexBufferID);
 
         // Copie des donnees sur la carte graphique (dans vertexBufferID)
-        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vec3), vertices.data(), GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, m.vertices.size() * sizeof(vec3), m.vertices.data(), GL_STATIC_DRAW);
 
         // Obtention de l'ID de l'attribut "in_position" dans programID
         GLuint vertexPositionID = glGetAttribLocation(programID, "in_position");
@@ -144,97 +333,34 @@ int main() {
         glVertexAttribPointer(vertexPositionID,3,GL_FLOAT,GL_FALSE,0,(void*)0);
         glEnableVertexAttribArray(vertexPositionID);
 
-        // Creation d'un nouveau buffer pour la couleur des sommets
-        vector<vec3> colors;
-        colors.push_back(vec3(  1,   1,   1));
-        colors.push_back(vec3(  0,   1,   0));
-        colors.push_back(vec3(  1,   0,   0));
-        colors.push_back(vec3(0.5,   0,   1));
-        colors.push_back(vec3(  0,   1, 0.5));
-        colors.push_back(vec3(  1, 0.5,   0));
-        colors.push_back(vec3(  1,   1, 0.5));
-        colors.push_back(vec3(  1, 0.5,   1));
+        /*-------------Normal---------------*/
+        GLuint normalsBufferID;
+        glGenBuffers (1, &normalsBufferID );
 
-        GLuint colorBufferID;
-        glGenBuffers (1, &colorBufferID);
-
-        // Definition de vertexBufferID comme le buffer courant
-        glBindBuffer (GL_ARRAY_BUFFER, colorBufferID);
+        //  Definition de vertexBufferID comme le buffer courant
+        glBindBuffer (GL_ARRAY_BUFFER, normalsBufferID);
 
         // Copie des donnees sur la carte graphique (dans vertexBufferID)
-        glBufferData (GL_ARRAY_BUFFER, colors.size()*sizeof(vec3), colors.data(), GL_STATIC_DRAW);
+        glBufferData (GL_ARRAY_BUFFER, m.normals.size()*sizeof(vec3), m.normals.data(), GL_STATIC_DRAW);
 
-        // Obtention de l’ID de l’attribut "in_position" dans programID
+        // Obtention de l’ID de l’attribut " in_position " dans programID
         GLuint vertexColorID = glGetAttribLocation (programID, "in_color");
 
         // On autorise et indique a OpenGL comment lire les donnees
-        glVertexAttribPointer(vertexColorID,3,GL_FLOAT,GL_FALSE, 0, (void*) 0);
-        glEnableVertexAttribArray(vertexColorID);
+        glVertexAttribPointer ( vertexColorID,3,GL_FLOAT,GL_FALSE, 0, ( void*) 0 );
+        glEnableVertexAttribArray ( vertexColorID );
 
-        // Todo 2 : Creation d'un nouveau buffer pour les indices des triangles
-        vector<uint> indices;
-        indices.push_back(6);
-        indices.push_back(3);
-        indices.push_back(0);
-
-        indices.push_back(6);
-        indices.push_back(4);
-        indices.push_back(3);
-
-        indices.push_back(4);
-        indices.push_back(2);
-        indices.push_back(3);
-
-        indices.push_back(4);
-        indices.push_back(5);
-        indices.push_back(2);
-
-        indices.push_back(5);
-        indices.push_back(7);
-        indices.push_back(1);
-
-        indices.push_back(2);
-        indices.push_back(5);
-        indices.push_back(1);
-
-        indices.push_back(3);
-        indices.push_back(2);
-        indices.push_back(1);
-
-        indices.push_back(0);
-        indices.push_back(3);
-        indices.push_back(1);
-
-        indices.push_back(0);
-        indices.push_back(7);
-        indices.push_back(6);
-
-        indices.push_back(1);
-        indices.push_back(7);
-        indices.push_back(0);
-
-        indices.push_back(7);
-        indices.push_back(4);
-        indices.push_back(6);
-
-        indices.push_back(5);
-        indices.push_back(4);
-        indices.push_back(7);
-
+        /*-------------Indice-----------------*/
         GLuint indiceBufferID;
-        glGenBuffers(1, &indiceBufferID);
+        glGenBuffers(1,&indiceBufferID);
 
-        // Definition de vertexBufferID comme le buffer courant
+        //Definition de vertexBufferID comme le buffer courant
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indiceBufferID);
 
-        // Copie des donnees sur la carte graphique (dans vertexBufferID)
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(uint), indices.data(), GL_STATIC_DRAW);
+        //Copie des donnees sur la carte graphique (dans vertexBufferID)
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, m.faces.size() * sizeof(uint), m.faces.data(), GL_STATIC_DRAW);
 
-        //==================================================
-        // Todo 3 : Creation des buffers avec le chargement d'un maillage
-        //==================================================
-
-        glBindVertexArray(0); // Désactiver le VAO
+        glBindVertexArray(0);// Désactiver le VAO
 
         //-------------------------------------------------
         // Initialisation des matrices MVP
@@ -283,6 +409,7 @@ int main() {
 
                 view_control(view_matrix, speed * delta_time);
 
+
                 //==================================================
                 //===================== Dessin =====================
                 //==================================================
@@ -298,15 +425,19 @@ int main() {
 
                 glBindVertexArray(vaoID); // On active le VAO
 
-
-                //==================================================
-                // Todo : Appeller la fonction de dessin par indexation (a la place de celle ci-dessous)
-                //==================================================
-
+                // PARTIE 1:
                 // on dessine le contenu de tous les VBOs (buffers) associés à ce VAO
                 // i.e: positions et couleurs
-                // glDrawArrays(GL_TRIANGLES, 0, vertices.size());
-                glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+                //glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+
+                // PARTIE 2:
+                // Fonction de dessin par indexation
+                //glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT,0);
+
+                // PARTIE 3:
+                // Fonction de dessin à partir des maillages
+                glDrawElements(GL_TRIANGLES, m.faces.size(), GL_UNSIGNED_INT,0);
+
 
                 glBindVertexArray(0); // On désactive le VAO
 
@@ -333,7 +464,13 @@ int main() {
         // Liberation des buffers
         glDeleteBuffers(1, &vaoID);
         glDeleteBuffers(1, &vertexBufferID);
-        glDeleteBuffers(1, &colorBufferID);
+        //glDeleteBuffers(1, &colorBufferID); //n'est pas utilisé pour la partie maillage
+        glDeleteBuffers(1, &indiceBufferID);
+        glDeleteBuffers(1, &normalsBufferID);
+
+        //==================================================
+        // Todo : Libérer TOUT les buffers que vous avez cree
+        //==================================================
 
         cout << "Fin du programme..." << endl;
 
