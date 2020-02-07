@@ -1,0 +1,88 @@
+# TS 2 - Transformée en Z
+
+**Polycopié** : <https://im2ag-moodle.e.ujf-grenoble.fr/pluginfile.php/43291/mod_resource/content/1/Notes_Cours_2019_Chapitre2.pdf>
+
+## Transformée en Z
+
+$$
+x[k] \leftrightarrow X(z) = \sum\limits_{k=-\infty}^{+ \infty} x[k]z^{-k}\; z \in \mathbb{C}
+$$
+
+$$
+x(z) = TZ\{x[k]\}(z)
+$$
+
+> **Remarque.** ne pas confondre $X_z(z)$ et $X_ f(\lambda)$
+
+**Math.** Convergence de $X(z)$ ?
+
+**Exemple.** $x[k] = a^k\epsilon[k]$
+
+$$
+\begin{array}{lcl}
+X(z) & = & TZ\{a^k\epsilon[k]\}\\
+ & = & \sum\limits_{k=0}^{+\infty} a^kz^{-k}\\
+ & = & \sum\limits_{k=0}^{+\infty} \big({a \over z}\big)^k\\
+ & = & {({a \over z})^0 - \lim\limits_{k \to +\infty} ({a \over z})^{k+1} \over1 - ({a \over z}) }\\
+\end{array}
+$$
+
+Suite géométrique $u[k] = q \times u[k-1] = u_0q^k$
+
+Série géométrique :
+
+$$
+\begin{array}{rcl}
+S[k] & = & \sum\limits_{l=0}^{k} u[k]\\
+q S[k] & = & \sum\limits_{l=1}^{k+1} u[k]\\
+S[k] \times q S[k] & = & u[0] - u[k+1]\\
+S[k] & = & {u[0] - u[k+1] \over 1 - q}\\
+\end{array}
+$$
+
+Converge ssi $|{a \over z}| < 1 \Rightarrow |z| > |a|$, alors $X(z) = {1 - a \over 1 - {a \over z}} = {z \over z - a}$
+
+**Région de convergence.** Convergence quand z est strictement à l'exterieur du cercle de centre $0$ et de rayon $|a|$.
+
+**Exemple.** $x[k]$ tq. $x[0] = 1$, $x[1] = -1$, $x[k] = 0$ sinon.
+
+Soit $z \in \mathbb{C}$ et $|z| \neq 0$ :
+
+$$
+X(z) = x[0]z^{-0} + x[1]z^{-1} = 1  - z^{-1}
+$$
+
+On en conclue que la question de la convergence ce pose uniquement pour les **FII**. Pour les **FIF**, pas de problème.
+
+### Critères de convergences de Cauchy
+
+$(\star)$ $\sum\limits_{k=0}^{+ \infty} u[k]$ converge ssi $\lim\limits_{x \to +\infty} |u[k]|^{1/k} < 1$
+
+$$
+X(z) = \sum\limits_{k=-\infty}^{+\infty} x[k]z^{-k} = \sum\limits_{k=-1}^{-\infty} x[k]z^{-k} + \sum\limits_{k=0}^{+\infty} x[k]z^{-k}
+$$
+
+> À gauche (avant $0$) se trouve la **partie anticausale** et à droite (à partir de $0$) la **partie causale**.
+
+#### Partie causale
+
+$\sum\limits_{k=0}^{+\infty} x[k]z^{-k}$ et $u[k] = x[k]z^{-k}$
+
+$$
+\begin{array}{lcl}
+\lim\limits_{k \to +\infty} |u[k]|^{1/k} & = & \lim\limits_{k \to +\infty} |x[k] z^{-k}|^{1/k}\\
+ & = & \lim\limits_{k \to +\infty} |x[k]|^{1/k} |z^{-k}|^{1/k}\\
+ & < & 1\\
+ & \Rightarrow & |z| > \lim\limits_{k \to +\infty} |x[k]|^{1/k}\\
+\end{array}
+$$
+
+**Exemple.** $x[k] = a^k.\epsilon[k]$
+
+Critère : $|z| > \lim\limits_{k \to +\infty} |x[k]|^{1 / k} \Leftrightarrow |z| > |a|$
+
+> **Remarque.** Le critère permet de calculer la condition de convergence à priori du calcul de $X(z)$.
+
+
+
+.
