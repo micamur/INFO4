@@ -16,3 +16,4 @@ external/
 *.log
 *.bin
 .metadata/
+img/
