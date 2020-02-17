@@ -1,4 +1,4 @@
-package basicMultiThread_;
+package basicMultiThread;
 
 import java.io.IOException;
 import java.net.ServerSocket;
