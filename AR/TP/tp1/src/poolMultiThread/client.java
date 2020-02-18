@@ -1,4 +1,4 @@
-package poolMultiThread_;
+package poolMultiThread;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

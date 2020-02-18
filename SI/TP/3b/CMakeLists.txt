@@ -1,6 +1,6 @@
 # CMake entry point
 cmake_minimum_required (VERSION 2.6)
-project(polytech_ricm4_tp4)
+project(polytech_ricm4_tp3b)
 
 find_package(OpenGL REQUIRED)
 
@@ -49,5 +49,5 @@ file(
         src/*.h
 )
 
-add_executable(polytech_ricm4_tp4  ${shader_file} ${source_files} )
-target_link_libraries(polytech_ricm4_tp4 ${ALL_LIBS})
+add_executable(polytech_ricm4_tp3b  ${shader_file} ${source_files} )
+target_link_libraries(polytech_ricm4_tp3b ${ALL_LIBS})
