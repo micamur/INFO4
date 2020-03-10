@@ -1,0 +1,119 @@
+@neutre <- ok.
+@neutre <- passable.
+@neutre <- moyen.
+@neutre <- correct.
+
+@prenegatif <- pas.
+@prenegatif <- peu.
+@prenegatif <- moins.
+
+@negatif <- médiocre.
+@negatif <- mauvais.
+@negatif <- nul.
+@negatif <- "à éviter".
+
+@positif <- bien.
+@positif <- génial.
+@positif <- extraordinaire.
+@positif <- excellent.
+@positif <- excélent.
+@positif <- super.
+@positif <- bon.
+@positif <- agréable.
+@positif <- belle.
+@positif <- meilleur.
+@positif <- sympathique.
+@positif <- sympa.
+@positif <- symphatique.
+@positif <- hyper.
+@positif <- complet.
+@positif <- pro.
+@positif <- correct.
+@positif <- gourmand.
+
+@nourriture <- crêpe.
+@nourriture <- poisson.
+@nourriture <- plat.
+@nourriture <- rissoto.
+@nourriture <- tartare.
+@nourriture <- surgelé.
+@nourriture <- frites.
+@nourriture <- produits.
+@nourriture <- gâteau.
+@nourriture <- palourdes.
+@nourriture <- pizza.
+@nourriture <- galette.
+
+@service <- service.
+@service <- employee.
+@service <- serveur.
+@service <- serveuse.
+@service <- accueillant.
+
+@boisson <- vin.
+@boisson <- cocktail.
+@boisson <- jus.
+@boisson <- "chocolat chaud".
+@boisson <- thé.
+
+@ambiance <- restaurant.
+@ambiance <- accueil.
+@ambiance <- terrasse.
+@ambiance <- salle.
+@ambiance <- atmosphère.
+@ambiance <- décoration.
+@ambiance <- déco.
+@ambiance <- intérieur.
+@ambiance <- extérieur.
+@ambiance <- déco.
+@ambiance <- lieu.
+
+@prix <- cher.
+@prix <- chers.
+@prix <- exorbitants.
+@prix <- coûteux.
+@prix <- "prix élevé".
+@prix <- "bon marché".
+@prix <- "prix bas".
+@prix <-  "addition être salée".
+@prix <- "rapport qualité prix".
+@negatif <- cher.
+@negatif <- chers.
+@negatif <- exorbitants.
+@negatif <- coûteux.
+@negatif <- "prix élevé".
+@positif <- "bon marché".
+@positif <- "prix bas".
+
+@qualite <- frais.
+@qualite <- raffiné.
+@qualite <- savoureux.
+@qualite <- succulent.
+@qualite <- appétissant.
+@qualite <- bon.
+@qualite <- mauvais.
+@qualite <- rassis.
+@qualite <- sec.
+@qualite <- passé.
+@qualite <- rance.
+@qualite <- maison.
+@qualite <- délicieux.
+@qualite <- tendre.
+@qualite <- copieux.
+@qualite <- fin.
+@positif <- frais.
+@positif <- raffiné.
+@positif <- savoureux.
+@positif <- succulent.
+@positif <- appétissant.
+@positif <- maison.
+@positif <- bon.
+@positif <- délicieux.
+@positif <- tendre.
+@positif <- copieux.
+@positif <- fin.
+@negatif <- mauvais.
+@negatif <- rassis.
+@negatif <- sec.
+@negatif <- passé.
+@negatif <- rance.

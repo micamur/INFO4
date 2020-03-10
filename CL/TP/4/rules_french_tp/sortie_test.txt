@@ -1,0 +1,4174 @@
+g660465-d5932339-r281681321
+
+Le repas est juste indécent! Rien de bon même la pomme de terre n'était pas cuite! Ne surtout pas y aller pour bien manger, par contre on se laisse bien embarquer dans l'ambiance de ces années là. Il ne faut par contre pas demander autre chose que le registre du patron, sinon on vous dit d'aller acheter le cd
+
+Sentiments
+
+[['a_positif',[37,40]],['a_positif',[111,115]],['a_positif',[148,152]]]
+
+a_positif
+	bon
+a_positif
+	bien
+a_positif
+	bien
+
+Attributs
+
+[['a_qualite',[37,40]]]
+
+
+a_qualite
+	bon
+
+Triplets
+
+[]
+
+-----------
+g1368199-d4713084-r245661593
+
+Des pizzas locales que vous ne mangerez pas ailleurs, accommodant les spécialités du coin. Même le restaurateur d'a cote en mange une a l'occasion.Très bon accueil
+
+Sentiments
+
+[['a_positif',[152,155]]]
+
+a_positif
+	bon
+
+Attributs
+
+[['a_nourriture',[4,10]],['a_qualite',[152,155]],['a_ambiance',[156,163]]]
+
+
+a_nourriture
+	pizzas
+a_qualite
+	bon
+a_ambiance
+	accueil
+
+Triplets
+
+[['a_ambiance_pos',[152,155],[156,163]]]
+
+a_ambiance_pos
+	bon
+	accueil
+-----------
+g1368199-d6413468-r284111989
+
+Au centre de ce tout petit village, on ne s'attendait pas à manger aussi bien sur une terrasse agréable. Service plaisant.
+
+Sentiments
+
+[['a_negatif',[54,57],[73,77]],['a_positif',[95,103]]]
+
+a_negatif
+	pas
+	bien
+a_positif
+	agréable
+
+Attributs
+
+[['a_ambiance',[86,94]],['a_service',[105,112]]]
+
+
+a_ambiance
+	terrasse
+a_service
+	Service
+
+Triplets
+
+[['a_ambiance_pos',[86,94],[95,103]]]
+
+a_ambiance_pos
+	terrasse
+	agréable
+-----------
+g219217-d2032842-r108504415
+
+Comment peut-on appeler ça un restaurant ? Un accueil et un service déplorables, une cuisine médiocre n'ayant rien à envier au manque de fraîcheur du buffet notamment.La prochaine fois que nous serons de passage à Albertville, nous essaierons un autre restaurant, quelqu'un peut-il nous en conseiller un ???
+
+Sentiments
+
+[['a_negatif',[93,101]]]
+
+a_negatif
+	médiocre
+
+Attributs
+
+[['a_ambiance',[30,40]],['a_ambiance',[46,53]],['a_service',[60,67]],['a_ambiance',[252,262]]]
+
+
+a_ambiance
+	restaurant
+a_ambiance
+	accueil
+a_service
+	service
+a_ambiance
+	restaurant
+
+Triplets
+
+[['a_service_neg',[60,67],[93,101]]]
+
+a_service_neg
+	service
+	médiocre
+-----------
+g187141-d1325386-r283648125
+
+Le titre résume toutservice mauvaisprix abusif pour la prestation. Vieux mouton en guise d'agneauassiette corse pire que sandwich SNCFassiette de fromage au singulier .....
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[]
+
+
+
+Triplets
+
+[]
+
+-----------
+g187141-d4148693-r285946967
+
+On y a manger le soir, sa terrasse est sur une place très jolie avec son églises. Le repas était très bon l'entrée, le plat et le dessert. Juste un blême le serveur ou le directeur (j'ai pas compris ) avec son cigare il se reconnaîtra (tant pis), et il parle trop !!!!
+
+Sentiments
+
+[['a_positif',[102,105]]]
+
+a_positif
+	bon
+
+Attributs
+
+[['a_ambiance',[26,34]],['a_qualite',[102,105]],['a_nourriture',[119,123]],['a_service',[157,164]]]
+
+
+a_ambiance
+	terrasse
+a_qualite
+	bon
+a_nourriture
+	plat
+a_service
+	serveur
+
+Triplets
+
+[]
+
+-----------
+g187231-d4064829-r228653543
+
+Manifestement, nous derangeons la serveuse. Le mojito est abominable, tiède, beaucoup trop sucré, citron balancé tel quel dans le verre... Nous n'avons pas eu le plaisir de goûter la cuisine, dommage !
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_service',[34,42]]]
+
+
+a_service
+	serveuse
+
+Triplets
+
+[]
+
+-----------
+g187231-d2340261-r285013288
+
+Superbe cadre si on mange dehors. Accueil des plus stériles , presque l'impression de déranger . Nous commandons 2 pizza , d'aspect correcte mais baignant dans l'huile , ok nous sommes dans le sud donc nous passons outre. Après dégustation c'est le drame , un cailloux dans la pizza de mon ami. J'appel la serveuse pour me plaindre , aucune excuse , pour elle c'est normal car il s'agit de champignon frais et nous dit que la prochaine fois ils feront du congelé... Après avoir nous être emportés et réclamé des excuses elle fini par s'excuser timidement et nous offrir un café...A fuire
+
+Sentiments
+
+[['a_positif',[132,140]],['a_neutre',[170,172]],['a_positif',[401,406]]]
+
+a_positif
+	correcte
+a_neutre
+	ok
+a_positif
+	frais
+
+Attributs
+
+[['a_ambiance',[34,41]],['a_nourriture',[115,120]],['a_nourriture',[277,282]],['a_service',[306,314]],['a_qualite',[401,406]]]
+
+
+a_ambiance
+	Accueil
+a_nourriture
+	pizza
+a_nourriture
+	pizza
+a_service
+	serveuse
+a_qualite
+	frais
+
+Triplets
+
+[]
+
+-----------
+g187089-d1913353-r234290638
+
+restaurant dans une charmante petite rue piétonne de Saint Jean de Luz. surprise avant même de passer la commande : une araignée était logée dans le menu !!! Aussitôt l'apéritif servi, la serveuse nous a apporté les soupes de poissons ! erreur vite rectifiée par le patron. J'ai commandé un magret bleu avec des frites, celui ci est arrivé servi avec du gratin de pommes de terre. il est reparti en cuisine pour être servi avec des frites et à son retour devant moi, il était froid !!! franchement pas le restaurant où je retournerai ! En plus la serveuse n'est même pas agréable et souriante
+
+Sentiments
+
+[['a_negatif',[567,570],[571,579]]]
+
+a_negatif
+	pas
+	agréable
+
+Attributs
+
+[['a_ambiance',[0,10]],['a_service',[188,196]],['a_nourriture',[226,234]],['a_nourriture',[312,318]],['a_nourriture',[432,438]],['a_ambiance',[505,515]],['a_service',[547,555]]]
+
+
+a_ambiance
+	restaurant
+a_service
+	serveuse
+a_nourriture
+	poissons
+a_nourriture
+	frites
+a_nourriture
+	frites
+a_ambiance
+	restaurant
+a_service
+	serveuse
+
+Triplets
+
+[['a_service_neg',[547,555],[567,570],[571,579]]]
+
+a_service_neg
+	serveuse
+	pas
+	agréable
+-----------
+g187231-d2340261-r209003832
+
+Endroit sympa en plein centre touristique. Un peu vieillissant. Nourriture classique de Menton. A y aller de temps à autre.Relativement cher pour la qualité/prix.
+
+Sentiments
+
+[['a_positif',[8,13]],['a_negatif',[136,140]]]
+
+a_positif
+	sympa
+a_negatif
+	cher
+
+Attributs
+
+[['a_prix',[136,140]]]
+
+
+a_prix
+	cher
+
+Triplets
+
+[]
+
+-----------
+g187231-d1333886-r254463222
+
+dans une petite rue de Menton , un restaurant pas très grand par la taille mais vraiment remarquable par la qualité de sa cuisine : les raviolis aux fruits de mer , les gambes ( décortiquées , un plus pour le plaisir ... ) le turbot pour 2 , présenté avant cuisson , les anchois sur lit de roquette ...enfin si vous êtes un inconditionnel de la viande , l'agneau rosé était parfait ... accueil sympa , vins de sicile agréables ... entrées autour de 17/18€ , turbot pour 2 : 49€ . mérite le détour ... attention : réservez !
+
+Sentiments
+
+[['a_positif',[394,399]],['a_positif',[417,426]]]
+
+a_positif
+	sympa
+a_positif
+	agréables
+
+Attributs
+
+[['a_ambiance',[35,45]],['a_ambiance',[386,393]],['a_boisson',[402,406]]]
+
+
+a_ambiance
+	restaurant
+a_ambiance
+	accueil
+a_boisson
+	vins
+
+Triplets
+
+[['a_ambiance_pos',[386,393],[394,399]],['a_boisson_pos',[402,406],[417,426]]]
+
+a_ambiance_pos
+	accueil
+	sympa
+a_boisson_pos
+	vins
+	agréables
+-----------
+g196627-d7394151-r283518422
+
+Accueil chaleureux, arrière salle voûtée magnifique (ancien rempart de la ville), très bonne cuisine, grillades au feu de bois casiement sous nos yeux, produits de qualité et prix raisonnable. A ne surtout pas manquer.
+
+Sentiments
+
+[['a_positif',[87,92]]]
+
+a_positif
+	bonne
+
+Attributs
+
+[['a_ambiance',[0,7]],['a_ambiance',[28,33]],['a_qualite',[87,92]],['a_nourriture',[152,160]]]
+
+
+a_ambiance
+	Accueil
+a_ambiance
+	salle
+a_qualite
+	bonne
+a_nourriture
+	produits
+
+Triplets
+
+[]
+
+-----------
+g219217-d1337718-r286688555
+
+J'ai mangé avec des amis dans ce restaurant et je trouve que la qualité des produits se sont serieusement dégradé, la salade d'accueil comporte 2 feuilles, le plat principal et le dessert sont baclés dans la présentation. De plus, l'accueil de la part du patron est froid contrairement aux serveurs très gentils. La vaisselle est démodée.
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_ambiance',[33,43]],['a_nourriture',[76,84]],['a_ambiance',[127,134]],['a_nourriture',[159,163]],['a_ambiance',[233,240]],['a_service',[290,298]]]
+
+
+a_ambiance
+	restaurant
+a_nourriture
+	produits
+a_ambiance
+	accueil
+a_nourriture
+	plat
+a_ambiance
+	accueil
+a_service
+	serveurs
+
+Triplets
+
+[]
+
+-----------
+g196673-d1116913-r280920040
+
+l'accueil est agréable; la cuisine correcte, les prix raisonnables, bref c'est bien mais est-ce le nombre de gens, la salle, ... il manque un petit quelque chose pour s'enthousiasmer. correct. mais une impression d'inachevé.
+
+Sentiments
+
+[['a_positif',[14,22]],['a_positif',[35,43]],['a_positif',[79,83]],['a_positif',[184,191]]]
+
+a_positif
+	agréable
+a_positif
+	correcte
+a_positif
+	bien
+a_positif
+	correct
+
+Attributs
+
+[['a_ambiance',[2,9]],['a_ambiance',[118,123]]]
+
+
+a_ambiance
+	accueil
+a_ambiance
+	salle
+
+Triplets
+
+[['a_ambiance_pos',[2,9],[14,22]]]
+
+a_ambiance_pos
+	accueil
+	agréable
+-----------
+g196673-d4476622-r283694730
+
+Très bonne table dans une ruelle derrière le port donc sans avoir le défilé des touristes qui regardent votre assiette. On trouve dans ce restaurant une cuisine provençale parfumée, présentée très joliment et en quantité généreuse. Le service est très correct Nous avons passé un très bon moment et nous vous recommandons l'endroit.
+
+Sentiments
+
+[['a_positif',[5,10]],['a_positif',[252,259]],['a_negatif',[271,276]],['a_positif',[285,288]]]
+
+a_positif
+	bonne
+a_positif
+	correct
+a_negatif
+	passé
+a_positif
+	bon
+
+Attributs
+
+[['a_qualite',[5,10]],['a_ambiance',[138,148]],['a_service',[235,242]],['a_qualite',[271,276]],['a_qualite',[285,288]]]
+
+
+a_qualite
+	bonne
+a_ambiance
+	restaurant
+a_service
+	service
+a_qualite
+	passé
+a_qualite
+	bon
+
+Triplets
+
+[['a_service_pos',[235,242],[252,259]]]
+
+a_service_pos
+	service
+	correct
+-----------
+g196600-d3724990-r188221316
+
+Ras à signaler de fameux depuis deux mois !!!C'est comme si les produits nobles avaient disparu.Il n'y a pas que la hampe dans la vie
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_nourriture',[64,72]]]
+
+
+a_nourriture
+	produits
+
+Triplets
+
+[]
+
+-----------
+g196600-d7148865-r283492680
+
+tres bon produit hamburger et frites maison un regal le patron super cool et un prix tres raisonnable
+
+Sentiments
+
+[['a_positif',[5,8]],['a_positif',[37,43]],['a_positif',[63,68]]]
+
+a_positif
+	bon
+a_positif
+	maison
+a_positif
+	super
+
+Attributs
+
+[['a_qualite',[5,8]],['a_nourriture',[30,36]],['a_qualite',[37,43]]]
+
+
+a_qualite
+	bon
+a_nourriture
+	frites
+a_qualite
+	maison
+
+Triplets
+
+[['a_nourriture_pos',[30,36],[37,43]]]
+
+a_nourriture_pos
+	frites
+	maison
+-----------
+g187154-d3571384-r213464453
+
+Situé entre les arênes et la cour carrée, ce restaurant ne désemplit pas. Très curieux car la nourriture n'a rien de sensationnel, je me suis brûlé le palais avec des nems. Le riz cantonais était sec et j'ai attendu pendant plus de 20 mns 2 malheureuses boules de glace.
+
+Sentiments
+
+[['a_negatif',[196,199]]]
+
+a_negatif
+	sec
+
+Attributs
+
+[['a_ambiance',[45,55]],['a_qualite',[196,199]]]
+
+
+a_ambiance
+	restaurant
+a_qualite
+	sec
+
+Triplets
+
+[]
+
+-----------
+g187147-d808712-r246942355
+
+Menu du jour - une entrée saumon fumé sur céleri excellent- sauté de veau au tagliatelle très bon. Vin un peu cher Deux petites remarques- la salle est surchauffée ce qui est vraiment désagréable - l'eau en caraffe n'est pas fraiche (à relier avec le point précédent ???). Très compétitif pour le quartier et la qualité de ce que l'on a dans notre assiette.
+
+Sentiments
+
+[['a_positif',[49,58]],['a_positif',[94,97]],['a_negatif',[110,114]]]
+
+a_positif
+	excellent
+a_positif
+	bon
+a_negatif
+	cher
+
+Attributs
+
+[['a_qualite',[94,97]],['a_boisson',[99,102]],['a_prix',[110,114]],['a_ambiance',[142,147]]]
+
+
+a_qualite
+	bon
+a_boisson
+	Vin
+a_prix
+	cher
+a_ambiance
+	salle
+
+Triplets
+
+[['a_boisson_neg',[99,102],[110,114]]]
+
+a_boisson_neg
+	Vin
+	cher
+-----------
+g1368199-d3726982-r258755756
+
+Après le palais du facteur nous voici à la halte qui est un restaurant correct. Le patron nous accueille très chaleureusement et c'est sa femme qui cuisine. Tout n'est pas fait maison mais c'est bon. Le prix est un peu élevé pour un repas qui n'a pas nécessité toute une implication du début à la fin.
+
+Sentiments
+
+[['a_positif',[71,78]],['a_negatif',[168,171],[177,183]],['a_positif',[195,198]],['a_positif',[297,300]]]
+
+a_positif
+	correct
+a_negatif
+	pas
+	maison
+a_positif
+	bon
+a_positif
+	fin
+
+Attributs
+
+[['a_ambiance',[60,70]],['a_qualite',[177,183]],['a_qualite',[195,198]],['a_qualite',[297,300]]]
+
+
+a_ambiance
+	restaurant
+a_qualite
+	maison
+a_qualite
+	bon
+a_qualite
+	fin
+
+Triplets
+
+[['a_ambiance_pos',[60,70],[71,78]]]
+
+a_ambiance_pos
+	restaurant
+	correct
+-----------
+g187147-d2188108-r272608937
+
+Ce petit restaurant discret vaut le détour, d'abord - et il faut le souligner - pour le chaleureux accueil que le patron réserve à ses clients (merci pour le kir ;), mais aussi pour la qualité des plats servis. Les entrées sont simples mais très bonnes, et le menu offre deux séries de plats qui permettent de s'adapter à tous les budgets. Pour notre part, nous avons choisi le tartare de boeuf. L'assaisonnement était réalisé directement en cuisine et particulièrement délicieux. La gamme de dessert est humble, mais chacun d'eux est relevé par une petite touche créative du patron, qui en relève la saveur. Sans hésiter un endroit où il fait bon manger avec un ami ou un membre de sa famille, et qui contraste fortement avec les brasseries "industrielles" que l'on trouve parfois à Paris. N'hésitez pas !
+
+Sentiments
+
+[['a_positif',[246,252]],['a_positif',[470,479]],['a_positif',[644,647]]]
+
+a_positif
+	bonnes
+a_positif
+	délicieux
+a_positif
+	bon
+
+Attributs
+
+[['a_ambiance',[9,19]],['a_ambiance',[99,106]],['a_nourriture',[197,202]],['a_qualite',[246,252]],['a_nourriture',[286,291]],['a_nourriture',[378,385]],['a_qualite',[470,479]],['a_qualite',[644,647]]]
+
+
+a_ambiance
+	restaurant
+a_ambiance
+	accueil
+a_nourriture
+	plats
+a_qualite
+	bonnes
+a_nourriture
+	plats
+a_nourriture
+	tartare
+a_qualite
+	délicieux
+a_qualite
+	bon
+
+Triplets
+
+[]
+
+-----------
+g187147-d1791396-r208296800
+
+Menus imposés.Apéritifs médiocres.Assiettes de tapas ridicules.Plat arrivé froid, viande mal cuite, pomme de terre froides, courgettes crues, salade chaude, plat trop salé dans son ensemble, bon point pour la sauce au vin.Vin âcre.Tarte aux pommes au calva sans calva digne d'une cantine d'école.Arnaque du siècle, les assiettes sont peu fournies, les plats médiocres et le rapport qualité/ prix est totalement ahurissant.
+
+Sentiments
+
+[['a_negatif',[24,33]],['a_positif',[191,194]],['a_negatif',[358,367]]]
+
+a_negatif
+	médiocres
+a_positif
+	bon
+a_negatif
+	médiocres
+
+Attributs
+
+[['a_nourriture',[63,67]],['a_nourriture',[157,161]],['a_qualite',[191,194]],['a_boisson',[218,221]],['a_boisson',[222,225]],['a_nourriture',[352,357]]]
+
+
+a_nourriture
+	Plat
+a_nourriture
+	plat
+a_qualite
+	bon
+a_boisson
+	vin
+a_boisson
+	Vin
+a_nourriture
+	plats
+
+Triplets
+
+[]
+
+-----------
+g187147-d1050534-r269848889
+
+C'est une adresse où nous dînons régulièrement. Ici, tout est pro. De l'accueil à l'assiette en passant par le rythme du service. Le décor est magnifique et c'est mieux de réserver une table au second étage où se situe la verrière ouverte en été. La cuisine est à la hauteur de la réputation de ce restaurant. Les entrées sont à 7 euros et copieuses. Les plats sont bons mais ne vous attendez pas à de grandes surprises. Ils maîtrisent les plats typiques "bistrot". Les viandes sont excellentes notamment la bavette échalotes. Leur petit pot au chocolat en dessert est une tuerie. Petit bémol. Mon compagnon est végétarien et ils n'ont actuellement que des gnocchis à la crème de crustacés à proposer en plat. Il serait judicieux de mentionner une autre sauce à base de légumes pour les accompagner. Mais nous resterons des clients réguliers de cette adresse incontournable des amoureux des brasseries typiquement parisienne.
+
+Sentiments
+
+[['a_positif',[62,65]],['a_positif',[340,349]],['a_positif',[366,370]],['a_positif',[483,494]]]
+
+a_positif
+	pro
+a_positif
+	copieuses
+a_positif
+	bons
+a_positif
+	excellentes
+
+Attributs
+
+[['a_ambiance',[72,79]],['a_service',[121,128]],['a_ambiance',[298,308]],['a_qualite',[340,349]],['a_nourriture',[355,360]],['a_qualite',[366,370]],['a_nourriture',[440,445]],['a_nourriture',[704,708]]]
+
+
+a_ambiance
+	accueil
+a_service
+	service
+a_ambiance
+	restaurant
+a_qualite
+	copieuses
+a_nourriture
+	plats
+a_qualite
+	bons
+a_nourriture
+	plats
+a_nourriture
+	plat
+
+Triplets
+
+[['a_nourriture_pos',[355,360],[366,370]]]
+
+a_nourriture_pos
+	plats
+	bons
+-----------
+g187147-d2622854-r266371537
+
+Dans une rue calme, l'accueil y est sympathique et chaleureux, la salle agréable et confortable. En famille ou entre amis, la tonalité de la musique à hauteur convenable, permet de tenir une conversation sans hurler, tout en dégustant d'excellents plats, joliment présentés et très savoureux, servis avec le sourire et accompagnés de très bons vins.A refaire !!
+
+Sentiments
+
+[['a_positif',[36,47]],['a_positif',[72,80]],['a_positif',[237,247]],['a_positif',[282,291]],['a_positif',[339,343]]]
+
+a_positif
+	sympathique
+a_positif
+	agréable
+a_positif
+	excellents
+a_positif
+	savoureux
+a_positif
+	bons
+
+Attributs
+
+[['a_ambiance',[22,29]],['a_ambiance',[66,71]],['a_nourriture',[248,253]],['a_qualite',[282,291]],['a_qualite',[339,343]],['a_boisson',[344,348]]]
+
+
+a_ambiance
+	accueil
+a_ambiance
+	salle
+a_nourriture
+	plats
+a_qualite
+	savoureux
+a_qualite
+	bons
+a_boisson
+	vins
+
+Triplets
+
+[['a_ambiance_pos',[22,29],[36,47]],['a_ambiance_pos',[66,71],[72,80]],['a_nourriture_pos',[237,247],[248,253]],['a_boisson_pos',[339,343],[344,348]]]
+
+a_ambiance_pos
+	accueil
+	sympathique
+a_ambiance_pos
+	salle
+	agréable
+a_nourriture_pos
+	excellents
+	plats
+a_boisson_pos
+	bons
+	vins
+-----------
+g187147-d1392654-r268172302
+
+Dîner décevant de tout point de vue : ambiance assez triste (seulement 4 tables occupées ce dimanche soir), service un peu froid (une seule personne en salle, souvent absente, il fallait attendre son retour à chaque fois que nous voulions demander quelque chose), plats décevants : le riz arborio aux truffes apparaissant dans le menu à la carte disponible sur le site web du restaurant était devenu un simple risotto aux champignons (très moyen au demeurant), pour le même prix (18 euros en entrée), et le ris de veau était trop cuit, sec, mal accompagné. Vins au verre décevants. Le soufflé que j'avais repéré sur la carte du site web n’était plus proposé. Addition : 160 euros à 2 avec 2 verres chacun et en partageant le dessert. Ça ne les vaut pas. Je ne recommande pas.
+
+Sentiments
+
+[['a_neutre',[440,445]],['a_negatif',[536,539]]]
+
+a_neutre
+	moyen
+a_negatif
+	sec
+
+Attributs
+
+[['a_service',[108,115]],['a_ambiance',[152,157]],['a_nourriture',[264,269]],['a_ambiance',[376,386]],['a_qualite',[536,539]],['a_boisson',[557,561]]]
+
+
+a_service
+	service
+a_ambiance
+	salle
+a_nourriture
+	plats
+a_ambiance
+	restaurant
+a_qualite
+	sec
+a_boisson
+	Vins
+
+Triplets
+
+[]
+
+-----------
+g196673-d2375036-r163951874
+
+Nous y sommes, plat du jour tagliatelles aux fruits de mer, produits frais mais certains caoutchouteux, le service et l'accueil très moyen, saint Jacques bonnes mais riz très sec, bref certainement mieux ailleurs!
+
+Sentiments
+
+[['a_positif',[69,74]],['a_neutre',[133,138]],['a_positif',[154,160]],['a_negatif',[175,178]]]
+
+a_positif
+	frais
+a_neutre
+	moyen
+a_positif
+	bonnes
+a_negatif
+	sec
+
+Attributs
+
+[['a_nourriture',[15,19]],['a_nourriture',[60,68]],['a_qualite',[69,74]],['a_service',[107,114]],['a_ambiance',[120,127]],['a_qualite',[154,160]],['a_qualite',[175,178]]]
+
+
+a_nourriture
+	plat
+a_nourriture
+	produits
+a_qualite
+	frais
+a_service
+	service
+a_ambiance
+	accueil
+a_qualite
+	bonnes
+a_qualite
+	sec
+
+Triplets
+
+[['a_nourriture_pos',[60,68],[69,74]]]
+
+a_nourriture_pos
+	produits
+	frais
+-----------
+g187147-d719066-r273296298
+
+Menu un peu compliqué entre Bo Boun's, salades et le reste. Il vaut mieux avoir bon appétit car les plats sont copieux et bons. Et les prix sont très agréables !Dommage que la salle soit aussi peu confortable, on est un peu les uns sur les autres et si vous êtes corpulents, préférez la terrasse. Le personnel est souvent débordé mais c'est la clé de la réussite et de la renommée.
+
+Sentiments
+
+[['a_positif',[80,83]],['a_positif',[111,118]],['a_positif',[122,126]],['a_positif',[150,159]]]
+
+a_positif
+	bon
+a_positif
+	copieux
+a_positif
+	bons
+a_positif
+	agréables
+
+Attributs
+
+[['a_qualite',[80,83]],['a_nourriture',[100,105]],['a_qualite',[111,118]],['a_qualite',[122,126]],['a_ambiance',[176,181]],['a_ambiance',[287,295]]]
+
+
+a_qualite
+	bon
+a_nourriture
+	plats
+a_qualite
+	copieux
+a_qualite
+	bons
+a_ambiance
+	salle
+a_ambiance
+	terrasse
+
+Triplets
+
+[['a_nourriture_pos',[100,105],[111,118]]]
+
+a_nourriture_pos
+	plats
+	copieux
+-----------
+g656502-d3171612-r281589263
+
+Parti pour un match de top 14 nous avons fait le détour par peyrens nous avons dégusté  un très bon cassoulet autant en qualité et quantité  nous n avons pas pu tout fini accueil chaleureux Au plaisir de se revoir pour une demi de coupe...Plus
+
+Sentiments
+
+[['a_positif',[96,99]]]
+
+a_positif
+	bon
+
+Attributs
+
+[['a_qualite',[96,99]],['a_ambiance',[171,178]]]
+
+
+a_qualite
+	bon
+a_ambiance
+	accueil
+
+Triplets
+
+[]
+
+-----------
+g187147-d823708-r116715081
+
+Le service est sympathique mais très expéditif, on à pas le temps de finir un plat que l'on nous demande si on à terminer. Si vous êtes pressés c'est l'endroit idéal! Mais ce qui m'a gêné est la chose suivante : seulement deux minutes après avoir passé commande, nous étions déjà servit, les escalopes panées seraient elles toute faites à l'avance puis réchauffées? Les prix des boissons et des desserts sont très élevés (4,5 euros pour une canette de coca..). En bref la nourriture n'est pas extraordinaire, peut être même préparée longtemps à l'avance? Je ne recommanderai pas ce restaurant et n'y retournerai pas!
+
+Sentiments
+
+[['a_positif',[15,26]],['a_negatif',[247,252]],['a_negatif',[489,492],[493,507]]]
+
+a_positif
+	sympathique
+a_negatif
+	passé
+a_negatif
+	pas
+	extraordinaire
+
+Attributs
+
+[['a_service',[3,10]],['a_nourriture',[78,82]],['a_qualite',[247,252]],['a_ambiance',[582,592]]]
+
+
+a_service
+	service
+a_nourriture
+	plat
+a_qualite
+	passé
+a_ambiance
+	restaurant
+
+Triplets
+
+[['a_service_pos',[3,10],[15,26]]]
+
+a_service_pos
+	service
+	sympathique
+-----------
+g187147-d695254-r250598316
+
+Encore un resto qui perd petit à petit de la qualité.La deco est géniale, je suis plutôt fan, même si la préférence va à la Deco de type recup ou industriel, cette deco type romantique me plait plutôt. A l'intérieur on est tranquille et si on aime voir du monde passer on se met en terrasse, très agréable en été d ailleurs ou je passe ps mal de temps avec les copains à regarder les gens passer. Encore un fois le problème comme dans pas mal de resto finalement le problème réside dans la nourriture qui n'est pas au niveau, ni de l'adresse, ni de l'effort fait à la déco. Il y a quelques années, le burger en forme de cœur était un must have, il est aujourd'hui devenu commun, je ne le finis meme plus.
+
+Sentiments
+
+[['a_positif',[65,72]],['a_positif',[297,305]]]
+
+a_positif
+	géniale
+a_positif
+	agréable
+
+Attributs
+
+[['a_ambiance',[206,215]],['a_ambiance',[282,290]],['a_ambiance',[568,572]]]
+
+
+a_ambiance
+	intérieur
+a_ambiance
+	terrasse
+a_ambiance
+	déco
+
+Triplets
+
+[['a_ambiance_pos',[282,290],[297,305]]]
+
+a_ambiance_pos
+	terrasse
+	agréable
+-----------
+g187154-d2480121-r280274292
+
+Nous avions réservé pour les 20 ans de notre fils (Avril), quel déception, anniversaire en partie gâché!Nous avions négocié le menu avec le responsable et nous étions confiant étant donné que nous avions fêté les 70 ans de mon beau père il y a 3 ans et que nous avions été complètement satisfait.Certes nous n'avions pas un gros budget, 15€ par personne entrée, plat, gâteau.Mais aucune qualité dans l'assiette, aucune présentation, on se serait cru à un repas que l'on fait chez soi. De plus, parmi nos assiettes, nous avions un panel de morceaux de viande du plus petit ou plus gros! Côté saumon, il était cru, on l'a signalé, la serveuse prend les 3 assiettes concernées, revient et nous demande à qui étaient les assiettes?!! De plus, recuit au micro onde!!! avec des haricots verts cuit vapeur, pas revenus, sans sauce, bref lamentable!Le gâteau: un fraisier, nous avions cherché les fraises et écœurant trop de crème.Heureusement les cocktails sans alcool et les cafés étaient bons et offerts, mais nous aurions préféré les payer et avoir quelque chose de mieux dans l'assiette.Un minimum de présentation, c'est un rien qui peut faire la différence à l’œil!La serveuse était très agréable et souriante, juste petit souci avec la prise des 3 assiettes pour faire recuire les saumons mais sinon rien à lui reprocher.Nous avons signalé au responsable de salle, il était très gêné, nous a dit qu'il ferait remonter.Nous avons appris par la suite, changement de propriétaire et de cuisinier depuis notre dernière venue.
+
+Sentiments
+
+[['a_positif',[983,987]],['a_positif',[1186,1194]]]
+
+a_positif
+	bons
+a_positif
+	agréable
+
+Attributs
+
+[['a_nourriture',[362,366]],['a_nourriture',[368,374]],['a_service',[632,640]],['a_nourriture',[844,850]],['a_boisson',[940,949]],['a_qualite',[983,987]],['a_service',[1166,1174]],['a_ambiance',[1357,1362]]]
+
+
+a_nourriture
+	plat
+a_nourriture
+	gâteau
+a_service
+	serveuse
+a_nourriture
+	gâteau
+a_boisson
+	cocktails
+a_qualite
+	bons
+a_service
+	serveuse
+a_ambiance
+	salle
+
+Triplets
+
+[['a_service_pos',[1166,1174],[1186,1194]]]
+
+a_service_pos
+	serveuse
+	agréable
+-----------
+g660465-d3531828-r267383919
+
+Très bonne cuisine traditionnelle dans un endroit typique.Mais c'est cher . Nous n'avons pris qu'un plat. Dommage pour ce petit restaurant sympa. Mais il y en a d'autres aussi bons et moins chers.
+
+Sentiments
+
+[['a_positif',[5,10]],['a_negatif',[69,73]],['a_positif',[139,144]],['a_positif',[176,180]],['a_positif',[184,189],[190,195]]]
+
+a_positif
+	bonne
+a_negatif
+	cher
+a_positif
+	sympa
+a_positif
+	bons
+a_positif
+	moins
+	chers
+
+Attributs
+
+[['a_qualite',[5,10]],['a_prix',[69,73]],['a_nourriture',[100,104]],['a_ambiance',[128,138]],['a_qualite',[176,180]],['a_prix',[190,195]]]
+
+
+a_qualite
+	bonne
+a_prix
+	cher
+a_nourriture
+	plat
+a_ambiance
+	restaurant
+a_qualite
+	bons
+a_prix
+	chers
+
+Triplets
+
+[['a_ambiance_pos',[128,138],[139,144]]]
+
+a_ambiance_pos
+	restaurant
+	sympa
+-----------
+g656502-d4431469-r237538947
+
+Repas totalement décevant et cher! Pour deux entrées, deux plats et deux desserts à la carte avec une bouteille de vin nous avons trouvé le repas assez cher pour Castelnaudary (92€). En plus tout provenait de conserves ou il s'agissait de plat surgelés... Je déconseille totalement ce "restaurant".
+
+Sentiments
+
+[['a_negatif',[29,33]],['a_negatif',[152,156]]]
+
+a_negatif
+	cher
+a_negatif
+	cher
+
+Attributs
+
+[['a_prix',[29,33]],['a_nourriture',[59,64]],['a_boisson',[115,118]],['a_prix',[152,156]],['a_nourriture',[239,243],[244,252]],['a_ambiance',[286,296]]]
+
+
+a_prix
+	cher
+a_nourriture
+	plats
+a_boisson
+	vin
+a_prix
+	cher
+a_nourriture
+	plat
+	surgelés
+a_ambiance
+	restaurant
+
+Triplets
+
+[]
+
+-----------
+g187147-d714983-r266137149
+
+Quel plaisir dés l'accueil, ce grand sourire, cette bise, le tout très naturel, on n'est plus habitués à ce coté amical, surtout à Paris! Et le cadre !!! Et la cuisine !!! On vient aussi et surtout pour ça et notre dernier déjeuner était, comme toujours, extra : Turbot poché à la rhubarbe, sauce crémée avec sa purée de panais, île flottante et tarte aux pralines...le tout arrosé d'un excellent Beaujolais...que du bonheur et c'est ainsi que tous les clients deviennent des habitués, ou plutôt des amis
+
+Sentiments
+
+[['a_positif',[387,396]]]
+
+a_positif
+	excellent
+
+Attributs
+
+[['a_ambiance',[19,26]]]
+
+
+a_ambiance
+	accueil
+
+Triplets
+
+[]
+
+-----------
+g187147-d946173-r270153835
+
+La décoration est un peu surchargée mais cela fait le charme de l'endroit. J'y suis allée par hasard avec des amis un soir pour l'apéro et je suis revenue y déjeuner car la formule tapas à 15 € m'avait bien plu.Vous ne trouverez pas les pseudos tapas que l'on trouve à toutes les terrasses mais uniquement les vraies recettes espagnoles : rabas de calamars, croquetas de jamon y queso, pain à la tomate, croquetas de bacalao, tortilla, serrano, piquillos, calamars à l'encre, artichauts au jambon ... Sans parler de la sangria tout simplement délicieuse ! Les desserts sont à l'image du reste : crème catalane, gâteau basque, fromage de brebis et confiture de cerises noires ... Les serveurs ne parlent pas tous très bien français mais ils sont très gentils (et leur accent espagnol renforce le côté authentique de l'endroit).Seul reproche : beaucoup de tables et peu d'espace, on est donc vite à l'étroit.Mais j'y retournerai les yeux fermés !
+
+Sentiments
+
+[['a_positif',[202,206]],['a_positif',[543,553]],['a_negatif',[703,706],[717,721]]]
+
+a_positif
+	bien
+a_positif
+	délicieuse
+a_negatif
+	pas
+	bien
+
+Attributs
+
+[['a_ambiance',[3,13]],['a_ambiance',[280,289]],['a_qualite',[543,553]],['a_nourriture',[611,617]],['a_service',[683,691]]]
+
+
+a_ambiance
+	décoration
+a_ambiance
+	terrasses
+a_qualite
+	délicieuse
+a_nourriture
+	gâteau
+a_service
+	serveurs
+
+Triplets
+
+[]
+
+-----------
+g187147-d2462243-r281238581
+
+Nous avons été au départ attirés par une terrasse ensoleillée , au calme et par sa carte aux prix raisonnables. Depuis nous y avons déjeuner et dîner à plusieurs reprises. Les plats sont bons voire très bons , extrêmement variés avec un menu du jour poisson et viande modifié quotidiennement (Soupe de pois capuchino à ne pas manquer) Il s'agit d'une cuisine familiale faite maison la plupart du temps . L'équipe est sympa ,serviable . On est servi sans attente et avec bonne humeur. Je recommande
+
+Sentiments
+
+[['a_positif',[187,191]],['a_positif',[203,207]],['a_positif',[375,381]],['a_positif',[417,422]],['a_positif',[470,475]]]
+
+a_positif
+	bons
+a_positif
+	bons
+a_positif
+	maison
+a_positif
+	sympa
+a_positif
+	bonne
+
+Attributs
+
+[['a_ambiance',[41,49]],['a_nourriture',[176,181]],['a_qualite',[187,191]],['a_qualite',[203,207]],['a_nourriture',[250,257]],['a_qualite',[375,381]],['a_qualite',[470,475]]]
+
+
+a_ambiance
+	terrasse
+a_nourriture
+	plats
+a_qualite
+	bons
+a_qualite
+	bons
+a_nourriture
+	poisson
+a_qualite
+	maison
+a_qualite
+	bonne
+
+Triplets
+
+[['a_nourriture_pos',[176,181],[187,191]]]
+
+a_nourriture_pos
+	plats
+	bons
+-----------
+g187147-d695238-r242653723
+
+Les excellentes critiques de ce restaurant se sont confirmées à table. Le menu-carte offre un choix pour tous les goûts et permet de découvrir des plats de saison bien présentés. La carte est a priori renouvelée chaque jour de 3 entrées, 3 plats et 3 desserts. Mais les incontournables restent manifestement la dorade en tartare, les crevettes cajun, les gnocchi d'agria à la truffe blanche, le dos de cabillaud à la plancha (parfaitement cuit et servi sur un lit de salsifis). La carte des vins est également courte et fait la part belle aux Côtes du Rhône et Languedoc Roussillon en mettant en avant des cuvées abordables dont quelques unes issues de producteurs reconnus.Service attentif et sympathique. Le sommelier n'hésite pas à changer une bouteille présentant un défaut.Ambiance bistrot chic. Un peu bruyant mais comme le restaurant parait rempli tous les soirs ...Il ne manquait que la fameuse boite de bonbons à la fin du repas !Une bonne adresse à deux pas de l'Etoile.
+
+Sentiments
+
+[['a_positif',[4,15]],['a_positif',[163,167]],['a_positif',[533,538]],['a_positif',[694,705]],['a_positif',[943,948]]]
+
+a_positif
+	excellentes
+a_positif
+	bien
+a_positif
+	belle
+a_positif
+	sympathique
+a_positif
+	bonne
+
+Attributs
+
+[['a_ambiance',[32,42]],['a_nourriture',[147,152]],['a_nourriture',[240,245]],['a_nourriture',[321,328]],['a_boisson',[491,495]],['a_service',[674,681]],['a_ambiance',[830,840]],['a_qualite',[943,948]]]
+
+
+a_ambiance
+	restaurant
+a_nourriture
+	plats
+a_nourriture
+	plats
+a_nourriture
+	tartare
+a_boisson
+	vins
+a_service
+	Service
+a_ambiance
+	restaurant
+a_qualite
+	bonne
+
+Triplets
+
+[['a_nourriture_pos',[147,152],[163,167]],['a_service_pos',[674,681],[694,705]]]
+
+a_nourriture_pos
+	plats
+	bien
+a_service_pos
+	Service
+	sympathique
+-----------
+g187147-d3522167-r271670227
+
+Je suis bien conscient que cet avis ne changera rien, le bar étant placé de manière à toujours pouvoir attirer des touristes mais bon, un lieu aussi scandaleux merite d'être dénoncé.Le serveur dont nous avons hérité est un vieil acariâtre dont l'impolitesse traduit le dégoût qu'il a pour son métier et le peu d'estime qu il se porte sans doute à lui-même.Ce service désagréable au possible est couronné d'une carte incompréhensible, aux prix exhorbitants.Nous nous sommes contentés d'un verre chacun, lesquels n'étaient même pas propres.Un pur scandale.
+
+Sentiments
+
+[['a_positif',[8,12]],['a_positif',[130,133]]]
+
+a_positif
+	bien
+a_positif
+	bon
+
+Attributs
+
+[['a_qualite',[130,133]],['a_ambiance',[138,142]],['a_service',[185,192]],['a_service',[359,366]]]
+
+
+a_qualite
+	bon
+a_ambiance
+	lieu
+a_service
+	serveur
+a_service
+	service
+
+Triplets
+
+[]
+
+-----------
+g187147-d1580042-r251298666
+
+Une adresse à conseiller si vous aimez la cuisine traditionnelle, avec juste ce qu'il faut de goût. Les escargots sont délicieux, l'os à moelle savoureux, et le bourguignon de nos voisins embaumait...Petite salle mais beaucoup moins bruyante que l'on pourrait le croire, les vieilles pierres absorbent le bruit.Service souriant, ni trop lent ni trop rapide. Début de soirée 20 heures, pour sortir à 22 heures 30. Une vraie bonne soirée. Bon, un peu cher mais ce n'est pas un restaurant du quotidien.
+
+Sentiments
+
+[['a_positif',[119,128]],['a_positif',[144,153]],['a_positif',[423,428]],['a_positif',[437,440]],['a_negatif',[449,453]]]
+
+a_positif
+	délicieux
+a_positif
+	savoureux
+a_positif
+	bonne
+a_positif
+	Bon
+a_negatif
+	cher
+
+Attributs
+
+[['a_qualite',[119,128]],['a_qualite',[144,153]],['a_ambiance',[207,212]],['a_service',[311,318]],['a_qualite',[423,428]],['a_qualite',[437,440]],['a_prix',[449,453]],['a_ambiance',[475,485]]]
+
+
+a_qualite
+	délicieux
+a_qualite
+	savoureux
+a_ambiance
+	salle
+a_service
+	Service
+a_qualite
+	bonne
+a_qualite
+	Bon
+a_prix
+	cher
+a_ambiance
+	restaurant
+
+Triplets
+
+[]
+
+-----------
+g187147-d2468909-r145609110
+
+Un restaurant d'une médiocrité sans nom ! Nous avons attendu 15 mn pour qu'on nous prépare la table et 40mn après avoir commandé pour être servies un boeuf bourguignon dont la qualité et le goût laissent à désirer ! Des pommes de terres quasiment crues avec des carottes crues et une sauce sans goût et non assaisonnée ! Je crois que l'on ne s'est jamais autant moqué de notre tête ! Aucune communication de la part du personnel qui a servi d'autres clients arrivés après avant nous (entrée et plat) compris ! Un scandale ! J'ai vraiment failli partir au bout d'une 40mn d'attente lorsque j'ai vu l'assiette arriver car j'ai clairement trouvé le comportement de la patronne exécrable et dédaigneux. Un conseil : n'y mettez pas les pieds attrape touriste et une perte de temps et d'argent !
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_ambiance',[3,13]],['a_nourriture',[494,498]]]
+
+
+a_ambiance
+	restaurant
+a_nourriture
+	plat
+
+Triplets
+
+[]
+
+-----------
+g1368199-d4714959-r269913736
+
+Le cadre et le personnel sont agréables. Par contre l'attente est interminable pour une salade dont la sauce est industrielle, et des ravioles dans un bain de crème pas cuite. Berk.
+
+Sentiments
+
+[['a_positif',[30,39]]]
+
+a_positif
+	agréables
+
+Attributs
+
+[]
+
+
+
+Triplets
+
+[]
+
+-----------
+g187147-d714958-r229872842
+
+Très bel endroit avec vue sur la Tour Eiffel c est certain mais et il y a vraiment un mais au delà des prix prohibitifs pour un dîner très moyen en qualité et très prétention en présentation... Le service est déplorable, il faut les supplier de prendre la commande, ils oublient d apporter la carafe d eau, ils ignorent nos mains levées et prennent un temps fou pour l addition. Pour des touristes gogos et encore
+
+Sentiments
+
+[['a_neutre',[139,144]]]
+
+a_neutre
+	moyen
+
+Attributs
+
+[['a_service',[197,204]]]
+
+
+a_service
+	service
+
+Triplets
+
+[]
+
+-----------
+g187147-d780747-r250470443
+
+Carte compliquée à déchiffrer. Plats très moyens. Le "fait maison" est en réalité un décongelé cuisiné maison. Aucune souplesse dans la carte. A titre d'exemple, si vous demandez des frites à la place de la garniture prévue, vous aurez la garniture prévue et un supplément frites (surgelées) à 5 euros. Bref, cadre sympathique, personnel agréable, carte de vins conséquente mais plats proposés et carte à revoir en profondeur.
+
+Sentiments
+
+[['a_neutre',[42,48]],['a_positif',[59,65]],['a_positif',[103,109]],['a_positif',[315,326]],['a_positif',[338,346]]]
+
+a_neutre
+	moyens
+a_positif
+	maison
+a_positif
+	maison
+a_positif
+	sympathique
+a_positif
+	agréable
+
+Attributs
+
+[['a_nourriture',[31,36]],['a_qualite',[59,65]],['a_qualite',[103,109]],['a_nourriture',[183,189]],['a_nourriture',[273,279]],['a_nourriture',[281,290]],['a_boisson',[357,361]],['a_nourriture',[379,384]]]
+
+
+a_nourriture
+	Plats
+a_qualite
+	maison
+a_qualite
+	maison
+a_nourriture
+	frites
+a_nourriture
+	frites
+a_nourriture
+	surgelées
+a_boisson
+	vins
+a_nourriture
+	plats
+
+Triplets
+
+[]
+
+-----------
+g196627-d3589693-r226968990
+
+Mais comment peux on mettre 5 étoiles à un resto "asiatique" ou tout n'est que du réchauffé, décongelé provenant de métro ou promocash. Il y a même des frites et des nuggets ! Vraiment très dépaysant ! Bref tres bien pour prendre un plateau a emporter (10€) et manger ça devant la télé. Si vous cherchez un Restaurant, passez votre chemin !
+
+Sentiments
+
+[['a_positif',[212,216]]]
+
+a_positif
+	bien
+
+Attributs
+
+[['a_nourriture',[152,158]],['a_ambiance',[307,317]]]
+
+
+a_nourriture
+	frites
+a_ambiance
+	Restaurant
+
+Triplets
+
+[]
+
+-----------
+g187261-d796310-r260189846
+
+Mais sans plus. Le cadre est joli, les serveuses sympa mais peu disponibles. Nous avons pris une pierre chaude pour deux. Les viandes étaient bonnes mais un peu juste en quantités à mon goût. Les sauces mayonnaises maison étaient bonnes mais sans plus, elles manquaient un peu de saveurs. La tartiflette était correcte. Bref, le repas n'était pas mauvais mais je n'ai pas été emballé.
+
+Sentiments
+
+[['a_positif',[49,54]],['a_positif',[142,148]],['a_positif',[215,221]],['a_positif',[230,236]],['a_positif',[310,318]],['a_positif',[343,346],[347,354]]]
+
+a_positif
+	sympa
+a_positif
+	bonnes
+a_positif
+	maison
+a_positif
+	bonnes
+a_positif
+	correcte
+a_positif
+	pas
+	mauvais
+
+Attributs
+
+[['a_service',[39,48]],['a_qualite',[142,148]],['a_qualite',[215,221]],['a_qualite',[230,236]],['a_qualite',[347,354]]]
+
+
+a_service
+	serveuses
+a_qualite
+	bonnes
+a_qualite
+	maison
+a_qualite
+	bonnes
+a_qualite
+	mauvais
+
+Triplets
+
+[['a_service_pos',[39,48],[49,54]]]
+
+a_service_pos
+	serveuses
+	sympa
+-----------
+g3160517-d4878664-r274705721
+
+Nous arrivons à 5 pour déjeuner dimanche dernier aux alentours de 13h30. C'est la fin de service. Entrée : friture d'éperlan froide pour l'un d'entre nous. Trois cocottes de moules marinières arrivent à table, à l'ouverture, les moules de l'une d'entre elles sont recouvertes de tomates et pas les autres. Nous demandons au serveur si cela est normal. Après vérification, il revient en nous disant qu'il s'agit de décoration. Certaines moules sont trop cuites d'autres pas assez. Les frites ont goût d'huile. Au milieu de ma cocotte de moule marinière j'ai la désagréable surprise de trouver un demi citron, peau comprise, déchiqueté. Je demande au serveur s'il n'y a pas un souci. Il revient après vérification en me disant qu'il s'agit de la recette des moules marinières. Je demande à voir le responsable. Il arrive et quand je lui fait part de mon mécontentement me demande de "baisser d'un ton". Nous cessons immédiatement le repas. La note qui nous est présentée est défalquée d'une cocotte alors que plus personne ne souhaite manger ces moules douteuses. Nous nous ferons ensuite de nouveau insulter par le responsable avant qu'il accepte d'encaisser nos boissons et de nous laisser partir. Nous ne nous attendions pas à de la grande cuisine dans cet endroit très touristique mais nous aurions néanmoins apprécié de pouvoir déjeuner sans mettre notre santé en danger et sans nous faire manquer de respect par dessus le marché! Allez chez les concurrents ils sont très nombreux dans le coin!!!!
+
+Sentiments
+
+[['a_positif',[82,85]]]
+
+a_positif
+	fin
+
+Attributs
+
+[['a_qualite',[82,85]],['a_service',[89,96]],['a_service',[324,331]],['a_ambiance',[414,424]],['a_nourriture',[484,490]],['a_service',[649,656]]]
+
+
+a_qualite
+	fin
+a_service
+	service
+a_service
+	serveur
+a_ambiance
+	décoration
+a_nourriture
+	frites
+a_service
+	serveur
+
+Triplets
+
+[]
+
+-----------
+g187147-d1336641-r193464567
+
+On y a déjeuné en prenant deux fomules à 16 euros. Entrée plat dessert en plein Montmartre avec une qualité correcte, je trouve ça pas mal. Nous avons pris une carafe, je ne peux donc pas donner de jugement sur les boissons. Ravioles et tartiflette correctes, crêpe suzette passable.Effectivement les serveurs sont chez eux et ne font pas cas des clients quand ils discutent. Après ça mais une certaine ambiance dans la salle.
+
+Sentiments
+
+[['a_positif',[108,116]],['a_positif',[249,258]],['a_neutre',[274,282]]]
+
+a_positif
+	correcte
+a_positif
+	correctes
+a_neutre
+	passable
+
+Attributs
+
+[['a_nourriture',[58,62]],['a_nourriture',[260,265]],['a_service',[301,309]],['a_ambiance',[420,425]]]
+
+
+a_nourriture
+	plat
+a_nourriture
+	crêpe
+a_service
+	serveurs
+a_ambiance
+	salle
+
+Triplets
+
+[]
+
+-----------
+g219217-d2009926-r280673698
+
+Nous avons pris l'apéritif en terrasse. Les serveuses étaient plutôts agréables mais pas une cacahuète ou une olive à l'heure de l'apéritif malheureusement, pas d'assiette apéritive non plus. Incompréhensible pour un bar restaurant...
+
+Sentiments
+
+[['a_positif',[70,79]]]
+
+a_positif
+	agréables
+
+Attributs
+
+[['a_ambiance',[30,38]],['a_service',[44,53]],['a_ambiance',[221,231]]]
+
+
+a_ambiance
+	terrasse
+a_service
+	serveuses
+a_ambiance
+	restaurant
+
+Triplets
+
+[['a_service_pos',[44,53],[70,79]]]
+
+a_service_pos
+	serveuses
+	agréables
+-----------
+g147328-d4282840-r219144744
+
+Bonne cuisine créole. Nous avons mangé avec nos enfants qui ont également apprécié. Le service est rapide et assez froid, mais les assiettes sont bien garnies. Le restaurant se trouvant au-dessus du marché, l'ambiance est garantie. L'apéro est étonnant : on vous sert une bouteille de 1 litre de rhum et une bouteille de sucre canne liquide. De quoi égayer la journée...
+
+Sentiments
+
+[['a_positif',[0,5]],['a_positif',[146,150]]]
+
+a_positif
+	Bonne
+a_positif
+	bien
+
+Attributs
+
+[['a_qualite',[0,5]],['a_service',[87,94]],['a_ambiance',[163,173]]]
+
+
+a_qualite
+	Bonne
+a_service
+	service
+a_ambiance
+	restaurant
+
+Triplets
+
+[]
+
+-----------
+g187147-d797010-r281532538
+
+Dire que cette brasserie enchaine les groupes de touristes... Quelle honte pour la gastronomie francaise!!!Ce jour la j avais envie d un tartare de boeuf. J ai de la famille qui dine a cette ensigne du coup je les rejoin. Au menu donc, un onglet de boeuf frites un steack tartare frite, et une piece de semelle avec de la puree.On va faire simple,.. TOUTES LES VIANDES SONT SANS GOUT ET SECHES!!!Les frites sont certes maisons mais FAITES DES HEURES A L AVANCE ET MOLLASSONNES. Puree moins bonne qu a la cantine.Fuyez! Il faut pas donner notre frique a cette arnaque. Vivement qu ils ferment!
+
+Sentiments
+
+[['a_positif',[419,426]],['a_negatif',[484,489],[490,495]]]
+
+a_positif
+	maisons
+a_negatif
+	moins
+	bonne
+
+Attributs
+
+[['a_nourriture',[137,144]],['a_nourriture',[255,261]],['a_nourriture',[272,279]],['a_nourriture',[400,406]],['a_qualite',[419,426]],['a_qualite',[490,495]]]
+
+
+a_nourriture
+	tartare
+a_nourriture
+	frites
+a_nourriture
+	tartare
+a_nourriture
+	frites
+a_qualite
+	maisons
+a_qualite
+	bonne
+
+Triplets
+
+[['a_nourriture_pos',[400,406],[419,426]]]
+
+a_nourriture_pos
+	frites
+	maisons
+-----------
+g219217-d3346923-r275947790
+
+Dans cet établissement je me suis sentie chez moi ayant eu un restaurant du même genre. Une cuisine savoureuse faite avec amour, j'y retourne dés que je peux pour moi c'est un vrai restaurant
+
+Sentiments
+
+[['a_positif',[100,110]]]
+
+a_positif
+	savoureuse
+
+Attributs
+
+[['a_ambiance',[62,72]],['a_qualite',[100,110]],['a_ambiance',[181,191]]]
+
+
+a_ambiance
+	restaurant
+a_qualite
+	savoureuse
+a_ambiance
+	restaurant
+
+Triplets
+
+[]
+
+-----------
+g187080-d2219892-r274812572
+
+On a pas mangé, on a bu de l'eau et de l'huile. Escalope milanaise panée sur un côté seulement et plein d'huile. Entrecôte avec plus de nerfs que de viande et j'en passe.
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[]
+
+
+
+Triplets
+
+[]
+
+-----------
+g187261-d2560506-r152965073
+
+Je ne reprendrai pas tout ce qui a été dit car tout est vrai!!! Prix extrêmement cher, usine à fric. Mon Expérience s'est déroulée autour d'une question à l'un des serveurs pour obtenir une carafe d'eau après avoir consommé plus de 50 euros. Le serveur aux cheveux longs, brun, la trentaine, s'est empressé de me répondre d'un ton très méprisant qu'à chamonix l'eau est payante. Lui soutenant qu'il se devait de céder à ma demande d'après la législation en vigueur dans notre pays, il m'a ouvertement ignoré, et juste proposé de consulter la direction. Honteux.
+
+Sentiments
+
+[['a_negatif',[81,85]]]
+
+a_negatif
+	cher
+
+Attributs
+
+[['a_prix',[81,85]],['a_service',[164,172]],['a_service',[245,252]]]
+
+
+a_prix
+	cher
+a_service
+	serveurs
+a_service
+	serveur
+
+Triplets
+
+[]
+
+-----------
+g187261-d1331006-r239302949
+
+En août 2014, avons décidé d'aller manger des pizzas, salades et autres dans ce restaurant. Nous avons été déçu par le service. Serveur dépassé alors que la terrasse n'était pas remplie. Les repas sont arrivés au compte-goutte, ce qui fait que mon fils et petit fils ont eu leurs pizzas 10 minutes après nous. Très déçue par ce restaurant
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_nourriture',[46,52]],['a_ambiance',[80,90]],['a_service',[119,126]],['a_service',[128,135]],['a_ambiance',[157,165]],['a_nourriture',[280,286]],['a_ambiance',[328,338]]]
+
+
+a_nourriture
+	pizzas
+a_ambiance
+	restaurant
+a_service
+	service
+a_service
+	Serveur
+a_ambiance
+	terrasse
+a_nourriture
+	pizzas
+a_ambiance
+	restaurant
+
+Triplets
+
+[]
+
+-----------
+g187089-d1177613-r285091795
+
+accueil sympa par 2 sénior"e"s qui mettent à l'aise Le rapport qualité prix est au top avec une cuisine locale et une climatisation manuelle qui nécessite une explication Il s'agit de 2*2 panneaux de bois fixes au plafond avec à leur base une bande de tissu flottant manipules par un esclave cache et qui procure un réel courant d'air frais Pour éviter une trop grosse demande incompatible avec leur taille de four , le souffle au grand margnier ne figure pas a la carte aussi prévoir de le commander en début de repas Une originalité :les légumes sont comptés à part , sans doute pour ne pas renchérir le prix des plats Un restaurant a l'ancienne qui a bien du charme
+
+Sentiments
+
+[['a_positif',[8,13]],['a_positif',[335,340]],['a_positif',[654,658]]]
+
+a_positif
+	sympa
+a_positif
+	frais
+a_positif
+	bien
+
+Attributs
+
+[['a_ambiance',[0,7]],['a_prix',[55,75]],['a_qualite',[335,340]],['a_nourriture',[615,620]],['a_ambiance',[624,634]]]
+
+
+a_ambiance
+	accueil
+a_prix
+	rapport qualité prix
+a_qualite
+	frais
+a_nourriture
+	plats
+a_ambiance
+	restaurant
+
+Triplets
+
+[['a_ambiance_pos',[0,7],[8,13]]]
+
+a_ambiance_pos
+	accueil
+	sympa
+-----------
+g196600-d3484303-r261037238
+
+Un très bon moment passé dans ce restaurant. Ma femme et moi même nous sommes régalés. Les plats que nous avons choisis étaient très copieux.
+
+Sentiments
+
+[['a_positif',[8,11]],['a_negatif',[19,24]],['a_positif',[133,140]]]
+
+a_positif
+	bon
+a_negatif
+	passé
+a_positif
+	copieux
+
+Attributs
+
+[['a_qualite',[8,11]],['a_qualite',[19,24]],['a_ambiance',[33,43]],['a_nourriture',[91,96]],['a_qualite',[133,140]]]
+
+
+a_qualite
+	bon
+a_qualite
+	passé
+a_ambiance
+	restaurant
+a_nourriture
+	plats
+a_qualite
+	copieux
+
+Triplets
+
+[]
+
+-----------
+g187261-d1723807-r254827953
+
+Je conseille fortement le déjeuner en terrasse avec forfait spa. Un peu à l'écart du centre ville, serein.
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_ambiance',[38,46]]]
+
+
+a_ambiance
+	terrasse
+
+Triplets
+
+[]
+
+-----------
+g187147-d3726980-r265173396
+
+Déjà le restaurant n'est pas très bien placé je trouve. Nous sommes entrez, et la, personne pour nous accueillir... Une télé d'allumer, mais nous avons bien attendu 5 minutes avant de voir quelqu'un, qui nous a demandé de passer dans le restaurant à côté... Accueil pas trop mauvais, mais j'aurais préféré pouvoir discuter avec mon conjoint sans être écouté par une des serveuses.. Au niveau du repas, ce fut assez rapide pour être servi. Le repas était assez bon, mais tout est sûrement congeléx et c'est dommage d'avoir eu mon dessert quand mon homme avait fini ! Nous avons découvert ce restaurant avec Groupon, je ne le conseille pas sans cette offre.
+
+Sentiments
+
+[['a_negatif',[25,28],[34,38]],['a_positif',[152,156]],['a_positif',[266,269],[275,282]],['a_positif',[460,463]]]
+
+a_negatif
+	pas
+	bien
+a_positif
+	bien
+a_positif
+	pas
+	mauvais
+a_positif
+	bon
+
+Attributs
+
+[['a_ambiance',[8,18]],['a_ambiance',[237,247]],['a_ambiance',[258,265]],['a_qualite',[275,282]],['a_service',[370,379]],['a_qualite',[460,463]],['a_ambiance',[590,600]]]
+
+
+a_ambiance
+	restaurant
+a_ambiance
+	restaurant
+a_ambiance
+	Accueil
+a_qualite
+	mauvais
+a_service
+	serveuses
+a_qualite
+	bon
+a_ambiance
+	restaurant
+
+Triplets
+
+[['a_ambiance_neg',[258,265],[275,282]]]
+
+a_ambiance_neg
+	Accueil
+	mauvais
+-----------
+g187147-d4959566-r245854396
+
+Un des rares resto du quartier. Bondé de salariés des entreprises du quartier. Les pizzas sont correctes et les plats du jour sont très chers. Pas de viandes sur la carte. Tiramisu très bon et abondant. À éviter l'hiver car peu des couverts en intérieur et la terrasse couvertes n'est pas suffisamment chauffée.
+
+Sentiments
+
+[['a_positif',[95,104]],['a_negatif',[136,141]],['a_positif',[186,189]]]
+
+a_positif
+	correctes
+a_negatif
+	chers
+a_positif
+	bon
+
+Attributs
+
+[['a_nourriture',[83,89]],['a_nourriture',[112,117]],['a_prix',[136,141]],['a_qualite',[186,189]],['a_ambiance',[244,253]],['a_ambiance',[260,268]]]
+
+
+a_nourriture
+	pizzas
+a_nourriture
+	plats
+a_prix
+	chers
+a_qualite
+	bon
+a_ambiance
+	intérieur
+a_ambiance
+	terrasse
+
+Triplets
+
+[['a_nourriture_pos',[83,89],[95,104]],['a_nourriture_neg',[112,117],[136,141]]]
+
+a_nourriture_pos
+	pizzas
+	correctes
+a_nourriture_neg
+	plats
+	chers
+-----------
+g187147-d2192483-r252643385
+
+Une merveille ! Une cuisine fine, créative et absolument délicieuse, un cadre chaleureux et un service très agréable.En entrée, nous avons pris le haddock façon flammekueche (délicieux) et une sorte de canard confis en gelée avec noix et poires (très bon). En plat, j'ai complètement craqué sur le cabillaud risotto émulsion de chorizo (très surprenant). Enfin la masterpiece : le riz au lait vanille sauce caramel beurre salé (divin). La tarte sablée aux agrumes était également parfaite pour rafraîchir un diner particulièrement copieux.Les serveurs étaient également adorables.Un formidable moment, nous y retournerons c'est sûr, et recommandons chaudement ce restaurant !
+
+Sentiments
+
+[['a_positif',[28,32]],['a_positif',[57,67]],['a_positif',[108,116]],['a_positif',[175,184]],['a_positif',[251,254]],['a_positif',[531,538]]]
+
+a_positif
+	fine
+a_positif
+	délicieuse
+a_positif
+	agréable
+a_positif
+	délicieux
+a_positif
+	bon
+a_positif
+	copieux
+
+Attributs
+
+[['a_qualite',[28,32]],['a_qualite',[57,67]],['a_service',[95,102]],['a_qualite',[175,184]],['a_qualite',[251,254]],['a_nourriture',[260,264]],['a_qualite',[531,538]],['a_service',[543,551]],['a_ambiance',[663,673]]]
+
+
+a_qualite
+	fine
+a_qualite
+	délicieuse
+a_service
+	service
+a_qualite
+	délicieux
+a_qualite
+	bon
+a_nourriture
+	plat
+a_qualite
+	copieux
+a_service
+	serveurs
+a_ambiance
+	restaurant
+
+Triplets
+
+[['a_service_pos',[95,102],[108,116]]]
+
+a_service_pos
+	service
+	agréable
+-----------
+g187147-d714937-r251436572
+
+J'ai adoré le décors... J'ai apprécié l'histoire des lieux.Nus avons eu huîtres, crevettes roses et homard en entrée, les produits étaient de qualité. Les crevettes étaient fermes et excellente. le homard un peu petit, du canadien sans doute. Ensuite, la bouillabaisse en 2 services... La soupe tout d'abord très bonne, généreux en croûtons... La suite, les poissons très fins, un des poissons était rempli d'arrête, c'est dommage mais bon... Cela n'enlève rien à la qualité de la bouillabaisse... En dessert, une crêpe et un soufflé grand marnier. Belle réussite sur le soufflé, attention taille impressionnante !! Fond bien dans la bouche, pas lourd du tout ! C'était un très bon déjeuner.
+
+Sentiments
+
+[['a_positif',[183,193]],['a_positif',[313,318]],['a_positif',[372,376]],['a_positif',[436,439]],['a_positif',[549,554]],['a_positif',[621,625]],['a_positif',[678,681]]]
+
+a_positif
+	excellente
+a_positif
+	bonne
+a_positif
+	fins
+a_positif
+	bon
+a_positif
+	Belle
+a_positif
+	bien
+a_positif
+	bon
+
+Attributs
+
+[['a_ambiance',[53,58]],['a_nourriture',[122,130]],['a_service',[274,282]],['a_qualite',[313,318]],['a_nourriture',[358,366]],['a_qualite',[372,376]],['a_nourriture',[385,393]],['a_qualite',[436,439]],['a_nourriture',[514,519]],['a_qualite',[678,681]]]
+
+
+a_ambiance
+	lieux
+a_nourriture
+	produits
+a_service
+	services
+a_qualite
+	bonne
+a_nourriture
+	poissons
+a_qualite
+	fins
+a_nourriture
+	poissons
+a_qualite
+	bon
+a_nourriture
+	crêpe
+a_qualite
+	bon
+
+Triplets
+
+[['a_nourriture_pos',[358,366],[372,376]]]
+
+a_nourriture_pos
+	poissons
+	fins
+-----------
+g147328-d1953698-r268823910
+
+Si vous êtes en vacances, si vous avez –beaucoup- de temps à perdre tout en regardant les serveuses et serveurs (au demeurant charmants) virevolter comme des mouches ne sachant quoi faire ni pour qui faire (1 heure pour 3 côtelettes froides, et, le lendemain, ¾ d’heures pour 3 glaces jamais arrivées… !), longue attente accompagnée par une musique horripilante (boum tchic, boum tchic, sans cesse). On est rassuré « la patronne, interpellée, va faire des enquêtes » (sic), bref c’est PARFAIT.En revanche si vous voulez manger dans des temps raisonnables même avec un choix de plats quelconque, alors A FUIR.Je leur conseille rapidement un audit d’organisation.Dommage le cadre est sympa.
+
+Sentiments
+
+[['a_positif',[682,687]]]
+
+a_positif
+	sympa
+
+Attributs
+
+[['a_service',[90,99]],['a_service',[103,111]],['a_nourriture',[577,582]]]
+
+
+a_service
+	serveuses
+a_service
+	serveurs
+a_nourriture
+	plats
+
+Triplets
+
+[]
+
+-----------
+g196627-d2707641-r283795278
+
+Un cadre très rose mais agréable pour des dîners en couple ou entre amis. Des assiettes très bien présentées et un bon accueil avec des personnes souriantes.
+
+Sentiments
+
+[['a_positif',[24,32]],['a_positif',[93,97]],['a_positif',[115,118]]]
+
+a_positif
+	agréable
+a_positif
+	bien
+a_positif
+	bon
+
+Attributs
+
+[['a_qualite',[115,118]],['a_ambiance',[119,126]]]
+
+
+a_qualite
+	bon
+a_ambiance
+	accueil
+
+Triplets
+
+[['a_ambiance_pos',[115,118],[119,126]]]
+
+a_ambiance_pos
+	bon
+	accueil
+-----------
+g187147-d714984-r276071093
+
+Terrasse ensoleillée le dimanche, décor plutôt sympa, ça s' annonçait plutôt bien....On commande deux piscines de champagne qui nous sont servies au bout de 20 min... et sans glaçons!!!Quand on demande à un serveur aigri comme un cornichon macéré dans du vinaigre depuis 54 ans si notre commande a bien été prise il nous agresse littéralement en nous disant que le champagne est en train d'être cherché (visiblement directement à Reims). Bref, les serveurs ne prennent même pas la peine de parler en anglais aux pauvres touristes échoués ici, la patronne siliconnée, botoxée, jusqu'à en avoir le visage figé (ça doit être la raison de sa cruelle absence de sourire) se pavane sur la terrasse mais ne fait pas avancer les commandes plus vite... Bref fuyez sauf si vous désirez gacher votre journée entourée de personnes arrogantes!
+
+Sentiments
+
+[['a_positif',[47,52]],['a_positif',[77,81]],['a_positif',[298,302]]]
+
+a_positif
+	sympa
+a_positif
+	bien
+a_positif
+	bien
+
+Attributs
+
+[['a_ambiance',[0,8]],['a_service',[207,214]],['a_service',[448,456]],['a_ambiance',[683,691]]]
+
+
+a_ambiance
+	Terrasse
+a_service
+	serveur
+a_service
+	serveurs
+a_ambiance
+	terrasse
+
+Triplets
+
+[]
+
+-----------
+g187147-d1381703-r189533654
+
+Repas ordinaire mais qui permet de manger à moindre coût et au chaud. Compter 12€ le menu pour adulte et 10€ pour un enfant. Par contre éviter les tables devant la porte si vous ne voulez pas attraper la mort. Le personnel n'est pas très sympa. On est un peu à l'étroit mais c'et le principe de ce genre de petite brasserie, déco à revoir car vieillissante mais familiale et conviviale.
+
+Sentiments
+
+[['a_negatif',[229,232],[238,243]]]
+
+a_negatif
+	pas
+	sympa
+
+Attributs
+
+[['a_ambiance',[325,329]]]
+
+
+a_ambiance
+	déco
+
+Triplets
+
+[]
+
+-----------
+g187147-d714993-r162268720
+
+Cuisine simple, bonne et efficace! Tout est maison et les quantités sont généreuses! On ressort sans avoir faim! Rien à dire concernant le service! Parfait!
+
+Sentiments
+
+[['a_positif',[16,21]],['a_positif',[44,50]]]
+
+a_positif
+	bonne
+a_positif
+	maison
+
+Attributs
+
+[['a_qualite',[16,21]],['a_qualite',[44,50]],['a_service',[139,146]]]
+
+
+a_qualite
+	bonne
+a_qualite
+	maison
+a_service
+	service
+
+Triplets
+
+[]
+
+-----------
+g187147-d794651-r259656122
+
+Nous étions en ce soir de mars entre amis à l'occasion de l'anniversaire de l'un d'entre eux. Nous sommes arrivés dans ce restaurant pub pour dîner. Mais étant donné que nous étions trop nous nombreux (13 personnes), nous avons été installé à l'étage (en nous faisant bien précisé que le rez-de-chaussée était destiné aux habitués et amateur de football et que si nous souhaitions consommer il fallait redescendre pour commander) dans un espace Iounge à peine éclairé pour pouvoir lire le menu (nous avons dû utiliser les lampes de nos smartphone). Après avoir fait comprendre au personnel qu'il était possible d'aligner une table à côté d'une autre, nous sommes redescendus. La commence le dîner avec le choix du plat. Dans le partie concernant les burgers il était écrit qu'il était possible de commander le burger sans le pain (intérêt ?). En demandant a une serveuse si le fait de prendre cette option permettait un rabais sur le tarif (déjà suffisamment cher pour la qualité), le responsable est arrivé en disant que le prix ne changeait pas (après cela vient une explication sur la marge que réalisait alors le restaurant), et a rétorqué plus tard "nous sommes un restaurant donc notre but est de faire de la marge" (un expert en relation client celui-là). En résumé (parce que ça fait long a dire), nous avons passé une soirée un peu ternie par l'image du restaurant (dont l'état laisse à désirer), un service à table digne digne d'une cantine d'adolescent, et aucun petit mot d'excuse ou remise quelconque (quand il faut faire de la marge par n'importe quel moyen...) pour repartir avec le sourire (c'était pas gagné). Pour avoir été testé par des membres de la soirée au préalable, nous sommes tombés d'accord sur le fait que c'était la première fois pour certains et la dernière fois pour tout le monde que nous venions dans ce restaurant!
+
+Sentiments
+
+[['a_positif',[268,272]],['a_negatif',[959,963]],['a_negatif',[1317,1322]],['a_neutre',[1566,1571]]]
+
+a_positif
+	bien
+a_negatif
+	cher
+a_negatif
+	passé
+a_neutre
+	moyen
+
+Attributs
+
+[['a_ambiance',[122,132]],['a_nourriture',[714,718]],['a_service',[862,870]],['a_prix',[959,963]],['a_ambiance',[1117,1127]],['a_ambiance',[1170,1180]],['a_qualite',[1317,1322]],['a_ambiance',[1363,1373]],['a_service',[1409,1416]],['a_ambiance',[1838,1848]]]
+
+
+a_ambiance
+	restaurant
+a_nourriture
+	plat
+a_service
+	serveuse
+a_prix
+	cher
+a_ambiance
+	restaurant
+a_ambiance
+	restaurant
+a_qualite
+	passé
+a_ambiance
+	restaurant
+a_service
+	service
+a_ambiance
+	restaurant
+
+Triplets
+
+[]
+
+-----------
+g187147-d780191-r267547284
+
+Menu super, accords de saveurs inédits et surprenants, cadre très agréable....dommage que l'impression générale soit desservie par un service hautain et désagréable! A trop vouloir fuir les codes du resto gastronomique (et notamment l'excès de zèle qui peut parfois en caractériser le service), le Chateaubriand va à mon sens trop loin! Certes c'est un honneur de pouvoir goûter à la cuisine inventive d'un chef comme Inaki Aizpitarte... mais quelque soit la renommée de l'établissement et son succès, je pense que les clients ont le droit d'attendre à être servis par des personnes au minimum aimables (ne serait-ce que parce qu'ils paient)! J'ai pour ma part été renvoyée dans mes buts pour avoir eu le malheur de demander des précisions sur la composition d'un dessert qui ne nous a pas été présenté (en l’occurrence le tocino del cielo, un classique de la maison... on aurait dû connaître c'est peut-être pour ça?). Et la personne qui m'accompagnait, auvergnate, s'est elle permise une remarque avec un grand sourire sur l'épaisseur de la tranche de St-Nectaire qui lui avait été servie (moins de 2mm) pour s'entendre répondre un "Ah bon..." sec et froid. Bref, dommage que le succès de l'établissement semble être monté à la tête des serveurs qui ont terni, voire gâché ce qui aurait pu être un très bon moment...ps: sommelier top en revanche!
+
+Sentiments
+
+[['a_positif',[5,10]],['a_positif',[66,74]],['a_positif',[860,866]],['a_positif',[1138,1141]],['a_negatif',[1146,1149]],['a_positif',[1305,1308]]]
+
+a_positif
+	super
+a_positif
+	agréable
+a_positif
+	maison
+a_positif
+	bon
+a_negatif
+	sec
+a_positif
+	bon
+
+Attributs
+
+[['a_service',[134,141]],['a_service',[285,292]],['a_qualite',[860,866]],['a_qualite',[1138,1141]],['a_qualite',[1146,1149]],['a_service',[1239,1247]],['a_qualite',[1305,1308]]]
+
+
+a_service
+	service
+a_service
+	service
+a_qualite
+	maison
+a_qualite
+	bon
+a_qualite
+	sec
+a_service
+	serveurs
+a_qualite
+	bon
+
+Triplets
+
+[]
+
+-----------
+g187147-d788463-r252957816
+
+Nous arrivons dans une salle quasi-vide un vendredi soir, malgré la recommandation d'une amie de ce restaurant comme étant une bonne adresse gastro à prix sympa... Première table où l'on nous installe, l'ampoule au dessus est grillée, demi obscurité et les bougies sur le côté semblent bien couvertes de poussière... Tout comme les horribles rideaux qui pendouillent au dessus de nos têtes. On regarde au tour de nous et l'on se rend compte qu'il s'agit en fait d'un préfabriqué de fond de cours refait avec un gout douteux, comme les photos de prostitués vintage qui couvrent les murs dans des cadres brinquebalants. Ça c'était pour le cadre... Côté cuisine, un manque complet de surprise, de découverte ou d'audace... Les portions sont ridicules, trois bouchées d'onglet de veau (veaux de 25 ans sans doute, tellement la viande est rouge) et une fine lamelle de gratin dauphinois, le tout baignant dans une sauce insipide qui semblait en réalité être... de l'eau. Le thon est tellement cru qu'il faut mieux aller chez le japonais, mais ma compagne aime ça, les thons... On aimerait arrêter les frais, mais il y avait le dessert : la poire belle Hélène "revisitée", où comment une glace se transforme en crème dans une marre de chocolat où surnage des morceaux de fruits. Moi qui n'écris jamais d'avis, je me dis ce soir qu'il s'agissait peut-être d'une faute de goût de ma part... Oui ça doit être cela, ce soir, j'ai perdu le goût, le goût de claquer 100€ dans un resto sans saveur ni ambiance.
+
+Sentiments
+
+[['a_positif',[127,132]],['a_positif',[155,160]],['a_positif',[286,290]],['a_positif',[670,677]],['a_positif',[848,852]],['a_positif',[1096,1101]],['a_positif',[1141,1146]]]
+
+a_positif
+	bonne
+a_positif
+	sympa
+a_positif
+	bien
+a_positif
+	complet
+a_positif
+	fine
+a_positif
+	frais
+a_positif
+	belle
+
+Attributs
+
+[['a_ambiance',[23,28]],['a_ambiance',[100,110]],['a_qualite',[127,132]],['a_qualite',[848,852]],['a_qualite',[1096,1101]]]
+
+
+a_ambiance
+	salle
+a_ambiance
+	restaurant
+a_qualite
+	bonne
+a_qualite
+	fine
+a_qualite
+	frais
+
+Triplets
+
+[['a_ambiance_pos',[100,110],[127,132]]]
+
+a_ambiance_pos
+	restaurant
+	bonne
+-----------
+g196600-d4185739-r279690471
+
+De l'accueil à la cuisine tout est bas de gamme, heureusement le rabatteur est là pour piéger les touristes qui passent par là. A ÉVITER !!!
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_ambiance',[5,12]]]
+
+
+a_ambiance
+	accueil
+
+Triplets
+
+[]
+
+-----------
+g219217-d4229656-r261911356
+
+nous sommes venus à 14 personnes pour l'anniversaire de mon copain. Nous sommes arrivées vers 20h-21h. nous avons tous très bien mangés. La carte est très large, de bons plats chauds et bons !nous avons commandé pour l'apéro 5 bouteilles de champagne + 4 bouteilles de vins au diner + digestifs + cafés.aucun geste commercial au paiement, rien d'offert ni de proposé...??!en plus, une des personnes à commander un tartare, elle a été servi 10 minutes après tout le monde.. c'est un plat froid pourtant.c'est bien dommage !
+
+Sentiments
+
+[['a_positif',[124,128]],['a_positif',[165,169]],['a_positif',[186,190]],['a_positif',[508,512]]]
+
+a_positif
+	bien
+a_positif
+	bons
+a_positif
+	bons
+a_positif
+	bien
+
+Attributs
+
+[['a_qualite',[165,169]],['a_nourriture',[170,175]],['a_qualite',[186,190]],['a_boisson',[269,273]],['a_nourriture',[414,421]],['a_nourriture',[482,486]]]
+
+
+a_qualite
+	bons
+a_nourriture
+	plats
+a_qualite
+	bons
+a_boisson
+	vins
+a_nourriture
+	tartare
+a_nourriture
+	plat
+
+Triplets
+
+[['a_nourriture_pos',[165,169],[170,175]]]
+
+a_nourriture_pos
+	bons
+	plats
+-----------
+g187147-d719057-r224501836
+
+C'est une très très belle adresse… la cuisine est remarquable car les cuissons sont parfaites, les produits ultra frais et plutôt de saison, tout est fait maison. Il y a une carte et des ardoises pour les formules. C'est un mix de propositions créatives mais aussi de grands classiques.L'assiette est parfaite de l'entrée jusqu'au dessert, ce qui n'est pas si fréquent.La carte des vins est focus mais très très bien, en blanc comme en rouge. On est bien dans une logique de sélection et de qualité.Ce ne sont pas des premiers prix mais on peut dire que le rapport qualité-prix est excellent.L'accueil et le service sont à la fois pros mais détendus, il y a ce qu'il faut pour se sentir bien mais aussi être très très bien reçus et y revenir !C'est pour conclure une très belle adresse, une rare alliance de tradition et de modernité, de belle cuisine mais qui reste lisible, agréable, sophistiquée sans trop. Pas étonnant que ce soit souvent conseillé par les critiques gastronomiques.
+
+Sentiments
+
+[['a_positif',[20,25]],['a_positif',[114,119]],['a_positif',[155,161]],['a_positif',[412,416]],['a_positif',[450,454]],['a_positif',[582,591]],['a_positif',[631,635]],['a_positif',[687,691]],['a_positif',[718,722]],['a_positif',[772,777]],['a_positif',[838,843]],['a_positif',[876,884]]]
+
+a_positif
+	belle
+a_positif
+	frais
+a_positif
+	maison
+a_positif
+	bien
+a_positif
+	bien
+a_positif
+	excellent
+a_positif
+	pros
+a_positif
+	bien
+a_positif
+	bien
+a_positif
+	belle
+a_positif
+	belle
+a_positif
+	agréable
+
+Attributs
+
+[['a_nourriture',[99,107]],['a_qualite',[114,119]],['a_qualite',[155,161]],['a_boisson',[382,386]],['a_ambiance',[594,601]],['a_service',[608,615]]]
+
+
+a_nourriture
+	produits
+a_qualite
+	frais
+a_qualite
+	maison
+a_boisson
+	vins
+a_ambiance
+	accueil
+a_service
+	service
+
+Triplets
+
+[['a_nourriture_pos',[99,107],[114,119]],['a_service_pos',[608,615],[631,635]]]
+
+a_nourriture_pos
+	produits
+	frais
+a_service_pos
+	service
+	pros
+-----------
+g196627-d2693443-r224617462
+
+Je passe sur le temps,1h30 pour un repas simple. Une carte hyper simple mais une serveuse complètement perdue. Des erreurs de prise de commande et une patronne qui refuse de changer les plats sous prétexte qu'elle ne va pas jeter l'assiette et qu'elle l'a fait avec amour mdr.Apparemment il n'est pas question de perdre de l'argent dans ce restaurant et elle invente des prétextes encensés pour faire passer la pilule.Toute la salle est de mon avis et en colère. Des anglais sur la terrasse paye avant la fin et s'en vont. Je vous passe les "prises de bec" avec la patronne pour lui faire comprendre que sa réaction est intolérable et non commerçante.Sur un menu enfant qui n'a jamais été demandé, elle a le culot de m'annoncer lors de l'addition, qu'elle m'offre la 2eme boule de glace alors que dans le menu enfant la glace n'a qu'une boule....(sans commentaire).Restaurant a ne pas conseiller et surtout à bannir afin d’éviter que la profession de la restaurant ne soit bafouée par ce genre de pseudo restaurateur qui devrait penser à changer de métier.
+
+Sentiments
+
+[['a_positif',[59,64]],['a_positif',[505,508]]]
+
+a_positif
+	hyper
+a_positif
+	fin
+
+Attributs
+
+[['a_service',[81,89]],['a_nourriture',[186,191]],['a_ambiance',[340,350]],['a_ambiance',[427,432]],['a_ambiance',[482,490]],['a_qualite',[505,508]],['a_ambiance',[865,875]],['a_ambiance',[954,964]]]
+
+
+a_service
+	serveuse
+a_nourriture
+	plats
+a_ambiance
+	restaurant
+a_ambiance
+	salle
+a_ambiance
+	terrasse
+a_qualite
+	fin
+a_ambiance
+	Restaurant
+a_ambiance
+	restaurant
+
+Triplets
+
+[['a_ambiance_pos',[482,490],[505,508]]]
+
+a_ambiance_pos
+	terrasse
+	fin
+-----------
+g147328-d4228366-r283209493
+
+Un début de soirée qui commence dans un bon resto, comme les 1er fois une Virgin Colada à 6.50e pour se mettre en appétit et un accueil toujours très chaleureux du patron et de sa femme. Le pavé de Saumon est extra mais pour changer je teste la poêlée de noix de st Jacques à 22euros avec en gratin du jour (pomme de terre et patate douce ) le mariage sympathique et frites . Que du bonheur dans l'assiette, la cuisson de mes noix sont parfaites, légèrement nacrées à l'intérieur, moelleuses à souhait... la,sauce crème légère. Je pars très satisfaite de mon plat très bon. Une adresse à mettre dans mon top five. Note finale de 31e pour un cocktail, un plat et un café. Un bon rapport qualité/prix.
+
+Sentiments
+
+[['a_positif',[40,43]],['a_positif',[352,363]],['a_positif',[569,572]],['a_positif',[674,677]]]
+
+a_positif
+	bon
+a_positif
+	sympathique
+a_positif
+	bon
+a_positif
+	bon
+
+Attributs
+
+[['a_qualite',[40,43]],['a_ambiance',[128,135]],['a_nourriture',[367,373]],['a_nourriture',[559,563]],['a_qualite',[569,572]],['a_boisson',[641,649]],['a_nourriture',[654,658]],['a_qualite',[674,677]]]
+
+
+a_qualite
+	bon
+a_ambiance
+	accueil
+a_nourriture
+	frites
+a_nourriture
+	plat
+a_qualite
+	bon
+a_boisson
+	cocktail
+a_nourriture
+	plat
+a_qualite
+	bon
+
+Triplets
+
+[['a_nourriture_pos',[559,563],[569,572]]]
+
+a_nourriture_pos
+	plat
+	bon
+-----------
+g187147-d1879548-r234068669
+
+Des frites surgelées ... Des boissons hors de prix .. mais c'est la même chose sur toute la place ... des sièges peu confortables mais une couverture proposée ... une naturelle bonne humeur ...une nourriture correcte ...Choisissez une table qui vous permet de voir travailler les peintres de Montmartre Allez-y entre amis ou en famille ... Vous regretterez moins l'addition !
+
+Sentiments
+
+[['a_positif',[177,182]],['a_positif',[208,216]]]
+
+a_positif
+	bonne
+a_positif
+	correcte
+
+Attributs
+
+[['a_nourriture',[4,10],[11,20]],['a_qualite',[177,182]]]
+
+
+a_nourriture
+	frites
+	surgelées
+a_qualite
+	bonne
+
+Triplets
+
+[]
+
+-----------
+g187141-d3524401-r283553902
+
+Très bel endroit pour une pause déjeuner, à l'abri du soleil, avec un petit air rafraîchissant et vue sur le port. Cuisine simple mais bonne, Marco vous accueille très bien, vous donne des bonnes adresses si vous demandez. C'est un endroit très agréable.
+
+Sentiments
+
+[['a_positif',[135,140]],['a_positif',[168,172]],['a_positif',[189,195]],['a_positif',[245,253]]]
+
+a_positif
+	bonne
+a_positif
+	bien
+a_positif
+	bonnes
+a_positif
+	agréable
+
+Attributs
+
+[['a_qualite',[135,140]],['a_qualite',[189,195]]]
+
+
+a_qualite
+	bonne
+a_qualite
+	bonnes
+
+Triplets
+
+[]
+
+-----------
+g187147-d897253-r250440260
+
+Ambiance très parisienne, très m'as tu vu ! serveuse pas souriante et peu accueillante. Cuisine très moyenne, poulet version crêpe archi sec avec une poignée de haricots et tout cela pour un prix exorbitant ! Le sandwich club n'a rien de spécial et le plat vietnamien très sec sans aucune sauce.
+
+Sentiments
+
+[['a_neutre',[101,108]],['a_negatif',[137,140]],['a_negatif',[273,276]]]
+
+a_neutre
+	moyenne
+a_negatif
+	sec
+a_negatif
+	sec
+
+Attributs
+
+[['a_service',[44,52]],['a_service',[74,86]],['a_nourriture',[125,130]],['a_qualite',[137,140]],['a_nourriture',[252,256]],['a_qualite',[273,276]]]
+
+
+a_service
+	serveuse
+a_service
+	accueillante
+a_nourriture
+	crêpe
+a_qualite
+	sec
+a_nourriture
+	plat
+a_qualite
+	sec
+
+Triplets
+
+[['a_nourriture_neg',[125,130],[137,140]],['a_nourriture_neg',[252,256],[273,276]]]
+
+a_nourriture_neg
+	crêpe
+	sec
+a_nourriture_neg
+	plat
+	sec
+-----------
+g187147-d719058-r225514070
+
+Ce restaurant est idéalement placé pour les repas d'affaires. Cependant, il ne vaut absolument pas le détour, sauf pour voir et être vu. Les plats à la carte sont hors de prix (une vingtaine d'euros pour 4 vapeurs... certes bonnes mais cela fait beaucoup pour une vapeur) et ne sont pas d'une qualité exceptionnelle. Si l'on veut deux accompagnements, cela est même compté en supplément!! Quant au service, il est vraiment à revoir. Prise de commande et arrivée de l'entrée interminables... et ensuite les plats qui n'arrivent pas ensemble et la moitié des accompagnements qui manquent. Bref à éviter!!!
+
+Sentiments
+
+[['a_positif',[224,230]],['a_negatif',[592,600]]]
+
+a_positif
+	bonnes
+a_negatif
+	à éviter
+
+Attributs
+
+[['a_ambiance',[3,13]],['a_nourriture',[141,146]],['a_qualite',[224,230]],['a_service',[398,405]],['a_nourriture',[506,511]]]
+
+
+a_ambiance
+	restaurant
+a_nourriture
+	plats
+a_qualite
+	bonnes
+a_service
+	service
+a_nourriture
+	plats
+
+Triplets
+
+[]
+
+-----------
+g187147-d2390046-r135220748
+
+Le meilleur cadre de la rue avec ses poutres et ses charpentes authentiques des tables spacieuses des prix et un rapport qualité prix rare avec des produits frais et fais maison. Différentes formules à 12,5€ , 15,80€ et 18,90€ qui regroupent entrée + plat + dessert !!! Autant dire que c'est très rare à St. Germain des Près. Les serveurs sont très souriants et patients. Un véritable coup de cœur .
+
+Sentiments
+
+[['a_positif',[3,11]],['a_positif',[157,162]],['a_positif',[171,177]]]
+
+a_positif
+	meilleur
+a_positif
+	frais
+a_positif
+	maison
+
+Attributs
+
+[['a_prix',[113,133]],['a_nourriture',[148,156]],['a_qualite',[157,162]],['a_qualite',[171,177]],['a_nourriture',[251,255]],['a_service',[330,338]]]
+
+
+a_prix
+	rapport qualité prix
+a_nourriture
+	produits
+a_qualite
+	frais
+a_qualite
+	maison
+a_nourriture
+	plat
+a_service
+	serveurs
+
+Triplets
+
+[['a_nourriture_pos',[148,156],[157,162]]]
+
+a_nourriture_pos
+	produits
+	frais
+-----------
+g187147-d1336633-r250960733
+
+Quelle déception !Attente démesurée, le vin demandé n'est plus en cave, mais on ne nous en propose pas d'autre ! Par contre, sur la note, un vin très cher est compté !!3 plats arrivent enfin, puis une viande demandée bleue apportée bien cuite. Longtemps après, les premiers ayant deja fini, la deuxième viande bleue, froide.Personnel peu aimable, peu disponible, un repas d'anniversaire qui a tourné aigre.
+
+Sentiments
+
+[['a_negatif',[150,154]],['a_positif',[232,236]]]
+
+a_negatif
+	cher
+a_positif
+	bien
+
+Attributs
+
+[['a_boisson',[40,43]],['a_boisson',[141,144]],['a_prix',[150,154]],['a_nourriture',[170,175]]]
+
+
+a_boisson
+	vin
+a_boisson
+	vin
+a_prix
+	cher
+a_nourriture
+	plats
+
+Triplets
+
+[['a_boisson_neg',[141,144],[150,154]]]
+
+a_boisson_neg
+	vin
+	cher
+-----------
+g187154-d4063063-r223186045
+
+Petite cuisine de petite qualité et pas fait maison. Nous aurions aimé un meilleure repas moins speedé et avec plus de gout. L’accueil laisse à penser que tout va bien se passer mais rien ne se passe.
+
+Sentiments
+
+[['a_negatif',[36,39],[45,51]],['a_positif',[74,83]],['a_positif',[163,167]]]
+
+a_negatif
+	pas
+	maison
+a_positif
+	meilleure
+a_positif
+	bien
+
+Attributs
+
+[['a_qualite',[45,51]],['a_ambiance',[127,134]]]
+
+
+a_qualite
+	maison
+a_ambiance
+	accueil
+
+Triplets
+
+[]
+
+-----------
+g187147-d3800655-r273788903
+
+Clairement c'est notre cantine puisque nous travaillons juste à côté. la terrasse est grande et en grande partie ensoleillée, le service est efficace et rapide, formule changeant tous les jours, et il y des plats avec supplément qui moi me mettent souvent l'eau à la bouche. sympa pour prendre un verre après le boulot. ah : quand il fait un peu frisquet, la terrasse est chauffée et ils mettent des plaids à dispo sur les chaises, ça aide :)
+
+Sentiments
+
+[['a_positif',[275,280]]]
+
+a_positif
+	sympa
+
+Attributs
+
+[['a_ambiance',[73,81]],['a_service',[129,136]],['a_nourriture',[207,212],[213,217]],['a_ambiance',[359,367]]]
+
+
+a_ambiance
+	terrasse
+a_service
+	service
+a_nourriture
+	plats
+	avec
+a_ambiance
+	terrasse
+
+Triplets
+
+[]
+
+-----------
+g187147-d714974-r280161599
+
+Cela faisait 5 ans que nous n étions pas revenu dans ce restaurant qui offre une terrasse superbe dans un quartier sympa de Paris ...Mais mon dieu quel désastre au niveau du service et de la cuisine.A notre arrivée 3 serveurs et serveuses nous sont passés devant avant que l on nous adresse simplement la parole.L arrivée de la responsable fut caricaturale avec son plan de table chiffonnée essayant de nous placer à l intérieur malgré notre demande express de la terrasse. Finalement nous avons gagné. Assis sur des chaises de jardin peu confortable nous attendons l apéro qui arrive très rapidement le seul hic c est la différence entre nos deux verres pour le même alcool 1/4 de quantité différente.Je vous passe le repas dont les produits sont quelconque. Même les desserts de Pierre herme que j inviterais à ne plus autoriser la distribution dans cet établissement ont été servi. Trop frais. Pour l accompagner j avais demander un verre de vin. N étant pas arrivé au moment de l addition je signale que ce n est plus la peine de me l apporter.et bien vous ne le croirez pas on me l à apporter avec l addition en me disant qu il était déjà servis. Ce qu il avait oublié de dire c est qu il était aussi déjà compté dans l addition. Bref je ne sais pas où sont passés les anciens propriétaires mais il faut que quelqu un reprenne cet établissement en main. En attendant un seul mot d ordre ne pas y aller. Ah oui j oubliais ne regarder pas la carte affichée en vitrine vous y verrez au moins 2 mouches mortes écrasées je n ose pas mettre un pied dans la cuisine. Pour les mouches j ai la photo. Mais je ne la publie pas pour les âmes sensibles
+
+Sentiments
+
+[['a_positif',[115,120]],['a_negatif',[249,255]],['a_positif',[890,895]],['a_positif',[1051,1055]],['a_positif',[1251,1254],[1263,1269]]]
+
+a_positif
+	sympa
+a_negatif
+	passés
+a_positif
+	frais
+a_positif
+	bien
+a_positif
+	pas
+	passés
+
+Attributs
+
+[['a_ambiance',[56,66]],['a_ambiance',[81,89]],['a_service',[174,181]],['a_service',[217,225]],['a_service',[229,238]],['a_qualite',[249,255]],['a_ambiance',[419,428]],['a_ambiance',[464,472]],['a_nourriture',[734,742]],['a_qualite',[890,895]],['a_boisson',[945,948]],['a_qualite',[1263,1269]]]
+
+
+a_ambiance
+	restaurant
+a_ambiance
+	terrasse
+a_service
+	service
+a_service
+	serveurs
+a_service
+	serveuses
+a_qualite
+	passés
+a_ambiance
+	intérieur
+a_ambiance
+	terrasse
+a_nourriture
+	produits
+a_qualite
+	frais
+a_boisson
+	vin
+a_qualite
+	passés
+
+Triplets
+
+[['a_service_neg',[217,225],[249,255]]]
+
+a_service_neg
+	serveurs
+	passés
+-----------
+g187147-d786612-r144061658
+
+Arrivés vers 12 h 50 dans une salle bondée, on nous propose une table bien large au fond de la salle. L'ambiance est bruyante mais relativement agréable. Après un quart d'heure d'attente, un serveur arrive. Il prend la commande sur un ton excédé en se retournant pour donner des ordres aux autres serveurs. La nourriture est honnête, j'ai choisi une tartine de chèvre chaud, mon mari le menu à 13 euros. Honnête sans plus. Bref une adresse convenable, si on accepte d'être traité comme un simple régleur d'addition ...
+
+Sentiments
+
+[['a_positif',[70,74]],['a_positif',[144,152]]]
+
+a_positif
+	bien
+a_positif
+	agréable
+
+Attributs
+
+[['a_ambiance',[30,35]],['a_ambiance',[95,100]],['a_service',[191,198]],['a_service',[297,305]]]
+
+
+a_ambiance
+	salle
+a_ambiance
+	salle
+a_service
+	serveur
+a_service
+	serveurs
+
+Triplets
+
+[]
+
+-----------
+g187141-d3373737-r270715967
+
+J'y suis allé plusieurs fois l'an passé c'était très correcte mais à priori quelque chose a changé en cuisine par rapport à l'an dernier car c'est devenu un vrai cauchemar. Pizza avec la pate caoutchouc et pas cuite, entrecôte hyper grasse j'ai dû en manger 1/4.passez votre chemin ! Moi ils ne me verront plus...
+
+Sentiments
+
+[['a_negatif',[34,39]],['a_positif',[53,61]],['a_negatif',[206,209],[227,232]]]
+
+a_negatif
+	passé
+a_positif
+	correcte
+a_negatif
+	pas
+	hyper
+
+Attributs
+
+[['a_qualite',[34,39]],['a_nourriture',[173,178],[179,183]]]
+
+
+a_qualite
+	passé
+a_nourriture
+	Pizza
+	avec
+
+Triplets
+
+[]
+
+-----------
+g656502-d7337314-r271147108
+
+Bien situé. Service gentil. Pizza honnêtes mais éviter le tiramisu. Attention la bière est italienne...
+
+Sentiments
+
+[['a_positif',[0,4]]]
+
+a_positif
+	Bien
+
+Attributs
+
+[['a_service',[12,19]],['a_nourriture',[28,33]]]
+
+
+a_service
+	Service
+a_nourriture
+	Pizza
+
+Triplets
+
+[]
+
+-----------
+g580173-d3501761-r272950033
+
+Terrasse à l'ombre des arbres très agréable , jolies assiettes, poissons bien préparés, belle décoration et service sympathique. N'hésitez pas.
+
+Sentiments
+
+[['a_positif',[35,43]],['a_positif',[73,77]],['a_positif',[88,93]],['a_positif',[116,127]]]
+
+a_positif
+	agréable
+a_positif
+	bien
+a_positif
+	belle
+a_positif
+	sympathique
+
+Attributs
+
+[['a_ambiance',[0,8]],['a_nourriture',[64,72]],['a_ambiance',[94,104]],['a_service',[108,115]]]
+
+
+a_ambiance
+	Terrasse
+a_nourriture
+	poissons
+a_ambiance
+	décoration
+a_service
+	service
+
+Triplets
+
+[['a_nourriture_pos',[64,72],[73,77]],['a_ambiance_pos',[88,93],[94,104]],['a_service_pos',[108,115],[116,127]]]
+
+a_nourriture_pos
+	poissons
+	bien
+a_ambiance_pos
+	belle
+	décoration
+a_service_pos
+	service
+	sympathique
+-----------
+g187147-d714947-r212090938
+
+Un restaurant extrêmement bien situé tout en haut des Champs Elysée ! Niveau décoration cela reste très inventif et change de la décoration ordinaire. La cuisine est correcte pour les prix pratiqués. Le personnel est très occupé par les différentes tables donc ne vous attendez pas à une attention particulière envers vous ! Restaurant à essayer (au moins une fois) pour vous en faire une idée.
+
+Sentiments
+
+[['a_positif',[26,30]],['a_positif',[166,174]]]
+
+a_positif
+	bien
+a_positif
+	correcte
+
+Attributs
+
+[['a_ambiance',[3,13]],['a_ambiance',[77,87]],['a_ambiance',[129,139]],['a_ambiance',[325,335]]]
+
+
+a_ambiance
+	restaurant
+a_ambiance
+	décoration
+a_ambiance
+	décoration
+a_ambiance
+	Restaurant
+
+Triplets
+
+[['a_ambiance_pos',[3,13],[26,30]]]
+
+a_ambiance_pos
+	restaurant
+	bien
+-----------
+g187147-d2217897-r197324978
+
+j'ai deja manger dans plus de 50 brasseries a paris et c'est la 1 ere fois que je me sens oblige de laisse un avis...le service etait proche du zero absolue et le serveur pas tres aimable mais... si la bouffe etait correcte, je ne serai pas venu ici mettre un avis..j'ai pris bavette avec des frites! oh mon dieu, frites pas bien cuite, froide et qui sortent a peine du congelateur...la bavette aie aie aie, elle a baigne dans l'huile et aucun gout...je pense me rattraper sur le dessert avec la mousse au chocolat lol, et je goute une mousse execrable vraiment! aucun gout, pire que celle de metro... meme les mousse au chocolat discount sont meilleurs....je me suis vraiment demande si mes mecs etaient conscient de la m... qu'ils servaient….pas de chance, jetais malade l'apres midi, le repas y est ss doute pour quelque chose!!a fuir si vous prenez la bavette, des frites et une mousse!!!je ne prendrez pas le risque de tester les autres plats...
+
+Sentiments
+
+[['a_positif',[215,223]],['a_negatif',[321,324],[325,329]],['a_positif',[644,653]]]
+
+a_positif
+	correcte
+a_negatif
+	pas
+	bien
+a_positif
+	meilleurs
+
+Attributs
+
+[['a_service',[120,127]],['a_service',[163,170]],['a_nourriture',[293,299]],['a_nourriture',[314,320]],['a_nourriture',[869,875]],['a_nourriture',[942,947]]]
+
+
+a_service
+	service
+a_service
+	serveur
+a_nourriture
+	frites
+a_nourriture
+	frites
+a_nourriture
+	frites
+a_nourriture
+	plats
+
+Triplets
+
+[['a_nourriture_pos',[314,320],[325,329]]]
+
+a_nourriture_pos
+	frites
+	bien
+-----------
+g187231-d4495419-r285328643
+
+Cuisine de saison avec des petites courgettes de pays excellentes accompagnées d'un magret cuit à la perfection. Dans sa cuisine ouverte, on sent la passion du patron et en terrasse, malgré l'affluence, on apprécie la gentillesse et les conseils de sa femme et de son fils. A recommander aux amateurs de bonne viande et de produits du terroir. Pensez à réserver. Cathy et Laurent.
+
+Sentiments
+
+[['a_positif',[54,65]],['a_positif',[304,309]]]
+
+a_positif
+	excellentes
+a_positif
+	bonne
+
+Attributs
+
+[['a_ambiance',[173,181]],['a_qualite',[304,309]],['a_nourriture',[323,331]]]
+
+
+a_ambiance
+	terrasse
+a_qualite
+	bonne
+a_nourriture
+	produits
+
+Triplets
+
+[]
+
+-----------
+g187147-d2501061-r240926883
+
+La vue de l'extérieur sur la grande étagère de bouteilles de vins nous a attirée. Nous sommes donc rentrés dans ce resto bar à vins à la déco hyper originale! Les serveurs sont adorables, le vin et les conseils pour le choisir sont au top!Idéal donc pour passer un apero avec une assiette de jambon à grignoter.Nous avons moins été séduits par les plats que nous avons trouvé un peu chers vs la qualite proposée bien que les produits soient frais et ça c'est important.
+
+Sentiments
+
+[['a_positif',[142,147]],['a_negatif',[383,388]],['a_positif',[412,420]],['a_positif',[441,446]]]
+
+a_positif
+	hyper
+a_negatif
+	chers
+a_positif
+	bien que
+a_positif
+	frais
+
+Attributs
+
+[['a_ambiance',[12,21]],['a_boisson',[61,65]],['a_boisson',[127,131]],['a_ambiance',[137,141]],['a_service',[163,171]],['a_boisson',[191,194]],['a_nourriture',[348,353]],['a_prix',[383,388]],['a_nourriture',[425,433]],['a_qualite',[441,446]]]
+
+
+a_ambiance
+	extérieur
+a_boisson
+	vins
+a_boisson
+	vins
+a_ambiance
+	déco
+a_service
+	serveurs
+a_boisson
+	vin
+a_nourriture
+	plats
+a_prix
+	chers
+a_nourriture
+	produits
+a_qualite
+	frais
+
+Triplets
+
+[['a_boisson_pos',[127,131],[142,147]],['a_nourriture_pos',[425,433],[441,446]]]
+
+a_boisson_pos
+	vins
+	hyper
+a_nourriture_pos
+	produits
+	frais
+-----------
+g196627-d1337697-r176456453
+
+bel emplacement pour ce restaurant mais quelle deception .... un serveur qui ne parle pas et qui vous sert sans rien annoncer coté cuisine rien de mieux assiettes très peu garni et qualité bof assiette de charcuterie basique le plat andouillette et pomme de terre que je deconseille fortement ..... bref passez votre chemin .....
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_ambiance',[24,34]],['a_service',[65,72]],['a_nourriture',[228,232]]]
+
+
+a_ambiance
+	restaurant
+a_service
+	serveur
+a_nourriture
+	plat
+
+Triplets
+
+[]
+
+-----------
+g147328-d7732677-r282059333
+
+La carte est -au premier abord- plutôt attrayante, mais c'est sans compter sur l'indisponibilité de nombreux aliments (lambi, marlin et thon ce soir là), et les prix hallucinants d'autres (notamment les "plateaux" de fruits de mer, qui ne sont en fait que de petites assiettes). Mon choix s'est donc porté sur des pâtes aux fruits de mer (2 moules surcuites, 3 saint jacques décongelées, et beaucoup trop d'ail). Salle très bruyante (on n'arrivait plus à s'entendre), mais service efficace.
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_ambiance',[413,418]],['a_service',[473,480]]]
+
+
+a_ambiance
+	Salle
+a_service
+	service
+
+Triplets
+
+[]
+
+-----------
+g187080-d4326654-r264742272
+
+Juste un appel pour réserver et savoir s'ils sont ouvert par rapport au avis de tripadvisor.La personne au téléphone est froide et on a l'impression de dérangé et pour un restaurant qui ferme vers 2h du matin, on nous informe qu'il reste juste une entrecôte ( je vous la met de côté si vous venez) et après il me reste que des omelettes cèpes, fromage, jambon. Personnellement aller manger au resto une omelette autant manger chez soi.
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_ambiance',[171,181]]]
+
+
+a_ambiance
+	restaurant
+
+Triplets
+
+[]
+
+-----------
+g187154-d2342951-r278516424
+
+Nous avons été invité hier par des Amis pour fêter un anniversaire entre amis.Hésitant au départ sur le choix du lieu, un bon verre de vin, des bons tapas de qualité engloutis,nous avons au final passé une excellente soirée avec nos amis.Le Patron à l'air RUSTRE au départ, mais il joue un "jeu" et est super prévenant avec ses clients!Un lieu simple ou passer une agréable soirée!
+
+Sentiments
+
+[['a_positif',[122,125]],['a_positif',[144,148]],['a_negatif',[196,201]],['a_positif',[206,216]],['a_positif',[303,308]],['a_positif',[365,373]]]
+
+a_positif
+	bon
+a_positif
+	bons
+a_negatif
+	passé
+a_positif
+	excellente
+a_positif
+	super
+a_positif
+	agréable
+
+Attributs
+
+[['a_ambiance',[113,117]],['a_qualite',[122,125]],['a_boisson',[135,138]],['a_qualite',[144,148]],['a_qualite',[196,201]],['a_ambiance',[339,343]]]
+
+
+a_ambiance
+	lieu
+a_qualite
+	bon
+a_boisson
+	vin
+a_qualite
+	bons
+a_qualite
+	passé
+a_ambiance
+	lieu
+
+Triplets
+
+[['a_ambiance_pos',[113,117],[122,125]],['a_boisson_pos',[135,138],[144,148]]]
+
+a_ambiance_pos
+	lieu
+	bon
+a_boisson_pos
+	vin
+	bons
+-----------
+g187261-d6513284-r286726408
+
+Un service parfait, très bonne table , vu la petite superficie du lieu , tout est bien . il faut y aller , pour conclure l'extraordinaire lieu montagnard à 3842 m. Encore bravo pour le chef ,et son équipe.
+
+Sentiments
+
+[['a_positif',[25,30]],['a_positif',[82,86]],['a_positif',[123,137]]]
+
+a_positif
+	bonne
+a_positif
+	bien
+a_positif
+	extraordinaire
+
+Attributs
+
+[['a_service',[3,10]],['a_qualite',[25,30]],['a_ambiance',[66,70]],['a_ambiance',[138,142]]]
+
+
+a_service
+	service
+a_qualite
+	bonne
+a_ambiance
+	lieu
+a_ambiance
+	lieu
+
+Triplets
+
+[['a_service_pos',[3,10],[25,30]],['a_ambiance_pos',[66,70],[82,86]],['a_ambiance_pos',[123,137],[138,142]]]
+
+a_service_pos
+	service
+	bonne
+a_ambiance_pos
+	lieu
+	bien
+a_ambiance_pos
+	extraordinaire
+	lieu
+-----------
+g187080-d1333601-r283609119
+
+Le cadre est somptueux, le repas est très correct.. De bonnes lasagnes et un café gourmand agréable.. Mais si le service très décontracté est sympathique.. Il manque de professionnalisme.. Résultat des cocktails pris pour l'apéro servi avec les plats.. Je n'ai pris aucun plaisir a prendre mon mojito avec mes lasagnes.. que j'ai pourtant attendu près de 30mn.. Bref dommage..
+
+Sentiments
+
+[['a_positif',[42,49]],['a_positif',[55,61]],['a_positif',[82,90],[91,99]],['a_positif',[142,153]]]
+
+a_positif
+	correct
+a_positif
+	bonnes
+a_positif
+	gourmand
+	agréable
+a_positif
+	sympathique
+
+Attributs
+
+[['a_qualite',[55,61]],['a_service',[113,120]],['a_boisson',[202,211]],['a_nourriture',[245,250]]]
+
+
+a_qualite
+	bonnes
+a_service
+	service
+a_boisson
+	cocktails
+a_nourriture
+	plats
+
+Triplets
+
+[['a_service_pos',[113,120],[142,153]]]
+
+a_service_pos
+	service
+	sympathique
+-----------
+g580171-d1332791-r285855067
+
+Premiere fois dans ce restaurant dont on nous disait pourtant du bien. Les plats proposés sont originaux, les saveurs intéréssantes mais le rapport qualité prix n'est pas au rendez vous. 18,50 € un risotto, où j'ai cherché du saumon fumé pourtant annoncé, que je n'ai hélas pas trouvé, c'est bien trop cher aussi bon soit il.On a payé le cadre coloré et le port touristique de la Cotinière. Si il n'y avait que cela ça aurait pu aller mais le service a été catastrophique. La jeune demoiselle blonde qui nous a servi n'est absolument pas du metier. La prise de commande par le patron est venue bien longtemps après la fin de l'apéritif, et le pire a été le service du vin quand nous avions presque fini notre plat. Intolérable. Malgré une cuisine gouteuse nous n'y retournerons pas.
+
+Sentiments
+
+[['a_positif',[65,69]],['a_positif',[292,296]],['a_negatif',[302,306]],['a_positif',[313,316]],['a_positif',[594,598]],['a_positif',[618,621]]]
+
+a_positif
+	bien
+a_positif
+	bien
+a_negatif
+	cher
+a_positif
+	bon
+a_positif
+	bien
+a_positif
+	fin
+
+Attributs
+
+[['a_ambiance',[22,32]],['a_nourriture',[75,80]],['a_prix',[140,160]],['a_prix',[302,306]],['a_qualite',[313,316]],['a_service',[443,450]],['a_qualite',[618,621]],['a_service',[657,664]],['a_boisson',[668,671]],['a_nourriture',[709,713]]]
+
+
+a_ambiance
+	restaurant
+a_nourriture
+	plats
+a_prix
+	rapport qualité prix
+a_prix
+	cher
+a_qualite
+	bon
+a_service
+	service
+a_qualite
+	fin
+a_service
+	service
+a_boisson
+	vin
+a_nourriture
+	plat
+
+Triplets
+
+[]
+
+-----------
+g187080-d2623263-r286459884
+
+un resto qui ravira les papilles avec des produits très bien cuisinés.mais une catastrophe côté service : on a été oublié dans un coin, par contre, les tables de droite et de gauche ont eu droit à tous les égards (faut être américains ou famille nombreuse pour être intéressant faut croire!)on n'a pas eu de seau à glace pour le vin blanc, pas de pain durant le repas, on a dû se lever pour interpeler les serveuses qui ne nous jetaient même pas un regard, on a énormément attendu entre les plats qu'on veuille bien daigner nous débarasser les assiettes vides... bref! une soirée gustative gâchée par ces à-côtés très déplaisants
+
+Sentiments
+
+[['a_positif',[56,60]],['a_positif',[511,515]]]
+
+a_positif
+	bien
+a_positif
+	bien
+
+Attributs
+
+[['a_nourriture',[42,50]],['a_service',[96,103]],['a_boisson',[329,332]],['a_service',[406,415]],['a_nourriture',[491,496]]]
+
+
+a_nourriture
+	produits
+a_service
+	service
+a_boisson
+	vin
+a_service
+	serveuses
+a_nourriture
+	plats
+
+Triplets
+
+[['a_nourriture_pos',[42,50],[56,60]]]
+
+a_nourriture_pos
+	produits
+	bien
+-----------
+g187141-d1324199-r286327725
+
+Ce restaurant sur le port à attirer notre attention par la sobriété de sa carte.Notre choix s'est arrêté sur le menu du jour à 17,50 € (entrée +plat). En raison de la chaleur on nous a aimablement conseillé une table dans la salle climatisée.L'apéro à été un peu accéléré par un serveur visiblement pressé de finir son service et qui est venu nous proposer de goûter le vin alors que nous commentions seulement à goûter les toast de tapenade. ( repris rapidement par le chef de salle). La suite est plus heureuse avec En entrée un assortiment de charcuterie corse et des beignets de fromages excellentes.Puis une dorade du jour avec petits légumes : joliment présenté et très savoureux.Au final une bonne table à découvrir!
+
+Sentiments
+
+[['a_positif',[592,603]],['a_positif',[676,685]],['a_positif',[699,704]]]
+
+a_positif
+	excellentes
+a_positif
+	savoureux
+a_positif
+	bonne
+
+Attributs
+
+[['a_ambiance',[3,13]],['a_nourriture',[144,148]],['a_ambiance',[225,230]],['a_service',[279,286]],['a_service',[319,326]],['a_boisson',[370,373]],['a_ambiance',[478,483]],['a_qualite',[676,685]],['a_qualite',[699,704]]]
+
+
+a_ambiance
+	restaurant
+a_nourriture
+	plat
+a_ambiance
+	salle
+a_service
+	serveur
+a_service
+	service
+a_boisson
+	vin
+a_ambiance
+	salle
+a_qualite
+	savoureux
+a_qualite
+	bonne
+
+Triplets
+
+[]
+
+-----------
+g660465-d2259425-r282891879
+
+Un lieu à connaitre !. Cuisine excellente avec de la recherche. Bravo pour le chef et la patissière ; nous reviendrons pour la langue de Bœuf !
+
+Sentiments
+
+[['a_positif',[31,41]]]
+
+a_positif
+	excellente
+
+Attributs
+
+[['a_ambiance',[3,7]]]
+
+
+a_ambiance
+	lieu
+
+Triplets
+
+[]
+
+-----------
+g187147-d1336634-r158837691
+
+En famille, après une longue balade, la météo sympathique a fait que la terasse nous a attiré. Le service et la cuisine sont correctes. Nous avons pris des plats du jours. C'était bon, sans être exceptionnel. Les enfants ont adoré le mi-cuit au chocolat maison. Prévoir un temps d'attente pour les toilettes en sous-sol aux heures de pointes ;o). Si vous passez par là, vous pouvez vous arreter pour le cadre, les oiseaux et canards environnants, mais sans attendre quelque chose d'exceptionnel de la cuisine.
+
+Sentiments
+
+[['a_positif',[46,57]],['a_positif',[125,134]],['a_positif',[180,183]],['a_positif',[254,260]]]
+
+a_positif
+	sympathique
+a_positif
+	correctes
+a_positif
+	bon
+a_positif
+	maison
+
+Attributs
+
+[['a_service',[98,105]],['a_nourriture',[156,161]],['a_qualite',[180,183]],['a_qualite',[254,260]]]
+
+
+a_service
+	service
+a_nourriture
+	plats
+a_qualite
+	bon
+a_qualite
+	maison
+
+Triplets
+
+[]
+
+-----------
+g187147-d714978-r253348916
+
+Une table qui tient la route dans un quartier où les tables changent très vite? Sophistiqué mais sans trop, du monde mais pas bruyant du tout, à table ou au comptoir. Très beau menu à 35 euros le midi qui change tout le temps. A la carte,plus cher, la sole meunière est un véritable délice (49 euros tout de même) et chacun sait à quel point c'est difficile de la réussir. La côte de veau aussi. Vin au verre (heureusement!). Café gourmand exquis. En tout cas régulier dans un beau cadre à deux pas des Invalides.
+
+Sentiments
+
+[['a_negatif',[243,247]],['a_positif',[431,439]]]
+
+a_negatif
+	cher
+a_positif
+	gourmand
+
+Attributs
+
+[['a_prix',[243,247]],['a_boisson',[396,399]]]
+
+
+a_prix
+	cher
+a_boisson
+	Vin
+
+Triplets
+
+[]
+
+-----------
+g187080-d6698528-r281099496
+
+L'endroit est très beau, l'assiette est divine, les vins bouleversants, ajoutez à cela l'enthousiasme contagieux du patron : que demander de plus ? On est si bien à l'Art dit Vin, on y passe de bons moments :)
+
+Sentiments
+
+[['a_positif',[158,162]],['a_positif',[194,198]]]
+
+a_positif
+	bien
+a_positif
+	bons
+
+Attributs
+
+[['a_boisson',[52,56]],['a_boisson',[175,178]],['a_qualite',[194,198]]]
+
+
+a_boisson
+	vins
+a_boisson
+	Vin
+a_qualite
+	bons
+
+Triplets
+
+[]
+
+-----------
+g147328-d6901743-r277407407
+
+Venu sans conviction, nous avons choisi de tester la nouvelle cuisine du bar'oc. Nous avons vécu une expérience culinaire hors du commun. Un service impeccable et des cocktails ahurissant. Mais le summum fut l'arrivée des entrées. Le foi gras est le meilleur de l'île. Le carpaccio de st jacques sauvages est divin. Puis est arrivée la pluma de pata negra avec son incroyable purée a l'huile de truffe. Merci rodolphe pour ce repas incroyable. A vivre absolument.
+
+Sentiments
+
+[['a_positif',[250,258]]]
+
+a_positif
+	meilleur
+
+Attributs
+
+[['a_service',[141,148]],['a_boisson',[167,176]]]
+
+
+a_service
+	service
+a_boisson
+	cocktails
+
+Triplets
+
+[]
+
+-----------
+g187089-d4844383-r231312697
+
+Nous avons tout aimé. Le cadre, dîner au bord de la piscine.La cuisine qui mériterait largement une étoile au Michelin.Des associations de saveur et des cuissons impeccables.
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[]
+
+
+
+Triplets
+
+[]
+
+-----------
+g580171-d3845482-r257213400
+
+Restaurant très sympa. Petite salle ambiance plage Oléronaise. Deco et tables raffinées (nappes et serviettes en tissus...). Personnel très souriant et chaleureux.Menus un peu chers mais très bons. Cela dit pour du tout fait maison avec des produits frais de très bonne qualité cela reste très intéressant. Plats copieux et bien présentés. Très bons, surtout les desserts (excellents).Coctails très bons mais un peu cher pour la quantité (5/8€). Restaurant ouvert hors saison.
+
+Sentiments
+
+[['a_positif',[16,21]],['a_positif',[78,87]],['a_negatif',[176,181]],['a_positif',[192,196]],['a_positif',[225,231]],['a_positif',[250,255]],['a_positif',[264,269]],['a_positif',[313,320]],['a_positif',[324,328]],['a_positif',[345,349]],['a_positif',[373,383]],['a_positif',[399,403]],['a_negatif',[416,420]]]
+
+a_positif
+	sympa
+a_positif
+	raffinées
+a_negatif
+	chers
+a_positif
+	bons
+a_positif
+	maison
+a_positif
+	frais
+a_positif
+	bonne
+a_positif
+	copieux
+a_positif
+	bien
+a_positif
+	bons
+a_positif
+	excellents
+a_positif
+	bons
+a_negatif
+	cher
+
+Attributs
+
+[['a_ambiance',[0,10]],['a_ambiance',[30,35]],['a_qualite',[78,87]],['a_prix',[176,181]],['a_qualite',[192,196]],['a_qualite',[225,231]],['a_nourriture',[241,249]],['a_qualite',[250,255]],['a_qualite',[264,269]],['a_nourriture',[307,312]],['a_qualite',[313,320]],['a_qualite',[345,349]],['a_qualite',[399,403]],['a_prix',[416,420]],['a_ambiance',[446,456]]]
+
+
+a_ambiance
+	Restaurant
+a_ambiance
+	salle
+a_qualite
+	raffinées
+a_prix
+	chers
+a_qualite
+	bons
+a_qualite
+	maison
+a_nourriture
+	produits
+a_qualite
+	frais
+a_qualite
+	bonne
+a_nourriture
+	Plats
+a_qualite
+	copieux
+a_qualite
+	bons
+a_qualite
+	bons
+a_prix
+	cher
+a_ambiance
+	Restaurant
+
+Triplets
+
+[['a_ambiance_pos',[0,10],[16,21]],['a_nourriture_pos',[241,249],[250,255]],['a_nourriture_pos',[307,312],[313,320]]]
+
+a_ambiance_pos
+	Restaurant
+	sympa
+a_nourriture_pos
+	produits
+	frais
+a_nourriture_pos
+	Plats
+	copieux
+-----------
+g656502-d4431469-r222430915
+
+Un cassoulet franchement "infect", qui fait honte au nom porté par le restaurant et pour un soi-disant "restaurant traditionnel servant une cuisine de Chef faite à partir de produit brut" (sic) ... qualifié de "Cassoulet fait Maison" !. Patron venu nous voir en début de service, nous étions les premiers clients ayant eu le courage de s'installer à sa terrasse, alors que les tables des terrasses des restaurants voisins étaient occupées...Premiers arrivés, avant derniers à pouvoir obtenir l'addition, après appel. A éviter tant pour la cuisine que pour le service. Lamentable. Une belle erreur de choix de notre part. Ne faites pas comme nous !
+
+Sentiments
+
+[['a_positif',[226,232]],['a_positif',[584,589]]]
+
+a_positif
+	Maison
+a_positif
+	belle
+
+Attributs
+
+[['a_ambiance',[70,80]],['a_ambiance',[104,114]],['a_qualite',[226,232]],['a_service',[271,278]],['a_ambiance',[353,361]],['a_ambiance',[388,397]],['a_ambiance',[402,413]],['a_service',[559,566]]]
+
+
+a_ambiance
+	restaurant
+a_ambiance
+	restaurant
+a_qualite
+	Maison
+a_service
+	service
+a_ambiance
+	terrasse
+a_ambiance
+	terrasses
+a_ambiance
+	restaurants
+a_service
+	service
+
+Triplets
+
+[]
+
+-----------
+g187089-d1572979-r272660734
+
+Nous avons pris l'assiette decouverte à 20 euros et nous n'avons pas été deçus Anchois, axoa, pommes de terre fromage salade ect.. copieux et surtout bon Produits frais, bien cuisinés La sangria était parfaite..
+
+Sentiments
+
+[['a_positif',[131,138]],['a_positif',[150,153]],['a_positif',[163,168]],['a_positif',[170,174]]]
+
+a_positif
+	copieux
+a_positif
+	bon
+a_positif
+	frais
+a_positif
+	bien
+
+Attributs
+
+[['a_qualite',[131,138]],['a_qualite',[150,153]],['a_qualite',[163,168]]]
+
+
+a_qualite
+	copieux
+a_qualite
+	bon
+a_qualite
+	frais
+
+Triplets
+
+[]
+
+-----------
+g1368199-d7186594-r271115762
+
+Salade fanée, vin moyen, gratin de raviolis mangeable. Bonnes glaces.Terrasse négligée.C'est dommage, l'emplacement est idéal et le service plutôt sympa mais ça ne fait pas tout!
+
+Sentiments
+
+[['a_neutre',[18,23]],['a_positif',[55,61]],['a_positif',[147,152]]]
+
+a_neutre
+	moyen
+a_positif
+	Bonnes
+a_positif
+	sympa
+
+Attributs
+
+[['a_boisson',[14,17]],['a_qualite',[55,61]],['a_ambiance',[69,77]],['a_service',[132,139]]]
+
+
+a_boisson
+	vin
+a_qualite
+	Bonnes
+a_ambiance
+	Terrasse
+a_service
+	service
+
+Triplets
+
+[['a_service_pos',[132,139],[147,152]]]
+
+a_service_pos
+	service
+	sympa
+-----------
+g196673-d7177523-r272503336
+
+Nous sommes venus à 2 avec notre bébé de 2 mois en poussette. On nous a calé dans un coin du restaurant que nous avons fini par quitter après 20 minutes sans que personne ne soit venu nous apporter ne serait-ce qu'une carafe d'eau.
+
+Sentiments
+
+[]
+
+
+Attributs
+
+[['a_ambiance',[93,103]]]
+
+
+a_ambiance
+	restaurant
+
+Triplets
+
+[]
+
+-----------
+g187089-d1330806-r286288418
+
+Généralement je ne mets des avis que lorsque je suis très satisfaite. Le cas échéant je me dis que je suis tombée le mauvais jour ou sur le mauvais plat, mais là je ne peux pas me retenir!Nous avons été attirés par les prix plutôt corrects. Mais quelle erreur! Nous avons pris chacun un menu à 25euros. Les fruits de mer en entrée étaient dégoûtants (sont-ils frais?). Les chipirons à l'encre étaient sucrés et insipides (sûrement congelés), l'assiette du pêcheur un peu mieux, mais on sent que rien n'est frais, ni préparé sur place et qu'ils utilisent des produits de mauvaise qualité. Les desserts étaient mangeables.Le service ne venait pas vraiment relever le niveau.Je n'avais qu'une hâte : partir!Petite touche d'humour : sur la façade il est écrit que les produits sont préparés selon l'humeur du chef. Il doit pas aller très bien! Il est aussi écrit : "notre priorité : vous satisfaire". Quelle blague! Ils n'ont pas honte!!!
+
+Sentiments
+
+[['a_negatif',[117,124]],['a_negatif',[140,147]],['a_positif',[231,239]],['a_positif',[360,365]],['a_positif',[506,511]],['a_negatif',[570,578]],['a_negatif',[819,822],[834,838]]]
+
+a_negatif
+	mauvais
+a_negatif
+	mauvais
+a_positif
+	corrects
+a_positif
+	frais
+a_positif
+	frais
+a_negatif
+	mauvaise
+a_negatif
+	pas
+	bien
+
+Attributs
+
+[['a_qualite',[117,124]],['a_qualite',[140,147]],['a_nourriture',[148,152]],['a_qualite',[360,365]],['a_qualite',[506,511]],['a_nourriture',[558,566]],['a_qualite',[570,578]],['a_service',[623,630]],['a_nourriture',[764,772]]]
+
+
+a_qualite
+	mauvais
+a_qualite
+	mauvais
+a_nourriture
+	plat
+a_qualite
+	frais
+a_qualite
+	frais
+a_nourriture
+	produits
+a_qualite
+	mauvaise
+a_service
+	service
+a_nourriture
+	produits
+
+Triplets
+
+[['a_nourriture_neg',[140,147],[148,152]]]
+
+a_nourriture_neg
+	mauvais
+	plat
+-----------
+g196673-d3328382-r281089862
+
+Nous avons découvert avec par hasard ce cabanon de plage et ce fut une excellente surprise: un accueil des plus chaleureux, des plats très corrects, une ambiance lounge-beach pas surfaite. On voit que l'équipe prend du plaisir à travailler dans ce lieu magique. Ce sera notre incontournable à Cassis!
+
+Sentiments
+
+[['a_positif',[71,81]],['a_positif',[139,147]]]
+
+a_positif
+	excellente
+a_positif
+	corrects
+
+Attributs
+
+[['a_ambiance',[95,102]],['a_nourriture',[128,133]],['a_ambiance',[248,252]]]
+
+
+a_ambiance
+	accueil
+a_nourriture
+	plats
+a_ambiance
+	lieu
+
+Triplets
+
+[['a_nourriture_pos',[128,133],[139,147]]]
+
+a_nourriture_pos
+	plats
+	corrects
+-----------
+g656502-d3431912-r272503140
+
+accueil sympathique, cuisine de très bonne qualité mais parfois la main est un peu lourde sur le sel, petit problème rectifié depuis. Nous recommandons!
+
+Sentiments
+
+[['a_positif',[8,19]],['a_positif',[37,42]]]
+
+a_positif
+	sympathique
+a_positif
+	bonne
+
+Attributs
+
+[['a_ambiance',[0,7]],['a_qualite',[37,42]]]
+
+
+a_ambiance
+	accueil
+a_qualite
+	bonne
+
+Triplets
+
+[['a_ambiance_pos',[0,7],[8,19]]]
+
+a_ambiance_pos
+	accueil
+	sympathique
+-----------
+g187154-d7374510-r265641746
+
+Sommes venus avec un coupon Groupon. Avons été très bien reçus. Service rapide et de qualité. Fraîcheur des produits, de belles présentations. Adresse à retenir. A très bientôt.
+
+Sentiments
+
+[['a_positif',[52,56]],['a_positif',[121,127]]]
+
+a_positif
+	bien
+a_positif
+	belles
+
+Attributs
+
+[['a_service',[64,71]],['a_nourriture',[108,116]]]
+
+
+a_service
+	Service
+a_nourriture
+	produits
+
+Triplets
+
+[['a_nourriture_pos',[108,116],[121,127]]]
+
+a_nourriture_pos
+	produits
+	belles
+-----------

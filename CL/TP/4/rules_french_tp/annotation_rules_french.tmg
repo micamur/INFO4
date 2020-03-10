@@ -1,0 +1,118 @@
+// Load French lexicon
+loadin(_current+'lexicon_french.tmg');
+
+// Simple Prolog Grammar
+string sentiment = @"
+  a_negatif <- #prenegatif,>?*:3<,#positif+.
+  a_negatif <- #prenegatif,#positif+.
+  a_positif <- #prenegatif,>?*:3<,#negatif+.
+  a_positif <- #prenegatif,#negatif+.
+  a_positif <- #positif+.
+  a_neutre <- #neutre+.
+  a_negatif <- #negatif+.
+"@;
+
+string attribut = @"
+  a_boisson <- #boisson, {#boisson, #PREP, #DET}*.
+  a_nourriture <- #nourriture, {#nourriture, avec, #PREP, #DET}*.
+  a_service <- #service+.
+  a_ambiance <- #ambiance+.
+  a_qualite <- #qualite+.
+  a_prix <- #prix+.
+"@;
+
+string triplet = @"
+  a_boisson_pos <- #boisson,>(être)<,#positif.
+  a_boisson_pos <- #boisson,>(être)<,#[qualite, positif].
+  a_boisson_pos <- #boisson,>(être)<,#[prix, positif].
+  a_boisson_pos <- #boisson,>(être)<,>?*:3<,#positif.
+  a_boisson_pos <- #boisson,>(être)<,>?*:3<,#[qualite, positif].
+  a_boisson_pos <- #boisson,>(être)<,>?*:3<,#[prix, positif].
+  a_boisson_neg <- #boisson,>(être)<,pas,#positif.
+  a_boisson_neg <- #boisson,>(être)<,#[qualite, negatif].
+  a_boisson_neg <- #boisson,>(être)<,pas,#[qualite, positif].
+  a_boisson_neg <- #boisson,>(être)<,#[prix, negatif].
+  a_boisson_neg <- #boisson,>(être)<,pas,#[prix, positif].
+  a_boisson_neg <- #boisson,>(être)<,>?*:3<,pas,#positif.
+  a_boisson_neg <- #boisson,>(être)<,>?*:3<,#[qualite, negatif].
+  a_boisson_neg <- #boisson,>(être)<,>?*:3<,pas,#[qualite, positif].
+  a_boisson_neg <- #boisson,>(être)<,>?*:3<,#[prix, negatif].
+  a_boisson_neg <- #boisson,>(être)<,>?*:3<,pas,#[prix, positif].
+  a_boisson_neg <- #boisson,>?*:1<,>(être)<,pas,#positif.
+  a_boisson_neg <- #boisson,>?*:1<,>(être)<,#[qualite, negatif].
+  a_boisson_neg <- #boisson,>?*:1<,>(être)<,pas,#[qualite, positif].
+  a_boisson_neg <- #boisson,>?*:1<,>(être)<,#[prix, negatif].
+  a_boisson_neg <- #boisson,>?*:1<,>(être)<,pas,#[prix, positif].
+  a_boisson_neg <- #boisson,>?*:1<,>(être)<,>?*:3<,pas,#positif.
+  a_boisson_neg <- #boisson,>?*:1<,>(être)<,>?*:3<,#[qualite, negatif].
+  a_boisson_neg <- #boisson,>?*:1<,>(être)<,>?*:3<,pas,#[qualite, positif].
+  a_boisson_neg <- #boisson,>?*:1<,>(être)<,>?*:3<,#[prix, negatif].
+  a_boisson_neg <- #boisson,>?*:1<,>(être)<,>?*:3<,pas,#[prix, positif].
+
+  a_nourriture_pos <- #nourriture,>(être)<,#positif.
+  a_nourriture_pos <- #nourriture,>(être)<,#[qualite, positif].
+  a_nourriture_pos <- #nourriture,>(être)<,#[prix, positif].
+  a_nourriture_pos <- #nourriture,>(être)<,>?*:3<,#positif.
+  a_nourriture_pos <- #nourriture,>(être)<,>?*:3<,#[qualite, positif].
+  a_nourriture_pos <- #nourriture,>(être)<,>?*:3<,#[prix, positif].
+  a_nourriture_neg <- #nourriture,>(être)<,pas,#positif.
+  a_nourriture_neg <- #nourriture,>(être)<,#[qualite, negatif].
+  a_nourriture_neg <- #nourriture,>(être)<,pas,#[qualite, positif].
+  a_nourriture_neg <- #nourriture,>(être)<,#[prix, negatif].
+  a_nourriture_neg <- #nourriture,>(être)<,pas,#[prix, positif].
+  a_nourriture_neg <- #nourriture,>(être)<,>?*:3<,pas,#positif.
+  a_nourriture_neg <- #nourriture,>(être)<,>?*:3<,#[qualite, negatif].
+  a_nourriture_neg <- #nourriture,>(être)<,>?*:3<,pas,#[qualite, positif].
+  a_nourriture_neg <- #nourriture,>(être)<,>?*:3<,#[prix, negatif].
+  a_nourriture_neg <- #nourriture,>(être)<,>?*:3<,pas,#[prix, positif].
+  a_nourriture_neg <- #nourriture,>?*:1<,>(être)<,pas,#positif.
+  a_nourriture_neg <- #nourriture,>?*:1<,>(être)<,#[qualite, negatif].
+  a_nourriture_neg <- #nourriture,>?*:1<,>(être)<,pas,#[qualite, positif].
+  a_nourriture_neg <- #nourriture,>?*:1<,>(être)<,#[prix, negatif].
+  a_nourriture_neg <- #nourriture,>?*:1<,>(être)<,pas,#[prix, positif].
+  a_nourriture_neg <- #nourriture,>?*:1<,>(être)<,>?*:3<,pas,#positif.
+  a_nourriture_neg <- #nourriture,>?*:1<,>(être)<,>?*:3<,#[qualite, negatif].
+  a_nourriture_neg <- #nourriture,>?*:1<,>(être)<,>?*:3<,pas,#[qualite, positif].
+  a_nourriture_neg <- #nourriture,>?*:1<,>(être)<,>?*:3<,#[prix, negatif].
+  a_nourriture_neg <- #nourriture,>?*:1<,>(être)<,>?*:3<,pas,#[prix, positif].
+
+  a_service_pos <- #service,>(être)<,#positif.
+  a_service_pos <- #service,>(être)<,>?*:3<,#positif.
+  a_service_neg <- #service,>(être)<,pas,#positif.
+  a_service_neg <- #service,>(être)<,#negatif.
+  a_service_neg <- #service,>(être)<,>?*:3<,pas,#positif.
+  a_service_neg <- #service,>(être)<,>?*:3<,#negatif.
+  a_service_neg <- #service,>?*:1<,>(être)<,pas,#positif.
+  a_service_neg <- #service,>?*:1<,>(être)<,#negatif.
+  a_service_neg <- #service,>?*:1<,>(être)<,>?*:3<,pas,#positif.
+  a_service_neg <- #service,>?*:1<,>(être)<,>?*:3<,#negatif.
+
+  a_ambiance_pos <- #ambiance,>(être)<,#positif.
+  a_ambiance_pos <- #ambiance,>(être)<,>?*:3<,#positif.
+  a_ambiance_neg <- #ambiance,>(être)<,pas,#positif.
+  a_ambiance_neg <- #ambiance,>(être)<,#negatif.
+  a_ambiance_neg <- #ambiance,>(être)<,>?*:3<,pas,#positif.
+  a_ambiance_neg <- #ambiance,>(être)<,>?*:3<,#negatif.
+  a_ambiance_neg <- #ambiance,>?*:1<,>(être)<,pas,#positif.
+  a_ambiance_neg <- #ambiance,>?*:1<,>(être)<,#negatif.
+  a_ambiance_neg <- #ambiance,>?*:1<,>(être)<,>?*:3<,pas,#positif.
+  a_ambiance_neg <- #ambiance,>?*:1<,>(être)<,>?*:3<,#negatif.
+
+  a_boisson_pos <- #positif,#boisson.
+  a_boisson_pos <- #[qualite, positif],#boisson.
+  a_boisson_pos <- #[prix, positif],#boisson.
+  a_boisson_neg <- #[qualite, negatif],#boisson.
+  a_boisson_neg <- #[prix, negatif],#boisson.
+
+  a_nourriture_pos <- #positif,#nourriture.
+  a_nourriture_pos <- #[qualite, positif],#nourriture.
+  a_nourriture_pos <- #[prix, positif],#nourriture.
+  a_nourriture_neg <- #[qualite, negatif],#nourriture.
+  a_nourriture_neg <- #[prix, negatif],#nourriture.
+
+  a_service_pos <- #positif,#service.
+  a_service_pos <- #positif,#service.
+
+  a_ambiance_pos <- #positif,#ambiance.
+  a_ambiance_pos <- #positif,#ambiance.
+"@;

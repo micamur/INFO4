@@ -1,0 +1,139 @@
+if (_args.size() == 0){
+    println("#\n#\tUsage: tamgu rules_french.tmg review_file.txt\n#");
+    _exit();
+}
+
+
+// Import utility functions
+tamgu utils(_current+'utils.tmg');
+loadin(_current+'annotation_rules_french.tmg'); // load rules
+
+// Load Data
+map data;
+data = utils.readFile(_current+_args[0]);
+
+
+// [Q5] Declare an annotator which will be using rules found in annotation_rules_french
+
+//All these rules will be access through an annotator
+annotator annot_sent;
+
+transducer lex(_current+"french.tra"); // Load french dictionary
+annot_sent.lexicon(lex);               // Associate dictionary with annotator
+annot_sent.compile(sentiment);         // Associate rules with annotator
+annot_sent.compilelexicons();
+
+// [Q5] Fin
+
+// [Q10] DEBUT
+
+annotator annot_attri;
+annot_attri.lexicon(lex);
+annot_attri.compile(attribut);
+
+// [Q10] FIN
+
+// [Q12] DEBUT
+
+annotator annot_triplet;
+annot_triplet.lexicon(lex);
+annot_triplet.compile(triplet);
+//annot_triplet.compile(attribut);
+//annot_triplet.compile(sentiment);
+
+// [Q12] FIN
+
+// Iterate over data
+string review_key;
+string review_txt;
+for (self review in data.keys()){
+    review_key = review;
+    review_txt = data[review_key];
+
+    println(review_key+"\n");
+    println(review_txt+"\n");
+
+    // [Q6] Début
+
+    println("Sentiments\n");
+    vector res_sent = annot_sent.parse(review_txt, true);
+    println(res_sent);
+    println();
+
+    // [Q6] Fin
+
+    // [Q7] Début
+
+    vector w;
+    for (w in res_sent) {
+      println(w[0]);
+      vector pos;
+      for (pos in w[1:]) {
+        println("\t"+review_txt[pos[0]:pos[1]]);
+      }
+    }
+    println();
+
+    // [Q7] Fin
+
+    // [Q10] Début
+
+    println("Attributs\n");
+    vector res_attri = annot_attri.parse(review_txt, true);
+    println(res_attri);
+    println();
+
+    vector v;
+    println();
+    for(v in res_attri) {
+      println(v[0]);
+      vector pos;
+      for (pos in v[1:]) {
+        println("\t"+review_txt[pos[0]:pos[1]]);
+      }
+    }
+    println();
+
+    // [Q10] Fin
+
+    // [Q11.1] Début
+
+    vector s = lex.parse(review_txt,0);
+    //println(s);
+    //println();
+
+    // [Q11.1] Fin
+
+    // [Q11.3] Début
+
+    //vector t;
+    //for (t in s) {
+    //  print(t[0] + " ");
+    //  if (t[0] == '.' || t[0] == '..' || t[0] == '...' || t[0] == '!' || t[0] == '?' || t[0] == '…'){
+    //    println();
+    //  }
+    //}
+    //println();
+
+    // [Q11.3] Fin
+
+    // [Q12] Début
+
+    println("Triplets\n");
+    vector res_triplet = annot_triplet.parse(review_txt, true);
+    println(res_triplet);
+    println();
+
+    vector x;
+    for(x in res_triplet) {
+      println(x[0]);
+      vector pos;
+      for (pos in x[1:]) {
+        println("\t"+review_txt[pos[0]:pos[1]]);
+      }
+    }
+
+    // [Q12] Fin
+
+    println('-----------');
+}

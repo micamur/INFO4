@@ -1,0 +1,24 @@
+// Ecrivez une fonction readFile qui prend comme argument d’entrée un chemin vers un
+// fichier et renvoie une table de hashage (équivalent à un dictionnaire en Python)
+// ayant pour clef l’identifiant de l’avis client et pour valeur le texte de l’avis client.
+
+// Question 4
+function readFile(string path) {
+  // Déclaration des variables
+  file f;
+  string s;
+  svector res;
+  map dict;
+
+  // Ouverture du fichier
+  f.openread(path);
+
+  // Parcours ligne par ligne du fichier
+  for (s in f) {
+    s = s.trim(); // on enlève le retour à la ligne
+    res=s.split("\t"); // on sépare l'identifiant du texte par la tabulation
+    dict[res[0]] = res[1]; // on remplit le dictionnaire
+  }
+
+  return dict;
+}
