@@ -1,0 +1,5 @@
+Le fichier zipf.py correspond au premier TP qui consister à manipuler une collection de documents avec le langage python et illustrer empiriquement la loi de Zipf.
+
+Le fichier tp2.py correspond au deuxième TP qui consistait à créer le vocabulaire associé à la collection et représenter l'information suivant le modèle vectoriel de Salton (Vector Space Model) et l'index inversé. 
+
+Le fichier tp3.py correspond au troisième TP qui consistait à développer un modèle vectoriel sur la base de la représentation VSM.
