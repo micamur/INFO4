@@ -28,23 +28,25 @@ public class Writer {
 		switch (currentState) {
 		case IDLE:
 			currentState = State.WAIT_LEN;
+			
 			msgBuffer = msgWaiting.removeFirst();
 			msgLen = msgBuffer.remaining();
+			
 			msgLenBuffer.rewind();
 			msgLenBuffer.putInt(msgLen);
 			msgLenBuffer.rewind();
 		case WAIT_LEN:
 			sc.write(msgLenBuffer);
+			
 			if (msgLenBuffer.remaining() == 0) {
 				currentState = State.WAIT_MSG;
 			}
 		case WAIT_MSG:
 			sc.write(msgBuffer);
+			
 			if (msgBuffer.remaining() == 0) {
 				currentState = State.IDLE;
-				String msg = new String(msgBuffer.array(), "UTF-8");
-				System.out.println("Write: " + msg.length());
-				key.interestOps(SelectionKey.OP_READ);
+				key.interestOps(key.interestOps() & ~SelectionKey.OP_WRITE);
 			}
 			break;
 		default:
@@ -65,6 +67,6 @@ public class Writer {
 		
 		// register a write interests to know when there is room to write
 		// in the socket channel.
-		key.interestOps(SelectionKey.OP_WRITE | SelectionKey.OP_READ);
+		key.interestOps(SelectionKey.OP_WRITE | key.interestOps());
 	}
 }

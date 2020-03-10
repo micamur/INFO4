@@ -152,11 +152,11 @@ public class Broker implements IBroker {
 	 */
 	private void handleRead(SelectionKey key) throws IOException {
 		// Read the message
-		String data = ((Channel) key.attachment()).handleRead();
+		byte[] data = ((Channel) key.attachment()).handleRead();
 
 		// Print the message
 		if (data != null) {
-			System.out.println("Server Broker received: " + data);
+//			System.out.println("Server Broker received: " + data.length);
 		}
 	}
 

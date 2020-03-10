@@ -2,7 +2,6 @@ package ricm.channels.nio;
 
 import java.io.IOException;
 import java.nio.channels.SelectionKey;
-import java.nio.charset.Charset;
 import java.util.Arrays;
 
 import ricm.channels.IChannel;
@@ -69,11 +68,11 @@ public class Channel implements IChannel {
 		}
 	}
 
-	public String handleRead() {
+	public byte[] handleRead() {
 		try {
-			String data = reader.nextState();
+			byte[] data = reader.nextState();
 			if (data != null) {
-				channelListener.received(this, data.getBytes(Charset.forName("UTF-8")));
+				channelListener.received(this, data);
 			}
 			return data;
 		} catch (IOException e) {
